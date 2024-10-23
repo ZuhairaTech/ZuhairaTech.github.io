@@ -5,42 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" type="text/css" href="css/mainstyles.css" />
+    <script>
+        function showDescriptionlang(language) {
+            event.preventDefault(); // Prevent page refresh
+
+            var description = document.getElementById('language-description');
+            // Update the content based on the selected language
+            switch (language) {
+                case 'English':
+                    description.textContent = 'IELTS 7.0, English B HL IBDP 6 points';
+                    break;
+                case 'Malay':
+                    description.textContent = 'Native, Malay A Literature IBDP 7 points';
+                    break;
+                case 'Japanese':
+                    description.textContent = 'Beginner';
+                    break;
+                case 'Russian':
+                    description.textContent = 'Beginner';
+                    break;
+                default:
+                    description.textContent = '';
+            }
+        }
+
+        function showDescriptionskill(skills) {
+            event.preventDefault(); // Prevent page refresh
+
+            var description = document.getElementById('skills-description');
+            // Update the content based on the selected language
+            switch (skills) {
+                case 'Programming languages':
+                    description.textContent = 'Python, Java';
+                    break;
+                case 'Web technologies':
+                    description.textContent = ' HTML, CSS, JavaScript, Ruby, Ruby on Rails';
+                    break;
+                case 'Software development tools':
+                    description.textContent = 'Git, Visual Studio Code';
+                    break;
+
+                default:
+                    description.textContent = '';
+            }
+        }
+    </script>
 </head>
 <body>
-
+    <script type="module" src="js/main.js"></script>
     <!-- Navigation -->
     <nav>
         <a href="#about">About</a>
+        <a href="#experience">Experiences</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
         <a href="#contact">Contact</a>
     </nav>
 
     <!-- About Section -->
     <section id="about">
         <h1>About Me</h1>
-        <p>Hello! I'm a passionate developer who enjoys creating elegant and functional web applications. I specialize in bringing ideas to life through code.</p>
+        <p>Hello! I'm a passionate developer who aiming to create functional web applications. I bring ideas to life through code, continuously sharpen my IT skills, and tackle every project with dedication.</p>
+        <a href="https://drive.google.com/file/d/1kBQzqq0iNBshUbG_e0lBegJDdvRS1oRo/view?usp=sharing
+        " class="downloadablepdf">Resume</a>
+        <a href="#" class="downloadablepdf">Resume</a>
     </section>
 
+    <section id="experience">
+        <h2>Experiences</h2>
+        <ul>
+            <li>Application Support Engineer</li>
+            <li>Mathematics and Computer Science Tutor</li>
+            <li>Computer Science Department Ambassador</li>
+        </ul>
+    </section>
     <!-- Skills Section -->
     <section id="skills">
         <h2>My Skills</h2>
-        <ul>
-            <li>HTML, CSS, JavaScript</li>
-            <li>PHP and Backend Development</li>
-            <li>Blender for 3D Art</li>
-            <li>Problem-Solving and Debugging</li>
-        </ul>
+        <h3>Computer Skills</h3>
+
+        <div class="inlineshow">
+            <a href="#" onclick="showDescriptionskill('Programming languages')">Programming languages</a>
+            <a href="#" onclick="showDescriptionskill('Web technologies')">Web technologies</a>
+            <a href="#" onclick="showDescriptionskill('Software development tools')">Software development tools</a>
+        </div>
+    
+        <p id="skills-description" class="skills-description">Click on a skills to see the details.</p>
+    
+
+        <h3>Soft Skills</h3>
+        <div class="softskills">
+            <p>Effective time management</p>
+            <p>Adaptability</p>
+            <p>Reliability and Commitment</p>
+            <p>Problem-Solving and Communication</p>
+        </div>
+
+        <h3>Language proficiency</h3>
+        <div class="inlineshow">
+            <a href="#" onclick="showDescriptionlang('English')">English</a>
+            <a href="#" onclick="showDescriptionlang('Malay')">Malay</a>
+            <a href="#" onclick="showDescriptionlang('Japanese')">Japanese</a>
+            <a href="#" onclick="showDescriptionlang('Russian')">Russian</a>
+        </div>
+    
+        <p id="language-description" class="language-description">Click on a language to see the details.</p>
+    
     </section>
+
 
     <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
         <p>Here are some of my recent projects:</p>
         <ul>
-            <li><a href="#" class="button">Project 1</a></li>
-            <li><a href="#" class="button">Project 2</a></li>
-            <li><a href="#" class="button">Project 3</a></li>
+            <li><a href="#" class="button">Dissertation Project: Garden Planning Tool</a></li>
+            <li><a href="#" class="button">Renewable Energy System Analysis and Reporting Platform Development: Viridis</a></li>
+            <li><a href="#" class="button">Accessible Drum System Development for Individuals with DMD</a></li>
+        </ul>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        
+        <ul>
+            <li>University of Sheffield: BSc in Computer Science </a></li>
+            <li>MARA College Banting, Malaysia: International Baccalaureate in Applied Science</a></li>
+            <li>MRSM Pengkalan Chepa, Malaysia: Malaysian Certificate of Education</a></li>
         </ul>
     </section>
 
@@ -48,7 +141,9 @@
     <section id="contact">
         <h2>Contact Me</h2>
         <p>Feel free to reach out if you want to collaborate or just say hi!</p>
-        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+        <p>Email: <a href="mailto:zuhairanasrin.zakaria@gmail.com">zuhairanasrin.zakaria@gmail.com</a></p>
+        <p>LinkedIn: <a href="http://www.linkedin.com/in/zuhaira-nasrin-zakaria/">Zuhaira Nasrin Zakaria</a></p>
+
     </section>
 
 </body>
