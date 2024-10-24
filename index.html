@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" type="text/css" href="css/mainstyles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
         function showDescriptionlang(language) {
             event.preventDefault(); // Prevent page refresh
@@ -48,19 +49,39 @@
                 default:
                     description.textContent = '';
             }
-        }
+
+      
+            
+ 
+    }
     </script>
 </head>
 <body>
     <script type="module" src="js/main.js"></script>
     <!-- Navigation -->
-    <nav>
+    <nav id="myNav" class="nav">
+        
+        <img src="images/pfptemp.jpg" alt="Avatar" class="avatar">
+        <script>
+            function burgernav() {
+            var x = document.getElementById("myNav");
+            if (x.classList.contains("responsive")) {
+                x.classList.remove("responsive");
+            } else {
+                x.classList.add("responsive");
+            }
+        }
+        </script>
+        <a href="javascript:void(0);" class="icon" onclick="burgernav()">
+            <i class="fa fa-bars"></i>
+        </a>
         <a href="#about">About</a>
         <a href="#experience">Experiences</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
+        
     </nav>
 
     <!-- About Section -->
@@ -68,8 +89,7 @@
         <h1>About Me</h1>
         <p>Hello! I'm a passionate developer who aiming to create functional web applications. I bring ideas to life through code, continuously sharpen my IT skills, and tackle every project with dedication.</p>
         <a href="https://drive.google.com/file/d/1kBQzqq0iNBshUbG_e0lBegJDdvRS1oRo/view?usp=sharing
-        " class="downloadablepdf">Resume</a>
-        <a href="#" class="downloadablepdf">Resume</a>
+        " class="downloadablepdf">Resume</a><i class="fa fa-fw fa-download"></i>
     </section>
 
     <section id="experience">
@@ -141,10 +161,12 @@
     <section id="contact">
         <h2>Contact Me</h2>
         <p>Feel free to reach out if you want to collaborate or just say hi!</p>
-        <p>Email: <a href="mailto:zuhairanasrin.zakaria@gmail.com">zuhairanasrin.zakaria@gmail.com</a></p>
-        <p>LinkedIn: <a href="http://www.linkedin.com/in/zuhaira-nasrin-zakaria/">Zuhaira Nasrin Zakaria</a></p>
+        <p><i class="fa fa-fw fa-envelope"></i> <a href="mailto:zuhairanasrin.zakaria@gmail.com">zuhairanasrin.zakaria@gmail.com</a></p>
+        <p><i class="fa fa-fw fa-linkedin-square"></i> <a href="http://www.linkedin.com/in/zuhaira-nasrin-zakaria/">Zuhaira Nasrin Zakaria</a></p>
 
     </section>
+
+
 
 </body>
 </html>

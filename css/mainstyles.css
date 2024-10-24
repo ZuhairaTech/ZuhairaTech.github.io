@@ -7,23 +7,48 @@ body {
     padding: 0;
 }
 /* Navigation */
+
+.avatar {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+  }
+
 nav {
-    background-color: #1c1026;
-    padding: 15px;
-    text-align: center;
-    position: sticky;
+    /* background-color: #1c1026; */
+    background-color: #c6bbb91a;
+    padding: 20px;
+    position: fixed; 
     top: 0;
+    left: 0;
+    height: 100vh; 
+    width: 200px;  
     z-index: 1;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
 }
+
 nav a {
-    margin: 0 15px;
+    margin: 10px 0; 
     text-decoration: none;
     color: #7a748c;
     font-weight: bold;
+    width: 100%; 
+    padding: 10px;
+    box-sizing: border-box;
 }
+
 nav a:hover {
     color: #c6bbb9;
 }
+
+.nav .icon {
+    display: none;
+  }
+  
+
 /* Section Styling */
 section {
     padding: 50px 20px;
@@ -31,6 +56,7 @@ section {
     max-width: 800px;
     background-color: #c6bbb9;
     border-radius: 10px;
+    
     /* height: 100vh; 
     max-height: 100vh;
     box-sizing: border-box; */
@@ -117,4 +143,31 @@ section p, section .button {
     background-color: #d8ccca;
 }
 
+@media screen and (max-width: 900px) {
+    #myNav a:not(:first-child) {
+        display: none;
+    }
+    #myNav a.icon {
+        float: none;
+        text-align: left;
+        display: block;
+    }
 
+    #myNav {
+        width: 50px;
+    }
+  }
+  
+  @media screen and (max-width: 900px) {
+    #myNav.responsive {
+        position: fixed;
+        width: 50px;
+    }
+
+    #myNav.responsive a {
+        float: none;
+        text-align: left;
+        display: block;
+    
+    } 
+  }
