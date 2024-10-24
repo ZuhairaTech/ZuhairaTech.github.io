@@ -1,0 +1,150 @@
+/* listing purposes */
+details {
+    background-color: #c6bbb9;
+    color: #333;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 0px 10px 10px 10px;
+}
+
+details:hover{
+    background-color: #d8ccca
+}
+
+details>summary {
+    list-style-type: none;
+    outline: none;
+    cursor: pointer;
+    border: 0px solid #eee;
+    padding: 5px;
+    border-radius: 50%;
+  }
+  
+details>summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .support>summary::before {
+    content: 'Application Support Engineer';
+  }
+
+  .tutor>summary::before {
+    content: 'Mathematics and Computer Science Tutor';
+  }
+
+  .ambassador>summary::before {
+    content: 'Computer Science Department Ambassador';
+  }
+
+
+  details[open]:hover {
+    background-color: #d8ccca
+  }
+
+  details ul {
+    background-color: #c6bbb9;
+    padding: 10px 5px 10px 10px;
+  }
+
+
+
+.softskills p{
+    background-color: #d8ccca;
+    list-style-type:none;
+    display: inline-block;
+    color: #333;
+    padding: 10px 5px 10px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 10px 5px 10px 50px;
+}
+
+
+section p, section .button {
+    list-style-type:none;
+    background-color: #c6bbb9;
+    color: #333;
+    padding: 10px 60px 10px 60px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.downloadablepdf {
+    display: inline-block;
+    background-color: #c6bbb9;
+    color: #333;
+    padding: 10px 5px 10px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 10px 5px 10px 50px;
+}
+.downloadablepdf:hover {
+    background-color: #d8ccca;
+}
+
+.skillbar {
+    width: 100%; /* Full width */
+    background-color: #ddd; /* Grey background */
+    flex-grow: 1;
+    
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: 40px;
+  }
+  
+  
+  td {
+    text-align: left;
+    padding: 10px;
+    width: 0.5%;
+  }
+  
+  td a {
+    
+    background-color: #c6bbb9;
+    color: #333;
+    padding: 10px 5px 10px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+   
+}
+    td a:hover{
+        background-color: #d8ccca;
+    }
+  .skills {
+    text-align: right; 
+    padding:1px;
+    /* padding-top: 10px; 
+    padding-bottom: 10px;  */
+    color: white;
+    height: 10px;
+  }
+
+  .skill {
+    /* width: 90%; must change this individually */
+    background-color: #7a748c  ;
+   
+    }
+
+    .skill p{
+        display: none;
+    }
+
+    .skill:hover p{
+        display: block;
+    }
+
+    .tooltip {
+        position: absolute;
+        background-color: #333;
+        color: #fff;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 12px;
+        display: none;
+        z-index: 1000; /* Make sure it appears above other elements */
+        pointer-events: none; /* Prevents the tooltip from interfering with cursor events */
+    }

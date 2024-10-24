@@ -6,6 +6,7 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" type="text/css" href="css/form.css" />
     <link rel="stylesheet" type="text/css" href="css/mainstyles.css" />
+    <link rel="stylesheet" type="text/css" href="css/listing.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
         function showDescriptionlang(language) {
@@ -30,31 +31,6 @@
                     description.textContent = '';
             }
         }
-
-        function showDescriptionskill(skills) {
-            event.preventDefault(); // Prevent page refresh
-
-            var description = document.getElementById('skills-description');
-            // Update the content based on the selected language
-            switch (skills) {
-                case 'Programming languages':
-                    description.textContent = 'Python, Java';
-                    break;
-                case 'Web technologies':
-                    description.textContent = ' HTML, CSS, JavaScript, Ruby, Ruby on Rails';
-                    break;
-                case 'Software development tools':
-                    description.textContent = 'Git, Visual Studio Code';
-                    break;
-
-                default:
-                    description.textContent = '';
-            }
-
-      
-            
- 
-    }
     </script>
 </head>
 <body>
@@ -134,16 +110,124 @@
     <!-- Skills Section -->
     <section id="skills">
         <h2>My Skills</h2>
+
+        <script>
+            function showTooltip(event) {
+                const tooltip = event.currentTarget.querySelector('.tooltip');
+                tooltip.style.display = 'block';
+            }
+
+            function moveTooltip(event) {
+                const tooltip = event.currentTarget.querySelector('.tooltip');
+                tooltip.style.left = event.pageX + 10 + 'px'; // 10px offset to avoid covering the cursor
+                tooltip.style.top = event.pageY + 10 + 'px';  // 10px offset
+            }
+
+            function hideTooltip() {
+                const tooltips = document.querySelectorAll('.tooltip');
+                tooltips.forEach(tooltip => {
+                    tooltip.style.display = 'none';
+                });
+            }
+
+        </script>
         <h3>Computer Skills</h3>
 
-        <div class="inlineshow">
-            <a href="#" onclick="showDescriptionskill('Programming languages')">Programming languages</a>
-            <a href="#" onclick="showDescriptionskill('Web technologies')">Web technologies</a>
-            <a href="#" onclick="showDescriptionskill('Software development tools')">Software development tools</a>
-        </div>
+        <table>
+            <tr>
+                <td>HTML</td>
+                <td>
+                    <div class="skillbar">
+                    <div class="skills skill" style="width: 70%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
+                        <p  class="tooltip">70%</p>
+                    </div>
+                    </div>
+                </td>
+                <td>Java</td>
+                <td>
+                    <div class="skillbar">
+                    <div class="skills skill" style="width: 60%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
+                        <p  class="tooltip">60%</p>
+                    </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>
+                    <div class="skillbar">
+                    <div class="skills skill" style="width: 70%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
+                        <p  class="tooltip">70%</p>
+                    </div>
+                    </div>
+                </td>
+                <td>Python</td>
+                <td>
+                    <div class="skillbar">
+                    <div class="skills skill" style="width: 80%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
+                        <p  class="tooltip">80%</p>
+                    </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>JavaScript</td>
+                <td>
+                    <div class="skillbar">
+                    <div class="skills skill" style="width: 50%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
+                        <p  class="tooltip">50%</p>
+                    </div>
+                    </div>
+                </td>
+                <td>Git</td>
+                <td>
+                    <div class="skillbar">
+                    <div class="skills skill" style="width: 70%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
+                        <p  class="tooltip">70%</p>
+                    </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Ruby</td>
+                <td>
+                    <div class="skillbar">
+                    <div class="skills skill" style="width: 60%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
+                        <p  class="tooltip">60%</p>
+                    </div>
+                    </div>
+                </td>
+                <td>Visual Studio Code</td>
+                <td>
+                    <div class="skillbar">
+                    <div class="skills skill" style="width: 80%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
+                        <p  class="tooltip">80%</p>
+                    </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Ruby on Rails</td>
+                <td>
+                    <div class="skillbar">
+                    <div class="skills skill" style="width: 60%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
+                        <p  class="tooltip">60%</p>
+                    </div>
+                    </div>
+                </td>
+                <td>SQL</td>
+                <td>
+                    <div class="skillbar">
+                    <div class="skills skill" style="width: 80%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
+                        <p  class="tooltip">80%</p>
+                    </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
     
-        <p id="skills-description" class="skills-description">Click on a skills to see the details.</p>
-    
+
 
         <h3>Soft Skills</h3>
         <div class="softskills">
@@ -154,12 +238,45 @@
         </div>
 
         <h3>Language proficiency</h3>
-        <div class="inlineshow">
-            <a href="#" onclick="showDescriptionlang('English')">English</a>
-            <a href="#" onclick="showDescriptionlang('Malay')">Malay</a>
-            <a href="#" onclick="showDescriptionlang('Japanese')">Japanese</a>
-            <a href="#" onclick="showDescriptionlang('Russian')">Russian</a>
-        </div>
+      
+        <table>
+            <tr>
+                <td><a href="#" onclick="showDescriptionlang('English')">English</a></td>
+                <td>
+                    <div class="skillbar">
+                    <div class="skills skill" style="width: 70%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
+                        <p  class="tooltip">70%</p>
+                    </div>
+                    </div>
+                </td>
+                <td><a href="#" onclick="showDescriptionlang('Malay')">Malay</a></td>
+                <td>
+                    <div class="skillbar">
+                    <div class="skills skill" style="width: 80%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
+                        <p  class="tooltip">80%</p>
+                    </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="#" onclick="showDescriptionlang('Japanese')">Japanese</a></td>
+                <td>
+                    <div class="skillbar">
+                    <div class="skills skill" style="width: 10%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
+                        <p  class="tooltip">10%</p>
+                    </div>
+                    </div>
+                </td>
+                <td><a href="#" onclick="showDescriptionlang('Russian')">Russian</a></td>
+                <td>
+                    <div class="skillbar">
+                    <div class="skills skill" style="width: 10%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
+                        <p  class="tooltip">10%</p>
+                    </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
     
         <p id="language-description" class="language-description">Click on a language to see the details.</p>
     
