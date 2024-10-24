@@ -96,6 +96,53 @@ ul li {
     margin-top: 20px;
 }
 
+/* listing purposes */
+details {
+    background-color: #c6bbb9;
+    color: #333;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 0px 10px 10px 10px;
+}
+details:hover{
+    background-color: #d8ccca
+}
+
+details>summary {
+    list-style-type: none;
+    outline: none;
+    cursor: pointer;
+    border: 0px solid #eee;
+    padding: 5px;
+    border-radius: 50%;
+  }
+  
+details>summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .support>summary::before {
+    content: 'Application Support Engineer';
+  }
+
+  .tutor>summary::before {
+    content: 'Mathematics and Computer Science Tutor';
+  }
+
+  .ambassador>summary::before {
+    content: 'Computer Science Department Ambassador';
+  }
+
+
+  details[open]:hover {
+    background-color: #d8ccca
+  }
+
+  details ul {
+    background-color: #c6bbb9;
+    padding: 10px 5px 10px 10px;
+  }
+
 .inlineshow a {
     display: inline-block;
     background-color: #c6bbb9;
@@ -151,6 +198,10 @@ section p, section .button {
         float: none;
         text-align: left;
         display: block;
+    }
+
+    #myNav a.icon:hover{
+        background-color: #d8ccca;
     }
 
     #myNav {
