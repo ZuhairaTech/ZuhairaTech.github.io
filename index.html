@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/mainstyles.css" />
     <link rel="stylesheet" type="text/css" href="css/listing.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="w3.js"></script>
     <script>
         function showDescriptionlang(language) {
             event.preventDefault(); // Prevent page refresh
@@ -47,7 +48,28 @@
             } else {
                 x.classList.add("responsive");
             }
+            
         }
+
+        // Function to activate the clicked nav link
+        function activateNav(event) {
+            // Get all navigation links
+            var navLinks = document.querySelectorAll('#myNav a');
+
+            // Remove "active" class from all links
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Add "active" class to the clicked link
+            event.currentTarget.classList.add('active');
+        }
+
+        // Attach the function to all nav links
+        var navLinks = document.querySelectorAll('#myNav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', activateNav);
+        });
         </script>
         <a href="javascript:void(0);" class="icon" onclick="burgernav()">
             <i class="fa fa-bars"></i>
@@ -288,9 +310,46 @@
         <h2>Projects</h2>
         <p>Here are some of my recent projects:</p>
         <ul>
-            <li><a href="#" class="button">Dissertation Project: Garden Planning Tool</a></li>
-            <li><a href="#" class="button">Renewable Energy System Analysis and Reporting Platform Development: Viridis</a></li>
-            <li><a href="#" class="button">Accessible Drum System Development for Individuals with DMD</a></li>
+            <li>
+                <details class="Dissertation">
+                    <summary></summary>
+                    <ul>
+                        <li>Led an independent research initiative developing a Garden Planning Tool applying L-system rules,
+                            offering dynamic garden layout designs with seasonal changes.</li>
+                        <li>Prioritising sustainability, and user engagement, aiming to provide an insightful and interactive
+                            gardening experience through a visually intuitive tool.</li>
+                        <li><a href="html/projects/Dissertation.html"></a></li>
+                    </ul>
+                </details>
+            </li>
+            <li>
+                <details class="Viridis">
+                    <summary></summary>
+                    <ul>
+                        <li>Developed a comprehensive web-based platform to facilitate the assessment of renewable energy
+                            systems for corporate use.</li>
+                        <li>Led the implementation of key features including secure user authentication, robust database
+                            management, and a dynamic administrator interface for enhanced user experience and data
+                            accuracy in graphical reports.</li>
+                        <li>Utilised Ruby on Rails to create a scalable solution that enables staff to efficiently generate predictive reports and insights for customer presentations.
+                        </li>
+                    </ul>
+                </details>
+            </li>    
+            <li>
+                <details class="Hackcessible">
+                    <summary></summary>
+                    <ul>
+                        <li>Collaborated with a multidisciplinary team of students to design and prototype an accessible drum
+                            system tailored for individuals diagnosed with Duchenne Muscular Dystrophy (DMD), facilitating
+                            musical education and enjoyment.</li>
+                        <li>Implemented control systems using Arduino and programmed the functionality in C++, focusing on
+                            ease of use and adaptability to the user's physical abilities.</li>
+                        <li>Awarded Winner of Hackcessible for outstanding innovation and contribution to accessible
+                            technology, demonstrating enhanced technical skills and ability to work effectively in diverse teams.</li>
+                    </ul>
+                </details>
+            </li>    
         </ul>
     </section>
 

@@ -23,19 +23,25 @@ details>summary {
 details>summary::-webkit-details-marker {
     display: none;
   }
-  
   .support>summary::before {
     content: 'Application Support Engineer';
   }
-
   .tutor>summary::before {
     content: 'Mathematics and Computer Science Tutor';
   }
-
   .ambassador>summary::before {
     content: 'Computer Science Department Ambassador';
   }
 
+  .Dissertation>summary::before {
+    content: 'Dissertation Project: Garden Planning Tool';
+  }
+  .Viridis>summary::before {
+    content: 'Renewable Energy System Analysis and Reporting Platform Development: Viridis';
+  }
+  .Hackcessible>summary::before {
+    content: 'Accessible Drum System Development for Individuals with DMD';
+  }
 
   details[open]:hover {
     background-color: #d8ccca

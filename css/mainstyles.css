@@ -41,7 +41,14 @@ nav a {
 }
 
 nav a:hover {
-    color: #c6bbb9;
+    background-color: #d8ccca;
+    border-radius: 5px;
+
+}
+
+nav a:active {
+    background-color: #333;
+    border-radius: 5px;
 }
 
 .nav .icon {
@@ -96,7 +103,13 @@ ul li {
     margin-top: 20px;
 }
 
-
+#myNav a.active {
+    background-color: #c6bbb9; /* Example color for active link */
+    color: #1c1026; /* Change text color for contrast */
+    font-weight: bold; /* Make it bolder */
+    border-radius: 5px; /* Optional for a rounded effect */
+    padding: 10px;
+}
 
 @media screen and (max-width: 900px) {
     #myNav a:not(:first-child) {
@@ -110,6 +123,9 @@ ul li {
 
     #myNav a.icon:hover{
         background-color: #d8ccca;
+        border-radius: 5px;
+        width: 35px;
+        height: 35px;
     }
 
     #myNav {
