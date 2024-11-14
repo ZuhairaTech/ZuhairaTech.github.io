@@ -1,10 +1,13 @@
 /* #1c1026 #c6bbb9 #4c1e3c #21242b #7a748c */
+@import url('https://fonts.googleapis.com/css?family=El+Messiri');
+
 body {
-    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    font-family: 'El Messiri', sans-serif;
     background-color: #1c1026;
     color: #333;
     margin: 0;
-    padding: 0;
+    padding: 0;        
 }
 /* Navigation */
 
@@ -51,7 +54,7 @@ nav a:active {
     border-radius: 5px;
 }
 
-.nav .icon {
+.nav .iconburger {
     display: none;
   }
   
@@ -115,13 +118,25 @@ ul li {
     #myNav a:not(:first-child) {
         display: none;
     }
-    #myNav a.icon {
+    #myNav a.iconburger {
         float: none;
         text-align: left;
         display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: 6%;
+        background: linear-gradient(90deg, #1c1026 0%, #d8ccca 40%, rgba(0, 0, 0, 0.28) 60%);
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        transition: all 0.8s ease;
+        background-position: 0px;
+        background-size: 200px;
     }
 
-    #myNav a.icon:hover{
+    #myNav a.iconburger:hover{
         background-color: #d8ccca;
         border-radius: 5px;
         width: 35px;

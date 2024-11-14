@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/form.css" />
     <link rel="stylesheet" type="text/css" href="css/mainstyles.css" />
     <link rel="stylesheet" type="text/css" href="css/listing.css" />
+    <link rel="stylesheet" type="text/css" href="css/card.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="w3.js"></script>
     <script>
@@ -39,7 +40,7 @@
     <!-- Navigation -->
     <nav id="myNav" class="nav">
         
-        <img src="images/pfptemp.jpg" alt="Avatar" class="avatar">
+        <img src="images/pfp.png" alt="Avatar" class="avatar">
         <script>
             function burgernav() {
             var x = document.getElementById("myNav");
@@ -71,7 +72,7 @@
             link.addEventListener('click', activateNav);
         });
         </script>
-        <a href="javascript:void(0);" class="icon" onclick="burgernav()">
+        <a href="javascript:void(0);" class="iconburger" onclick="burgernav()">
             <i class="fa fa-bars"></i>
         </a>
         <a href="#about">About</a>
@@ -87,8 +88,10 @@
     <section id="about">
         <h1>About Me</h1>
         <p>Hello! I'm a passionate developer who aiming to create functional web applications. I bring ideas to life through code, continuously sharpen my IT skills, and tackle every project with dedication.</p>
-        <a href="https://drive.google.com/file/d/1kBQzqq0iNBshUbG_e0lBegJDdvRS1oRo/view?usp=sharing
+        <a href="https://drive.google.com/file/d/1FiWjJtdc0VjJF6te_K6QQTYjf3y-YDAV/view?usp=drive_link
         " class="downloadablepdf">Resume</a><i class="fa fa-fw fa-download"></i>
+        <a href="https://drive.google.com/file/d/10vhPmIm9pKCLeC2iqeBygN9mNZKII6ls/view?usp=drive_link
+        " class="downloadablepdf">CV</a><i class="fa fa-fw fa-download"></i>
     </section>
 
     <section id="experience">
@@ -304,53 +307,25 @@
     
     </section>
 
-
     <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
         <p>Here are some of my recent projects:</p>
-        <ul>
-            <li>
-                <details class="Dissertation">
-                    <summary></summary>
-                    <ul>
-                        <li>Led an independent research initiative developing a Garden Planning Tool applying L-system rules,
-                            offering dynamic garden layout designs with seasonal changes.</li>
-                        <li>Prioritising sustainability, and user engagement, aiming to provide an insightful and interactive
-                            gardening experience through a visually intuitive tool.</li>
-                        <li><a href="html/projects/Dissertation.html"></a></li>
-                    </ul>
-                </details>
-            </li>
-            <li>
-                <details class="Viridis">
-                    <summary></summary>
-                    <ul>
-                        <li>Developed a comprehensive web-based platform to facilitate the assessment of renewable energy
-                            systems for corporate use.</li>
-                        <li>Led the implementation of key features including secure user authentication, robust database
-                            management, and a dynamic administrator interface for enhanced user experience and data
-                            accuracy in graphical reports.</li>
-                        <li>Utilised Ruby on Rails to create a scalable solution that enables staff to efficiently generate predictive reports and insights for customer presentations.
-                        </li>
-                    </ul>
-                </details>
-            </li>    
-            <li>
-                <details class="Hackcessible">
-                    <summary></summary>
-                    <ul>
-                        <li>Collaborated with a multidisciplinary team of students to design and prototype an accessible drum
-                            system tailored for individuals diagnosed with Duchenne Muscular Dystrophy (DMD), facilitating
-                            musical education and enjoyment.</li>
-                        <li>Implemented control systems using Arduino and programmed the functionality in C++, focusing on
-                            ease of use and adaptability to the user's physical abilities.</li>
-                        <li>Awarded Winner of Hackcessible for outstanding innovation and contribution to accessible
-                            technology, demonstrating enhanced technical skills and ability to work effectively in diverse teams.</li>
-                    </ul>
-                </details>
-            </li>    
-        </ul>
+    
+        <div class="container">
+            <div class="card">
+                <figure class="card_thumb">
+                    <img src="images/gardenplanning.jpg" alt="">
+                    <figcaption class="card__caption">
+                        <h5>Garden Planning</h5>
+                        <p class="card_snippet">
+                            Garden Planning for dissertation
+                        </p>
+                        <a href="" class="card_button">Read more</a>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
     </section>
 
     <!-- Education Section -->
@@ -381,8 +356,5 @@
         <p><i class="fa fa-fw fa-linkedin-square"></i> <a href="http://www.linkedin.com/in/zuhaira-nasrin-zakaria/">Zuhaira Nasrin Zakaria</a></p>
 
     </section>
-
-
-    test
 </body>
 </html>
