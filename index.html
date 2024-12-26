@@ -9,34 +9,9 @@
     <link rel="stylesheet" type="text/css" href="css/listing.css" />
     <link rel="stylesheet" type="text/css" href="css/card.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="w3.js"></script>
-    <script>
-        function showDescriptionlang(language) {
-            event.preventDefault(); // Prevent page refresh
-
-            var description = document.getElementById('language-description');
-            // Update the content based on the selected language
-            switch (language) {
-                case 'English':
-                    description.textContent = 'IELTS 7.0, English B HL IBDP 6 points';
-                    break;
-                case 'Malay':
-                    description.textContent = 'Native, Malay A Literature IBDP 7 points';
-                    break;
-                case 'Japanese':
-                    description.textContent = 'Beginner';
-                    break;
-                case 'Russian':
-                    description.textContent = 'Beginner';
-                    break;
-                default:
-                    description.textContent = '';
-            }
-        }
-    </script>
+    
 </head>
 <body>
-    <script type="module" src="js/main.js"></script>
     <!-- Navigation -->
     <nav id="myNav" class="nav">
         
@@ -52,21 +27,14 @@
             
         }
 
-        // Function to activate the clicked nav link
         function activateNav(event) {
-            // Get all navigation links
             var navLinks = document.querySelectorAll('#myNav a');
-
-            // Remove "active" class from all links
             navLinks.forEach(link => {
                 link.classList.remove('active');
             });
-
-            // Add "active" class to the clicked link
             event.currentTarget.classList.add('active');
         }
 
-        // Attach the function to all nav links
         var navLinks = document.querySelectorAll('#myNav a');
         navLinks.forEach(link => {
             link.addEventListener('click', activateNav);
@@ -87,48 +55,52 @@
     <!-- About Section -->
     <section id="about">
         <h1>About Me</h1>
-        <p>Hello! I'm a passionate developer who aiming to create functional web applications. I bring ideas to life through code, continuously sharpen my IT skills, and tackle every project with dedication.</p>
+        <p>Hello! I'm a passionate developer who aiming to create functional web applications. 
+            I bring ideas to life through code, continuously sharpen my IT skills, and tackle every 
+            project with dedication.</p>
+
         <a href="https://drive.google.com/file/d/1FiWjJtdc0VjJF6te_K6QQTYjf3y-YDAV/view?usp=drive_link
-        " class="downloadablepdf">Resume</a><i class="fa fa-fw fa-download"></i>
+        " class="downloadablepdf"><i class="fa fa-fw fa-download"></i>Resume</a>
         <a href="https://drive.google.com/file/d/10vhPmIm9pKCLeC2iqeBygN9mNZKII6ls/view?usp=drive_link
-        " class="downloadablepdf">CV</a><i class="fa fa-fw fa-download"></i>
+        " class="downloadablepdf"><i class="fa fa-fw fa-download"></i>CV</a>
     </section>
 
+    <!-- Experience Section -->
     <section id="experience">
         <h2>Experiences</h2>
         <ul>
             <li>
-                    <details class="support">
+                <details class="support">
                     <summary></summary>
-                        <ul>
+                    <ul>
                         <li>Prepared integration setups for new business initiatives, ensuring smooth onboarding processes.</li>
                         <li>Provided end-to-end support to maintain business continuity and meet agreed targets.</li>
                         <li>Collaborated closely with the development team to facilitate the deployment of fixed packages.</li>
                         <li>Troubleshot production incidents, conducting detailed analyses to identify and resolve issues effectively.</li>
                     </ul>
-                    </details>
+                </details>
             </li>
             <li>
-                    <details class="tutor">
+                <details class="tutor">
                     <summary></summary>
                     <ul>
-                    <li>Led engaging 1-hour trial sessions in Additional Mathematics, Mathematics, and Computer
-                    Science, and provided personalised weekly sessions tailored to each student.</li>
-                    <li>Demonstrated strong organisational skills through personalised session planning, promoting a
-                    productive learning environment.</li>
-                </ul>
-                    </details>
+                        <li>Led engaging 1-hour trial sessions in Additional Mathematics, Mathematics, and Computer
+                        Science, and provided personalised weekly sessions tailored to each student.</li>
+                        <li>Demonstrated strong organisational skills through personalised session planning, promoting a
+                        productive learning environment.</li>
+                    </ul>
+                </details>
             </li>
             <li>
-                    <details class="ambassador">
+                <details class="ambassador">
                     <summary></summary>
                     <ul>
-                    <li>Served as an ambassador for the DStem Outreach Event, facilitating engaging sessions for high
-                    school students interested in STEM at the university.</li>
-                    <li>Guided students through a hands-on Python lab session, utilising exercises provided by lecturers;
+                        <li>Served as an ambassador for the DStem Outreach Event, facilitating engaging sessions for high
+                        school students interested in STEM at the university.</li>
+                        <li>Guided students through a hands-on Python lab session, utilising exercises provided by lecturers;
                     quickly adapted to Python, leveraging strong foundations in Java and C#.</li>
-                    </details>
-                </ul>
+                    </ul>
+                </details>
             </li>
         </ul>
     </section>
@@ -156,8 +128,8 @@
             }
 
         </script>
-        <h3>Computer Skills</h3>
 
+        <h3>Computer Skills</h3>
         <table>
             <tr>
                 <td>HTML</td>
@@ -266,7 +238,7 @@
       
         <table>
             <tr>
-                <td><a href="#" onclick="showDescriptionlang('English')">English</a></td>
+                <td>English</td>
                 <td>
                     <div class="skillbar">
                     <div class="skills skill" style="width: 70%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
@@ -274,7 +246,7 @@
                     </div>
                     </div>
                 </td>
-                <td><a href="#" onclick="showDescriptionlang('Malay')">Malay</a></td>
+                <td>Malay</td>
                 <td>
                     <div class="skillbar">
                     <div class="skills skill" style="width: 80%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
@@ -284,7 +256,7 @@
                 </td>
             </tr>
             <tr>
-                <td><a href="#" onclick="showDescriptionlang('Japanese')">Japanese</a></td>
+                <td>Japanese</td>
                 <td>
                     <div class="skillbar">
                     <div class="skills skill" style="width: 10%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
@@ -292,7 +264,7 @@
                     </div>
                     </div>
                 </td>
-                <td><a href="#" onclick="showDescriptionlang('Russian')">Russian</a></td>
+                <td>Russian</td>
                 <td>
                     <div class="skillbar">
                     <div class="skills skill" style="width: 10%" onmouseover="showTooltip(event)" onmousemove="moveTooltip(event)" onmouseout="hideTooltip()">
@@ -301,32 +273,106 @@
                     </div>
                 </td>
             </tr>
-        </table>
-    
-        <p id="language-description" class="language-description">Click on a language to see the details.</p>
-    
+        </table>    
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
         <p>Here are some of my recent projects:</p>
-    
-        <div class="container">
-            <div class="card">
-                <figure class="card_thumb">
-                    <img src="images/gardenplanning.jpg" alt="">
-                    <figcaption class="card__caption">
+        
+        <!-- Carousel Wrapper -->
+        <div class="carousel">
+            <button class="arrow left-arrow">&lt;</button>
+            <div class="projects-container">
+                <div class="card">
+                    <img src="images/gardenplanning.jpg" alt="Garden Planning">
+                    <figcaption class="card-caption">
                         <h5>Garden Planning</h5>
-                        <p class="card_snippet">
-                            Garden Planning for dissertation
+                        <p class="card-description">
+                            A comprehensive garden planning tool developed as part of my dissertation project.
                         </p>
-                        <a href="" class="card_button">Read more</a>
+                        <a href="#" class="card-button">Read more</a>
                     </figcaption>
-                </figure>
+                </div>
+                <div class="card">
+                    <img src="images/dmdhackcessible.jpg" alt="Drum">
+                    <figcaption class="card-caption">
+                        <h5>Hackcessible</h5>
+                        <p class="card-description">
+                            A comprehensive garden planning tool developed as part of my dissertation project.
+                        </p>
+                        <a href="#" class="card-button">Read more</a>
+                    </figcaption>
+                </div>
+                <div class="card">
+                    <img src="images/viridis.jpg" alt="Analytics web">
+                    <figcaption class="card-caption">
+                        <h5>Viridis</h5>
+                        <p class="card-description">
+                            A comprehensive garden planning tool developed as part of my dissertation project.
+                        </p>
+                        <a href="#" class="card-button">Read more</a>
+                    </figcaption>
+                </div>
+                <div class="card">
+                    <img src="images/viridis.jpg" alt="Analytics web">
+                    <figcaption class="card-caption">
+                        <h5>Viridis</h5>
+                        <p class="card-description">
+                            A comprehensive garden planning tool developed as part of my dissertation project.
+                        </p>
+                        <a href="#" class="card-button">Read more</a>
+                    </figcaption>
+                </div>
+                <div class="card">
+                    <img src="images/viridis.jpg" alt="Analytics web">
+                    <figcaption class="card-caption">
+                        <h5>Viridis</h5>
+                        <p class="card-description">
+                            A comprehensive garden planning tool developed as part of my dissertation project.
+                        </p>
+                        <a href="#" class="card-button">Read more</a>
+                    </figcaption>
+                </div>
+                <div class="card">
+                    <img src="images/viridis.jpg" alt="Analytics web">
+                    <figcaption class="card-caption">
+                        <h5>Viridis</h5>
+                        <p class="card-description">
+                            A comprehensive garden planning tool developed as part of my dissertation project.
+                        </p>
+                        <a href="#" class="card-button">Read more</a>
+                    </figcaption>
+                </div>
+                <!-- Add more cards as needed -->
             </div>
+            <button class="arrow right-arrow">&gt;</button>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const container = document.querySelector(".projects-container");
+                const leftArrow = document.querySelector(".left-arrow");
+                const rightArrow = document.querySelector(".right-arrow");
+              
+                const scrollAmount = 220; // Card width (300px) + gap (20px)
+              
+                // Scroll right
+                rightArrow.addEventListener("click", () => {
+                  container.scrollLeft += scrollAmount;
+                });
+              
+                // Scroll left
+                leftArrow.addEventListener("click", () => {
+                  container.scrollLeft -= scrollAmount;
+                });
+              });
+              
+            
+        </script>
+        
     </section>
+    
+  
 
     <!-- Education Section -->
     <section id="education">
@@ -356,5 +402,7 @@
         <p><i class="fa fa-fw fa-linkedin-square"></i> <a href="http://www.linkedin.com/in/zuhaira-nasrin-zakaria/">Zuhaira Nasrin Zakaria</a></p>
 
     </section>
+
+    
 </body>
 </html>

@@ -41,12 +41,13 @@ nav a {
     width: 100%; 
     padding: 10px;
     box-sizing: border-box;
+    transition: transform 0.3s ease;
 }
 
 nav a:hover {
     background-color: #d8ccca;
     border-radius: 5px;
-
+    transform: scale(1.02);
 }
 
 nav a:active {

@@ -27,7 +27,7 @@ Alternatively, clone this repository and run it locally:
 
 Before cloning, please note:  
 - **The code is not finished yet** and still requires clean-up.  
-- **Please do not use it** until it’s polished and useful enough.  
+- **Please do not use it** until it`s polished and useful enough.  
 - **Do not take any personal information** included in the project. Respect my privacy.  
 
 Thank you for your understanding!  

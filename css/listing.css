@@ -5,10 +5,12 @@ details {
     border-radius: 5px;
     text-decoration: none;
     padding: 0px 10px 10px 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-details:hover{
-    background-color: #d8ccca
+details:hover {
+  background-color: #e1e1e1; /* Slightly darker on hover */
+  transform: scale(1.02); /* Slight zoom effect on hover */
 }
 
 details>summary {
@@ -33,16 +35,6 @@ details>summary::-webkit-details-marker {
     content: 'Computer Science Department Ambassador';
   }
 
-  .Dissertation>summary::before {
-    content: 'Dissertation Project: Garden Planning Tool';
-  }
-  .Viridis>summary::before {
-    content: 'Renewable Energy System Analysis and Reporting Platform Development: Viridis';
-  }
-  .Hackcessible>summary::before {
-    content: 'Accessible Drum System Development for Individuals with DMD';
-  }
-
   details[open]:hover {
     background-color: #d8ccca
   }
@@ -52,7 +44,9 @@ details>summary::-webkit-details-marker {
     padding: 10px 5px 10px 10px;
   }
 
-
+  details ul li {
+    margin-bottom: 10px; /* Uniform spacing between items */
+}
 
 .softskills p{
     background-color: #d8ccca;
@@ -83,9 +77,11 @@ section p, section .button {
     border-radius: 5px;
     text-decoration: none;
     margin: 10px 5px 10px 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .downloadablepdf:hover {
-    background-color: #d8ccca;
+  background-color: #e1e1e1; /* Slightly darker on hover */
+  transform: scale(1.02); /* Slight zoom effect on hover */
 }
 
 .skillbar {
@@ -154,3 +150,136 @@ section p, section .button {
         z-index: 1000; /* Make sure it appears above other elements */
         pointer-events: none; /* Prevents the tooltip from interfering with cursor events */
     }
+
+
+    /* General Styles for Projects Section */
+
+.carousel {
+  position: relative;
+  width: 90%;
+  overflow: hidden; 
+  padding-left: 50px;
+}
+
+.projects-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; 
+  scroll-behavior: smooth;
+  width: calc(200px * 3 + 20px * 3); 
+  max-width: 100%; 
+}
+
+.projects-container::-webkit-scrollbar {
+  display: none; 
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Card Styles */
+.card {
+  flex: 0 0 200px;
+  height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  /* transition: transform 0.6s ease, box-shadow 0.3s ease; */
+}
+
+.card:hover {
+  /* transform: translateY(-5px); */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.card img {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover;
+  transition: opacity 0.3s ease, transform 0.6s ease;
+}
+
+.card:hover img {
+  opacity: 0.7; 
+  transform: scale(1.1);
+}
+
+/* Caption Styling */
+.card-caption {
+  position: absolute;
+  bottom: 0;
+  left:0;
+  width: 100%;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.6); 
+  color: white;
+  text-align: left;
+  transform: translateY(100%); 
+  transition: transform 0.3s ease; 
+  box-sizing: border-box;
+}
+
+.card:hover .card-caption {
+  transform: translateY(-25%);
+  transition: transform 0.6s ease; 
+}
+
+.card-caption h5 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.card-caption .card-description {
+  font-size: 0.9rem;
+  color: #c6bbb9;
+  margin: 10px 0;
+  line-height: 1.4;
+  display: none; /* Hidden by default */
+}
+
+.card:hover .card-caption .card-description {
+  transform: translateY(0);
+}
+
+/* Button Styling */
+.card-button {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background-color: #c6bbb9;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+  background-color: #7a748c;
+}
