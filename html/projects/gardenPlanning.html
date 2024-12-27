@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Portfolio</title>
+        <link rel="stylesheet" type="text/css" href="../../css/form.css" />
+        <link rel="stylesheet" type="text/css" href="../../css/mainstyles.css" />
+        <link rel="stylesheet" type="text/css" href="../../css/listing.css" />
+        <link rel="stylesheet" type="text/css" href="../../css/card.css" />
+        <link rel="stylesheet" type="text/css" href="../../css/projects.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <section id="projectscreen">
+            <h1>Garden Planning Dissertation</h1>
+            <p>
+                My dissertation explores the use of L-systems, adapted for Python and Blender, to simulate natural plant growth. 
+                I achieved branching randomness and created 3 prototype plants. While I could not fully implement rules for 
+                specific plants like sunflowers or baby's breath, the project showcases the potential for computational modeling 
+                of organic structures.
+            </p>
+            <blockquote>
+                "A step toward blending computational algorithms with nature's beauty."
+            </blockquote>
+
+            <div class="carousel">
+                <button class="arrow left-arrow">&lt;</button>
+                <div class="projects-container">
+                    <div class="card">
+                        <img src="../../images/gardenplanning.png" alt="Garden Planning">
+                        <figcaption class="card-caption">
+                            <p class="card-description">
+                                A comprehensive garden planning tool developed as part of my dissertation project.
+                            </p>
+                        </figcaption>
+                    </div>
+                    <div class="card">
+                        <img src="../../images/growthrule.png" alt="Garden Planning">
+                        <figcaption class="card-caption">
+                            <p class="card-description">
+                                A comprehensive garden planning tool developed as part of my dissertation project.
+                            </p>
+                        </figcaption>
+                    </div>
+                    <div class="card">
+                        <img src="../../images/growthrule1.png" alt="Garden Planning">
+                        <figcaption class="card-caption">
+                            <p class="card-description">
+                                A comprehensive garden planning tool developed as part of my dissertation project.
+                            </p>
+                        </figcaption>
+                    </div>
+                    <div class="card">
+                        <img src="../../images/growthrule2.png" alt="Garden Planning">
+                        <figcaption class="card-caption">
+                            <p class="card-description">
+                                A comprehensive garden planning tool developed as part of my dissertation project.
+                            </p>
+                        </figcaption>
+                    </div>
+                    <div class="card">
+                        <img src="../../images/iteration.png" alt="Garden Planning">
+                        <figcaption class="card-caption">
+                            <p class="card-description">
+                                A comprehensive garden planning tool developed as part of my dissertation project.
+                            </p>
+                        </figcaption>
+                    </div>
+                </div>
+                <button class="arrow right-arrow">&gt;</button>
+            </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const container = document.querySelector(".projects-container");
+                    const leftArrow = document.querySelector(".left-arrow");
+                    const rightArrow = document.querySelector(".right-arrow");
+                  
+                    const scrollAmount = 220; // Card width (300px) + gap (20px)
+                  
+                    // Scroll right
+                    rightArrow.addEventListener("click", () => {
+                      container.scrollLeft += scrollAmount;
+                    });
+                  
+                    // Scroll left
+                    leftArrow.addEventListener("click", () => {
+                      container.scrollLeft -= scrollAmount;
+                    });
+                  });
+                  
+                
+            </script>
+    
+        </section>
+    </body>
+</html>
