@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Portfolio</title>
+        <title>Garden Planning Add-on</title>
         <link rel="stylesheet" type="text/css" href="../../css/form.css" />
         <link rel="stylesheet" type="text/css" href="../../css/mainstyles.css" />
         <link rel="stylesheet" type="text/css" href="../../css/listing.css" />
@@ -12,86 +12,190 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
+        <nav id="myNav" class="nav">
+            <script>
+                function burgernav() {
+                var x = document.getElementById("myNav");
+                if (x.classList.contains("responsive")) {
+                    x.classList.remove("responsive");
+                } else {
+                    x.classList.add("responsive");
+                }
+            }
+    
+            function activateNav(event) {
+                var navLinks = document.querySelectorAll('#myNav a');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                event.currentTarget.classList.add('active');
+            }
+    
+            var navLinks = document.querySelectorAll('#myNav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', activateNav);
+            });
+            </script>
+            <a href="javascript:void(0);" class="iconburger" onclick="burgernav()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="../../index.html"><i class="fa fa-home"></i></a>
+            <a href="gardenPlanning.html">Garden Planning</a>
+            <a href="hackcessible.html">Hackcessible</a>
+            <a href="viridis.html">Viridis</a>
+            
+            
+        </nav>
         <section id="projectscreen">
-            <h1>Garden Planning Dissertation</h1>
+            <h1>Garden Planning Add-on</h1>
             <p>
-                My dissertation explores the use of L-systems, adapted for Python and Blender, to simulate natural plant growth. 
-                I achieved branching randomness and created 3 prototype plants. While I could not fully implement rules for 
-                specific plants like sunflowers or baby's breath, the project showcases the potential for computational modeling 
-                of organic structures.
+                The Garden Planning Add-on for Blender enables users to simulate the growth of various plants through computational models. 
+                Using Python scripting in Blender, this add-on creates dynamic plant structures, simulating growth patterns for plants like sunflowers and baby's breath. 
+                The add-on leverages L-systems and randomization to generate plant branching, offering a glimpse into nature's beauty through code.
             </p>
+            <a href="https://github.com/ZuhairaTech/garden-planner-lsystem.git" class="downloadablepdf"><i class="fa fa-fw fa-github"></i>ZuhairaTech</a>
+            
             <blockquote>
-                "A step toward blending computational algorithms with nature's beauty."
+                "Blending computational algorithms with nature's intricate design."
             </blockquote>
 
             <div class="carousel">
                 <button class="arrow left-arrow">&lt;</button>
                 <div class="projects-container">
                     <div class="card">
-                        <img src="../../images/gardenplanning.png" alt="Garden Planning">
+                        <img src="../../images/gardenplanning.png" alt="Garden Planning Add-on">
                         <figcaption class="card-caption">
                             <p class="card-description">
-                                A comprehensive garden planning tool developed as part of my dissertation project.
+                                A close-up view of a sunflower and baby's breath simulated in Blender using randomized growth patterns.
                             </p>
                         </figcaption>
                     </div>
                     <div class="card">
-                        <img src="../../images/growthrule.png" alt="Garden Planning">
+                        <img src="../../images/growthrule.png" alt="Sunflower and Baby's Breath Growth">
                         <figcaption class="card-caption">
                             <p class="card-description">
-                                A comprehensive garden planning tool developed as part of my dissertation project.
+                                The initial stages of growth, with randomized branching based on L-systems.
                             </p>
                         </figcaption>
                     </div>
                     <div class="card">
-                        <img src="../../images/growthrule1.png" alt="Garden Planning">
+                        <img src="../../images/growthrule1.png" alt="Sunflower and Baby's Breath Growth">
                         <figcaption class="card-caption">
                             <p class="card-description">
-                                A comprehensive garden planning tool developed as part of my dissertation project.
+                                Further development of sunflower and baby's breath with increased branching.
                             </p>
                         </figcaption>
                     </div>
                     <div class="card">
-                        <img src="../../images/growthrule2.png" alt="Garden Planning">
+                        <img src="../../images/growthrule2.png" alt="Sunflower and Baby's Breath Growth">
                         <figcaption class="card-caption">
                             <p class="card-description">
-                                A comprehensive garden planning tool developed as part of my dissertation project.
+                                Third stage of growth, with more complexity in plant structure.
                             </p>
                         </figcaption>
                     </div>
                     <div class="card">
-                        <img src="../../images/iteration.png" alt="Garden Planning">
+                        <img src="../../images/iteration.png" alt="L-System Rules">
                         <figcaption class="card-caption">
                             <p class="card-description">
-                                A comprehensive garden planning tool developed as part of my dissertation project.
+                                Applying L-system rules to generate complex branching patterns, not limited to specific plants.
                             </p>
                         </figcaption>
                     </div>
                 </div>
                 <button class="arrow right-arrow">&gt;</button>
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        const container = document.querySelector(".projects-container");
+                        const leftArrow = document.querySelector(".left-arrow");
+                        const rightArrow = document.querySelector(".right-arrow");
+                        const scrollAmount = 220; // Card width (300px) + gap (20px)
+                      
+                        // Scroll right
+                        rightArrow.addEventListener("click", () => {
+                          container.scrollLeft += scrollAmount;
+                        });
+                      
+                        // Scroll left
+                        leftArrow.addEventListener("click", () => {
+                          container.scrollLeft -= scrollAmount;
+                        });
+                      });
+                </script>
             </div>
-            <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                    const container = document.querySelector(".projects-container");
-                    const leftArrow = document.querySelector(".left-arrow");
-                    const rightArrow = document.querySelector(".right-arrow");
-                  
-                    const scrollAmount = 220; // Card width (300px) + gap (20px)
-                  
-                    // Scroll right
-                    rightArrow.addEventListener("click", () => {
-                      container.scrollLeft += scrollAmount;
-                    });
-                  
-                    // Scroll left
-                    leftArrow.addEventListener("click", () => {
-                      container.scrollLeft -= scrollAmount;
-                    });
-                  });
-                  
-                
-            </script>
-    
+
+            <div id="writingsection">
+            <button class="collapsible"><h3>Methodology</h3></button>
+            <div class="content">
+                <p>In this project, L-systems were adapted to generate plant growth models in Blender using Python scripting. 
+                   Growth patterns such as branching angles, plant height, and radius were controlled based on predefined rules for each plant type.</p>
+                <pre><code>
+                    # Example code for setting plant properties
+                    plant_rules = {
+                        "SUNFLOWER": {
+                            "angle_of_branching": 0,
+                            "radius": 0.1,
+                            "height": 0.5
+                        },
+                        "BABYSBREATH": {
+                            "angle_of_branching": 1,
+                            "radius": 0.01,
+                            "height": 0.2
+                        }
+                    }
+                </code></pre>
+            </div>
+
+            <button class="collapsible"><h3>Future Work / Improvements</h3></button>
+            <div class="content">
+                <p>While the current implementation of L-systems for modeling plant growth demonstrates the potential for computational simulations, there are several areas for future exploration and improvement:</p>
+                <ul class="project-list">
+                    <li><strong>Refining Plant Models:</strong> Future work could focus on refining the models of plants, especially sunflowers and baby's breath, by incorporating more accurate growth rules based on real-world data.</li>
+                    <li><strong>Implementing Specific Plant Rules:</strong> Implementing detailed and specific growth rules for a wider range of plants, considering environmental factors such as light, soil, and temperature.</li>
+                    <li><strong>Expanding the Scope of L-systems:</strong> Exploring the application of L-systems in simulating other natural phenomena like tree growth, coral reefs, or even architectural structures.</li>
+                    <li><strong>Improving Randomness in Growth Patterns:</strong> Enhancing the randomness in the branching patterns of plants to more closely resemble real-life variability in plant growth.</li>
+                    <li><strong>3D Visualization and Integration:</strong> Developing a 3D visualization of plant growth to provide a more interactive and immersive experience for users.</li>
+                    <li><strong>Optimization and Performance:</strong> Optimizing the code to handle more complex plant structures, allowing for larger-scale simulations and real-time rendering.</li>
+                </ul>
+            </div>
+
+            <button class="collapsible"><h3>Project Timeline</h3></button>
+            <div class="content">
+                <p>Timeline content goes here...</p>
+            </div>
+
+            <button class="collapsible"><h3>References</h3></button>
+            <div class="content">
+                <ul class="project-list">
+                    <li><a href="http://3map.snu.ac.kr/courses/2012/cg/2-1-lsystems.pdf">L-SYSTEMS: FROM THE THEORY TO VISUAL MODELS OF PLANTS</a></li>
+                    <li><a href="https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2012.00076/full">L-Py: an L-system simulation framework</a></li>
+                    <li><a href="https://archive.org/details/the-algorithmic-beauty-of-plants">The Algorithmic Beauty of Plants</a></li>
+                </ul>
+            </div>
+        </div>
         </section>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const collapsibles = document.querySelectorAll(".collapsible");
+                collapsibles.forEach((collapsible) => {
+                    collapsible.addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        const content = this.nextElementSibling;
+            
+                        if (this.classList.contains("active")) {
+                            content.style.transition = "none"; 
+                            content.style.maxHeight = content.scrollHeight + "px";
+                            setTimeout(() => {
+                                content.style.transition = "max-height 0.3s ease-out"; 
+                            }, 10);
+                        } else {
+                            content.style.maxHeight = "0";
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
+
 </html>

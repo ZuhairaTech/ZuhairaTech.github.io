@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Portfolio</title>
+        <link rel="stylesheet" type="text/css" href="../../css/form.css" />
+        <link rel="stylesheet" type="text/css" href="../../css/mainstyles.css" />
+        <link rel="stylesheet" type="text/css" href="../../css/listing.css" />
+        <link rel="stylesheet" type="text/css" href="../../css/card.css" />
+        <link rel="stylesheet" type="text/css" href="../../css/projects.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <nav id="myNav" class="nav">
+            <script>
+                function burgernav() {
+                var x = document.getElementById("myNav");
+                if (x.classList.contains("responsive")) {
+                    x.classList.remove("responsive");
+                } else {
+                    x.classList.add("responsive");
+                }
+            }
+    
+            function activateNav(event) {
+                var navLinks = document.querySelectorAll('#myNav a');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                event.currentTarget.classList.add('active');
+            }
+    
+            var navLinks = document.querySelectorAll('#myNav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', activateNav);
+            });
+            </script>
+            <a href="javascript:void(0);" class="iconburger" onclick="burgernav()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="../../index.html"><i class="fa fa-home"></i></a>
+            <a href="gardenPlanning.html">Garden Planning</a>
+            <a href="hackcessible.html">Hackcessible</a>
+            <a href="viridis.html">Viridis</a>
+            
+        </nav>
+
+        <section id="projectscreen">
+            <h1>Hackcessible</h1>
+            <p>
+                This project, part of the Hackcessible event, involved creating assistive technology to help an individual enjoy playing drums. The main goal was to design and build a system using Arduino to enhance accessibility and provide a solution for physical challenges. The project was a collaborative effort, and I had the opportunity to apply my skills in coding and problem-solving.
+            </p>
+            <a href="https://www.linkedin.com/company/hackcessible/posts/?feedView=all" class="downloadablepdf"><i class="fa fa-fw fa-linkedin"></i>Hackcessible</a>
+            <blockquote>
+                "A great step toward making music more accessible for everyone."
+            </blockquote>
+
+            <div class="carousel">
+                <button class="arrow left-arrow">&lt;</button>
+                <div class="projects-container">
+                    <div class="card">
+                        <img src="../../images/dmdhackcessible.jpg" alt="Hackcessible Project">
+                        <figcaption class="card-caption">
+                            <p class="card-description">
+                                The prototype device designed for enhancing drum-playing accessibility.
+                            </p>
+                        </figcaption>
+                    </div>
+                    <div class="card">
+                        <img src="../../images/dmdhackcessible2.png" alt="Hackcessible Project">
+                        <figcaption class="card-caption">
+                            <p class="card-description">
+                                Our first meeting with team members and clients, understanding requirements and brainstorming.
+                            </p>
+                        </figcaption>
+                    </div>
+                    
+                </div>
+                <button class="arrow right-arrow">&gt;</button>
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        const container = document.querySelector(".projects-container");
+                        const leftArrow = document.querySelector(".left-arrow");
+                        const rightArrow = document.querySelector(".right-arrow");
+                      	
+                        const scrollAmount = 220; // Card width (300px) + gap (20px)
+                        
+                        // Scroll right
+                        rightArrow.addEventListener("click", () => {
+                            container.scrollLeft += scrollAmount;
+                        });
+                        
+                        // Scroll left
+                        leftArrow.addEventListener("click", () => {
+                            container.scrollLeft -= scrollAmount;
+                        });
+                    });
+                </script>
+            </div>
+
+            <div id="writingsection">
+                <button class="collapsible"><h3>Methodology</h3></button>
+                <div class="content">
+                    <p>Our approach focused on using Arduino to create a device that would support the individual in interacting with musical instruments. As part of the team, I contributed by suggesting coding solutions and exploring the full potential of Arduino to achieve the desired functionality.</p>
+                </div>
+
+                <button class="collapsible"><h3>Future Work / Improvements</h3></button>
+                <div class="content">
+                    <p>The project showcased the potential of combining accessibility with technology. Moving forward, there are several areas for improvement:</p>
+                    <ul class="project-list">
+                        <li><strong>Refining Hardware Integration:</strong> Enhancing the device’s hardware setup for improved durability and responsiveness.</li>
+                        <li><strong>Optimizing Code Efficiency:</strong> Further refining the Arduino code to optimize performance and reduce potential latency.</li>
+                        <li><strong>Expanding Accessibility Features:</strong> Exploring additional accessibility features that could benefit users with different needs, including more customizable inputs.</li>
+                        <li><strong>Testing and Feedback:</strong> Collecting feedback from users to iterate and improve the device for better usability and comfort.</li>
+                    </ul>
+                    <p>These improvements would help enhance the device’s impact and make it more effective for users with accessibility challenges.</p>
+                </div>
+
+                <button class="collapsible"><h3>Project Timeline</h3></button>
+                <div class="content">
+                    <p>The project progressed through various stages, including brainstorming, hardware setup, coding, testing, and refinement. Despite facing challenges, the team successfully built a functional prototype that helped us win first place in the event.</p>
+                </div>
+
+                
+            </div>
+        </section>
+
+        
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const collapsibles = document.querySelectorAll(".collapsible");
+                collapsibles.forEach((collapsible) => {
+                    collapsible.addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        const content = this.nextElementSibling;
+                
+                        if (this.classList.contains("active")) {
+                            content.style.transition = "none"; 
+                            content.style.maxHeight = content.scrollHeight + "px";
+                            setTimeout(() => {
+                                content.style.transition = "max-height 0.3s ease-out"; 
+                            }, 10);
+                        } else {
+                            content.style.maxHeight = "0";
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+
+</html>

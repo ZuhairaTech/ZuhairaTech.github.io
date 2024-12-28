@@ -70,6 +70,18 @@
         <h2>Experiences</h2>
         <ul>
             <li>
+                <details class="developer-protege">
+                    <summary></summary>
+                    <ul>
+                        <li>Familiarized with iReport for creating and customizing reports integrated with JasperReports.</li>
+                        <li>Resolved bugs in conditional logic and ensured consistent functionality across reports.</li>
+                        <li>Assisted in Java code debugging and troubleshooting with guidance from senior developers.</li>
+                        <li>Collaborated with system analysts and clients to understand requirements and deliver solutions.</li>
+                        <li>Developed skills in SQL, Java, and maintaining legacy systems while balancing learning and task execution.</li>
+                    </ul>
+                </details>
+            </li>
+            <li>
                 <details class="support">
                     <summary></summary>
                     <ul>
@@ -301,7 +313,7 @@
                         <p class="card-description">
                             A comprehensive garden planning tool developed as part of my dissertation project.
                         </p>
-                        <a href="#" class="card-button">Read more</a>
+                        <a href="html/projects/hackcessible.html" class="card-button">Read more</a>
                     </figcaption>
                 </div>
                 <div class="card">
@@ -311,7 +323,7 @@
                         <p class="card-description">
                             A comprehensive garden planning tool developed as part of my dissertation project.
                         </p>
-                        <a href="#" class="card-button">Read more</a>
+                        <a href="html/projects/viridis.html" class="card-button">Read more</a>
                     </figcaption>
                 </div>
                 <div class="card">
@@ -350,23 +362,22 @@
         </div>
         <script>
             document.addEventListener("DOMContentLoaded", () => {
-                const container = document.querySelector(".projects-container");
-                const leftArrow = document.querySelector(".left-arrow");
-                const rightArrow = document.querySelector(".right-arrow");
-              
-                const scrollAmount = 220; // Card width (300px) + gap (20px)
-              
-                // Scroll right
-                rightArrow.addEventListener("click", () => {
-                  container.scrollLeft += scrollAmount;
+                const collapsibles = document.querySelectorAll(".collapsible");
+                collapsibles.forEach((collapsible) => {
+                    collapsible.addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        const content = this.nextElementSibling;
+                        
+                        if (this.classList.contains("active")) {
+                            // If active, set max-height to a large enough value
+                            content.style.maxHeight = content.scrollHeight + "px"; // Scroll height of the content
+                        } else {
+                            // If not active, set max-height to 0 to collapse
+                            content.style.maxHeight = "0";
+                        }
+                    });
                 });
-              
-                // Scroll left
-                leftArrow.addEventListener("click", () => {
-                  container.scrollLeft -= scrollAmount;
-                });
-              });
-              
+            });
             
         </script>
         
@@ -389,19 +400,25 @@
     <section id="contact">
         <h2>Contact Me</h2>
         <p>Feel free to reach out if you want to collaborate or just say hi!</p>
-        <p><i class="fa fa-fw fa-envelope"></i> <a href="mailto:zuhairanasrin.zakaria@gmail.com">zuhairanasrin.zakaria@gmail.com</a></p>
-        <!-- <form action="mailto:zuhairanasrin.zakaria@gmail.com" method="post" enctype="text/plain">
-            Subject:<br>
-            <input type="text" name="subject" placeholder="Your Name"><br>
-            Email:<br>
-            <input type="email" name="email" placeholder="Your Email"><br>
-            Message:<br>
-            <textarea name="body" rows="5" cols="30" placeholder="Your Message"></textarea><br>
-            <input type="submit" value="Send">
-          </form> -->
-        <p><i class="fa fa-fw fa-linkedin-square"></i> <a href="http://www.linkedin.com/in/zuhaira-nasrin-zakaria/">Zuhaira Nasrin Zakaria</a></p>
-
+        <div class="contact-buttons">
+            <a href="mailto:zuhairanasrin.zakaria@gmail.com" class="downloadablepdf">
+                <i class="fa fa-fw fa-envelope"></i> Email Me
+            </a>
+            <a href="http://www.linkedin.com/in/zuhaira-nasrin-zakaria/" target="_blank" class="downloadablepdf">
+                <i class="fa fa-fw fa-linkedin-square"></i> LinkedIn
+            </a>
+            <a href="https://medium.com/@zuhairanasrin.zakaria" target="_blank" class="downloadablepdf">
+                <i class="fa fa-fw fa-medium"></i> Medium
+            </a>
+            <a href="https://www.hackerrank.com/profile/zuhairanasrin77" target="_blank" class="downloadablepdf">
+                <i class="fa fa-fw fa-code"></i> HackerRank
+            </a>
+            <a href="https://github.com/ZuhairaTech/" target="_blank" class="downloadablepdf">
+                <i class="fa fa-fw fa-github"></i> GitHub
+            </a>
+        </div>
     </section>
+    
 
     
 </body>

@@ -1,37 +1,112 @@
+
+
 #projectscreen {
     min-height: 100vh; 
     display: flex;
-    flex-direction: column; /* Align content vertically */
+    flex-direction: column; 
     padding: 20px;
-    max-width: 800px; /* Make the content container narrower */
-    margin: 0 auto; /* Center the content */
+    max-width: 800px; 
+    margin: 0 auto;
 }
 
 blockquote {
     font-style: italic;
     font-size: 1.2em;
-    text-align: center; /* Center the quote */
+    text-align: center;
     margin-top: 20px;
     border-left: 5px solid #ddd;
     padding-left: 15px;
-    color: #555; /* Optional: change quote color */
+    color: #555;
 }
 
 .image-section {
-    text-align: center; /* Center the image */
+    text-align: center;
     margin: 20px 0;
 }
 
 .project-image {
-    max-width: 100%; /* Make the image responsive */
+    max-width: 100%;
     height: auto;
-    border-radius: 8px; /* Optional: rounded corners for a soft look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow effect */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 figcaption {
     font-style: italic;
-    color: #777; /* Light grey for caption */
+    color: #777;
     margin-top: 10px;
     font-size: 0.95em;
 }
+
+/* Specific styles for the projects section */
+.project-list {
+    list-style-type: none;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin: 0;
+    color: #c6bbb9; /* Light beige text color to match the theme */
+}
+
+.project-list li {
+    font-size: 0.9rem;
+    color: #333; 
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.project-list a {
+    text-decoration: none;
+    color: inherit;
+}
+.project-list li strong {
+    color: #222f3e; /* Dark rose color for emphasis */
+    font-weight: bold;
+}
+
+/* Optionally, add some spacing or indentation for better readability */
+.project-list li::before {
+    content: "\2022"; /* Unicode bullet */
+    color: #7a748c; /* Muted purple-gray color for bullets */
+    font-size: 1.2rem;
+}
+
+/* collapsible */
+     /* Add styles for collapsible sections */
+     #writingsection{
+        padding: 5% 0% 0% 5%;
+     }
+     .collapsible {
+        background-color: #c6bbb9;
+        border-radius: 5px;
+        color: #333;
+        cursor: pointer;
+        width: 90%;
+        text-align: left;
+        font-size: 1.1em;
+        font-family: 'El Messiri', sans-serif;
+        transition: padding-left 0.3s ease;
+        line-height: 0;
+        padding: 0;
+    }
+
+    .active, .collapsible:hover {
+        background-color: #ddd;
+        padding-left: 10%;
+    }
+
+    .content {
+        display: block;
+        max-height: 0; 
+        overflow: hidden;
+        background-color: #c6bbb9;
+        transition: max-height 0.3s ease-out; 
+    }    
+    
+    .collapsible.active + .content {
+        max-height: 500px; 
+    }
+    
+
+    .content ul {
+        margin-top: 10px;
+    }

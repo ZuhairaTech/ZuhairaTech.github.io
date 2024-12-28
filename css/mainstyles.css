@@ -1,44 +1,62 @@
 /* #1c1026 #c6bbb9 #4c1e3c #21242b #7a748c */
+
+/* Import Font */
 @import url('https://fonts.googleapis.com/css?family=El+Messiri');
 
+/************************************
+ * Global Styles
+ ************************************/
 body {
     line-height: 1.6;
     font-family: 'El Messiri', sans-serif;
     background-color: #1c1026;
     color: #333;
     margin: 0;
-    padding: 0;        
+    padding: 0;
 }
-/* Navigation */
 
-.avatar {
-    vertical-align: middle;
-    width: 100px;
-    height: 100px;
-    border-radius: 10%;
-  }
+h1, h2 {
+    color: #222f3e;
+    text-align: center;
+}
 
+h3 {
+    color: #222f3e;
+    text-align: left;
+    padding: 10px 40px;
+}
+
+ul li {
+    list-style-type: none;
+    background-color: #c6bbb9;
+    color: #333;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+/************************************
+ * Navigation Styles
+ ************************************/
 nav {
-    /* background-color: #1c1026; */
     background-color: #c6bbb91a;
     padding: 20px;
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
-    height: 100vh; 
-    width: 200px;  
+    height: 100vh;
+    width: 200px;
     z-index: 1;
     display: flex;
-    flex-direction: column; 
-    align-items: flex-start; 
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 nav a {
-    margin: 10px 0; 
+    margin: 10px 0;
     text-decoration: none;
     color: #7a748c;
     font-weight: bold;
-    width: 100%; 
+    width: 100%;
     padding: 10px;
     box-sizing: border-box;
     transition: transform 0.3s ease;
@@ -55,35 +73,42 @@ nav a:active {
     border-radius: 5px;
 }
 
+#myNav a.active {
+    background-color: #c6bbb9;
+    color: #1c1026;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px;
+}
+
 .nav .iconburger {
     display: none;
   }
-  
 
-/* Section Styling */
+/************************************
+ * Avatar Styles
+ ************************************/
+.avatar {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+}
+
+/************************************
+ * Section Styles
+ ************************************/
 section {
     padding: 50px 20px;
     margin: 20px auto;
     max-width: 800px;
     background-color: #c6bbb9;
     border-radius: 10px;
-    
-    /* height: 100vh; 
-    max-height: 100vh;
-    box-sizing: border-box; */
-}
-/* Heading and Text */
-h1, h2{
-    color: #222f3e;
-    text-align: center;
 }
 
-h3 {
-    color: #222f3e;
-    text-align: left;
-    padding: 10px 40px 10px 40px;
-}
-/* Button Styling */
+/************************************
+ * Button Styles
+ ************************************/
 .button {
     display: inline-block;
     background-color: #c6bbb9;
@@ -92,54 +117,40 @@ h3 {
     border-radius: 5px;
     text-decoration: none;
     margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .button:hover {
     background-color: #d8ccca;
 }
 
-ul li {
-    list-style-type:none;
-    background-color: #c6bbb9;
-    color: #333;
-    padding: 10px 20px;
-    text-decoration: none;
-    margin-top: 20px;
-}
-
-#myNav a.active {
-    background-color: #c6bbb9; /* Example color for active link */
-    color: #1c1026; /* Change text color for contrast */
-    font-weight: bold; /* Make it bolder */
-    border-radius: 5px; /* Optional for a rounded effect */
-    padding: 10px;
-}
-
+/************************************
+ * Media Queries
+ ************************************/
 @media screen and (max-width: 900px) {
     #myNav a:not(:first-child) {
         display: none;
     }
+
     #myNav a.iconburger {
         float: none;
         text-align: left;
         display: block;
         margin: 0 auto;
-        width: 100%;
-        height: 6%;
-        background: linear-gradient(90deg, #1c1026 0%, #d8ccca 40%, rgba(0, 0, 0, 0.28) 60%);
-        border-radius: 100%;
+        width: 30px;
+        height: 30px;
+        background: linear-gradient(90deg, #d8ccca 0%, #7a748c 40%, #4c1e3c 100%);
+        border-radius: 5px;
         display: flex;
         justify-content: center;
         align-items: center;
         color: white;
         transition: all 0.8s ease;
-        background-position: 0px;
-        background-size: 200px;
     }
 
-    #myNav a.iconburger:hover{
+    #myNav a.iconburger:hover {
         background-color: #d8ccca;
-        border-radius: 5px;
+        border-radius: 10px;
         width: 35px;
         height: 35px;
     }
@@ -147,9 +158,7 @@ ul li {
     #myNav {
         width: 50px;
     }
-  }
-  
-  @media screen and (max-width: 900px) {
+
     #myNav.responsive {
         position: fixed;
         width: 50px;
@@ -159,6 +168,5 @@ ul li {
         float: none;
         text-align: left;
         display: block;
-    
-    } 
-  }
+    }
+}
