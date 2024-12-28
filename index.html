@@ -359,6 +359,25 @@
                 <!-- Add more cards as needed -->
             </div>
             <button class="arrow right-arrow">&gt;</button>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const container = document.querySelector(".projects-container");
+                    const leftArrow = document.querySelector(".left-arrow");
+                    const rightArrow = document.querySelector(".right-arrow");
+                      
+                    const scrollAmount = 220; // Card width (300px) + gap (20px)
+                    
+                    // Scroll right
+                    rightArrow.addEventListener("click", () => {
+                        container.scrollLeft += scrollAmount;
+                    });
+                    
+                    // Scroll left
+                    leftArrow.addEventListener("click", () => {
+                        container.scrollLeft -= scrollAmount;
+                    });
+                });
+            </script>
         </div>
         <script>
             document.addEventListener("DOMContentLoaded", () => {
