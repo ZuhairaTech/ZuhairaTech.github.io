@@ -431,48 +431,48 @@
     </section>
 
     <button id="like-button" style="padding-left: 50%;">Like</button>
-    <div id="like-count">Likes: 0</div>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyB9hTK6p-nVtCCwJk880tdknMzOhlDLoB4",
-          authDomain: "like-button-for-portfolio.firebaseapp.com",
-          databaseURL: "https://like-button-for-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app",
-          projectId: "like-button-for-portfolio",
-          storageBucket: "like-button-for-portfolio.firebasestorage.app",
-          messagingSenderId: "866873358671",
-          appId: "1:866873358671:web:4c54c614af672c9cbc6d3a",
-          measurementId: "G-2YPZ0GC584"
-        };
-      
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const db = firebase.database();
+<div id="like-count">Likes: 0</div>
+<script type="module">
+    // Import the necessary functions from the Firebase SDK
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
 
-        // Like button functionality
-        const likeButton = document.getElementById("like-button");
-        const likeCount = document.getElementById("like-count");
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyB9hTK6p-nVtCCwJk880tdknMzOhlDLoB4",
+        authDomain: "like-button-for-portfolio.firebaseapp.com",
+        databaseURL: "https://like-button-for-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "like-button-for-portfolio",
+        storageBucket: "like-button-for-portfolio.firebasestorage.app",
+        messagingSenderId: "866873358671",
+        appId: "1:866873358671:web:4c54c614af672c9cbc6d3a",
+        measurementId: "G-2YPZ0GC584"
+    };
 
-        // Reference to the "likes" node in the database
-        const likeRef = db.ref("likes");
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
 
-        // Listen for updates to the "likes" value
-        likeRef.on("value", (snapshot) => {
-            likeCount.innerText = `Likes: ${snapshot.val() || 0}`;
-        });
+    // Initialize Realtime Database
+    const db = getDatabase(app);
 
-        // Increment the "likes" value when the button is clicked
-        likeButton.addEventListener("click", () => {
-            likeRef.transaction((likes) => (likes || 0) + 1);
-        });
-    </script>
+    // Like button functionality
+    const likeButton = document.getElementById("like-button");
+    const likeCount = document.getElementById("like-count");
+
+    // Reference to the "likes" node in the database
+    const likeRef = ref(db, "likes");
+
+    // Listen for updates to the "likes" value
+    onValue(likeRef, (snapshot) => {
+        likeCount.innerText = `Likes: ${snapshot.val() || 0}`;
+    });
+
+    // Increment the "likes" value when the button is clicked
+    likeButton.addEventListener("click", () => {
+        runTransaction(likeRef, (likes) => (likes || 0) + 1);
+    });
+</script>
+
     
 
     
