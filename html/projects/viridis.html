@@ -13,6 +13,12 @@
     </head>
     <body>
         <nav id="myNav" class="nav">
+            <img src="../../images/logowhite.png" alt="Avatar" class="avatar" >
+            <script>
+                document.querySelector("#myNav img").addEventListener("click", function() {
+                    window.location.href = "../../index.html";
+                });
+            </script>
             <script>
                 function burgernav() {
                 var x = document.getElementById("myNav");
@@ -39,7 +45,9 @@
             <a href="javascript:void(0);" class="iconburger" onclick="burgernav()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="../../index.html"><i class="fa fa-home"></i></a>
+            <a href="javascript:void(0);" class="iconburger" onclick="burgernav()">
+                <i class="fa fa-bars"></i>
+            </a>
             <a href="gardenPlanning.html">Garden Planning</a>
             <a href="hackcessible.html">Hackcessible</a>
             <a href="viridis.html">Viridis</a>

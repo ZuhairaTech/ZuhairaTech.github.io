@@ -13,6 +13,12 @@
     </head>
     <body>
         <nav id="myNav" class="nav">
+            <img src="../../images/logowhite.png" alt="Avatar" class="avatar" >
+            <script>
+                document.querySelector("#myNav img").addEventListener("click", function() {
+                    window.location.href = "../../index.html";
+                });
+            </script>
             <script>
                 function burgernav() {
                 var x = document.getElementById("myNav");
@@ -39,7 +45,6 @@
             <a href="javascript:void(0);" class="iconburger" onclick="burgernav()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="../../index.html"><i class="fa fa-home"></i></a>
             <a href="gardenPlanning.html">Garden Planning</a>
             <a href="hackcessible.html">Hackcessible</a>
             <a href="viridis.html">Viridis</a>
@@ -51,7 +56,9 @@
             <p>
                 This project, part of the Hackcessible event, involved creating assistive technology to help an individual enjoy playing drums. The main goal was to design and build a system using Arduino to enhance accessibility and provide a solution for physical challenges. The project was a collaborative effort, and I had the opportunity to apply my skills in coding and problem-solving.
             </p>
-            <a href="https://www.linkedin.com/company/hackcessible/posts/?feedView=all" class="downloadablepdf"><i class="fa fa-fw fa-linkedin"></i>Hackcessible</a>
+            <div class="btn">
+                <a href="https://www.linkedin.com/company/hackcessible/posts/?feedView=all"><i class="fa fa-fw fa-linkedin"></i>Hackcessible</a>
+            </div>
             <blockquote>
                 "A great step toward making music more accessible for everyone."
             </blockquote>

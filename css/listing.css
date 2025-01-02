@@ -31,23 +31,34 @@ details > summary::-webkit-details-marker {
 }
 
 .developer-protege > summary::before {
-  content: 'Software Developer Protégé ';
+  content: 'Software Developer (Protégé) - HeiTech Padu Berhad';
 }
 
 .support > summary::before {
-  content: 'Application Support Engineer';
+  content: 'Application Support Engineer - MobilityOne Sdn Bhd';
 }
 
 .tutor > summary::before {
-  content: 'Mathematics and Computer Science Tutor';
+  content: 'Mathematics and Computer Science Tutor - Frenztalk';
 }
 
 .ambassador > summary::before {
-  content: 'Computer Science Department Ambassador';
+  content: 'STEM Ambassador - University of Sheffield';
 }
 
 details[open]:hover {
   background-color: #d8ccca;
+  cursor: pointer;
+}
+
+details[open] {
+  background-color: #d8ccca;
+  cursor: pointer;
+  border-color: #c6bbb9;
+}
+
+details:hover{
+  cursor: pointer;
 }
 
 details ul {
@@ -84,31 +95,6 @@ section p, section .button {
   text-decoration: none;
   margin-top: 20px;
 }
-
-/************************************
-* Downloadable PDF Button Styles
-************************************/
-.downloadablepdf {
-  display: inline-block;
-  width: 15%;
-  background-color: #c6bbb9;
-  color: #333;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  margin: 10px 5px 10px 50px;
-  border: 2px solid #7a748c; /* Simple outline */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.downloadablepdf:hover {
-  background-color: #e1e1e1;
-  transform: scale(1.02);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
-  border-color: #4c1e3c; /* Slight change in border color for interaction */
-}
-
 
 /************************************
 * Skill Bar Styles
@@ -320,4 +306,47 @@ td a:hover {
 }
 
 
+
+/************************************
+* Reusable button
+************************************/
+.btn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4c1e3c; /* Rich burgundy button background */
+  color: #c6bbb9; /* Light taupe text color */
+  text-decoration: none;
+  font-size: 1em;
+  padding: 12px 20px;
+  border: 2px solid #7a748c; /* Soft border for a polished look */
+  border-radius: 30px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.btn a:hover {
+  background-color: #21242b; /* Slightly darker shade on hover */
+  transform: translateY(-5px); /* Hover effect with elevation */
+  border-color: #c6bbb9; /* Highlight the border on hover */
+}
+
+/* Icons Inside Buttons */
+.btn a i {
+  margin-right: 10px;
+  font-size: 1.2em;
+  color: #7a748c; /* Softer icon color */
+  transition: color 0.3s ease;
+}
+
+.btn a:hover i {
+  color: #c6bbb9; /* Lighten icon color on hover */
+}
 

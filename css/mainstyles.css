@@ -38,7 +38,7 @@ ul li {
  * Navigation Styles
  ************************************/
 nav {
-    background-color: #c6bbb91a;
+    background-color: #c6bbb900;
     padding: 20px;
     position: fixed;
     top: 0;
@@ -81,6 +81,11 @@ nav a:active {
     padding: 10px;
 }
 
+#myNav .avatar {
+    cursor: pointer;
+    
+}
+
 .nav .iconburger {
     display: none;
   }
@@ -93,6 +98,58 @@ nav a:active {
     width: 100px;
     height: 100px;
     border-radius: 10%;
+}
+
+/* clickable business card */
+.avatar {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+    cursor: pointer; /* Makes it clear that the avatar is clickable */
+}
+
+.business-card {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Initially hidden off-screen */
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    color: #333;
+    box-shadow: -3px 0 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: right 0.3s ease; /* Smooth slide-in effect */
+    overflow-y: auto;
+}
+
+.business-card h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+.business-card p {
+    margin: 10px 0;
+}
+
+.business-card a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.business-card a:hover {
+    text-decoration: underline;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
 }
 
 /************************************
@@ -128,6 +185,11 @@ section {
  * Media Queries
  ************************************/
 @media screen and (max-width: 900px) {
+    nav {
+        width: 100%;
+        background-color: #c6bbb9e2;
+
+    }
     #myNav a:not(:first-child) {
         display: none;
     }
@@ -139,34 +201,35 @@ section {
         margin: 0 auto;
         width: 30px;
         height: 30px;
-        background: linear-gradient(90deg, #d8ccca 0%, #7a748c 40%, #4c1e3c 100%);
         border-radius: 5px;
         display: flex;
         justify-content: center;
         align-items: center;
         color: white;
-        transition: all 0.8s ease;
-    }
-
-    #myNav a.iconburger:hover {
-        background-color: #d8ccca;
-        border-radius: 10px;
-        width: 35px;
-        height: 35px;
     }
 
     #myNav {
-        width: 50px;
+        width: 0px;
+        background-color: #c6bbb900;
+    }
+
+    #myNav.responsive a.iconburger {
+        position: fixed;
+        display: block; 
+        top: 16.19%; 
+        right: 94%; 
+        z-index: 9999; 
     }
 
     #myNav.responsive {
         position: fixed;
-        width: 50px;
+        width: 100%;
+        background-color: #c6bbb9d9;
     }
 
     #myNav.responsive a {
         float: none;
-        text-align: left;
         display: block;
+        padding-left: 10%;
     }
 }

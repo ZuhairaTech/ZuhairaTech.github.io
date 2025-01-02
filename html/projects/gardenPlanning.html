@@ -13,6 +13,12 @@
     </head>
     <body>
         <nav id="myNav" class="nav">
+            <img src="../../images/logowhite.png" alt="Avatar" class="avatar" >
+            <script>
+                document.querySelector("#myNav img").addEventListener("click", function() {
+                    window.location.href = "../../index.html";
+                });
+            </script>
             <script>
                 function burgernav() {
                 var x = document.getElementById("myNav");
@@ -39,7 +45,6 @@
             <a href="javascript:void(0);" class="iconburger" onclick="burgernav()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="../../index.html"><i class="fa fa-home"></i></a>
             <a href="gardenPlanning.html">Garden Planning</a>
             <a href="hackcessible.html">Hackcessible</a>
             <a href="viridis.html">Viridis</a>
@@ -53,7 +58,9 @@
                 Using Python scripting in Blender, this add-on creates dynamic plant structures, simulating growth patterns for plants like sunflowers and baby's breath. 
                 The add-on leverages L-systems and randomization to generate plant branching, offering a glimpse into nature's beauty through code.
             </p>
-            <a href="https://github.com/ZuhairaTech/garden-planner-lsystem.git" class="downloadablepdf"><i class="fa fa-fw fa-github"></i>ZuhairaTech</a>
+            <div class="btn">
+                <a href="https://github.com/ZuhairaTech/garden-planner-lsystem.git"><i class="fa fa-fw fa-github"></i>ZuhairaTech</a>
+            </div>
             
             <blockquote>
                 "Blending computational algorithms with nature's intricate design."
