@@ -233,3 +233,162 @@ section {
         padding-left: 10%;
     }
 }
+
+
+/* random */
+.under-construction {
+    text-align: center;
+    cursor: pointer; /* Indicating that it's clickable */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    width: 150px; /* Increased size for visibility */
+    height: 150px; /* Increased size for visibility */
+    display: flex;
+    justify-content:right;
+    align-items: center;
+    position: fixed; /* Fixes the element at the top of the page */
+    top: 50px; /* Adjust the distance from the top */
+    left: 90%; /* Center horizontally */
+    transform: translateX(-50%); /* Offset the element by half of its width */
+    z-index: 9999; /* Ensures it's on top of other elements */
+  }
+  
+  .under-construction:before,
+  .under-construction:after {
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+  
+  .under-construction:before {
+    width: 70px;
+    height: 70px;
+    top: 190px;
+    left: -120px;
+    /* box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .under-construction:after {
+    width: 100px;
+    height: 100px;
+    top: 130px;
+    right: 160px;
+    /* box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .under-construction h2 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #7a748c; /* Softer color for the text */
+  }
+  
+  /* Hover effect to show interaction */
+  .under-construction:hover {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Floating text effect on hover */
+  .under-construction h2:hover {
+    color: #3a3a3a; /* Darker text color on hover */
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .floating {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 5s infinite ease-in-out;
+  }
+
+  /* Hidden class to hide the icons */
+.floating.hidden {
+    display: none;
+  }
+  
+  /* Animation keyframes for floating effect */
+  @keyframes float {
+    0% {
+      transform: translateY(0) translateX(0);
+    }
+    25% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+      transform: translateY(0) translateX(20px);
+    }
+    75% {
+      transform: translateY(20px) translateX(10px);
+    }
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+  }
+  
+  /* Random positions for the floating icons */
+  .floating img {
+    width: 50px;
+    height: auto;
+  }
+  .floating:nth-child(1) {
+    top: 100px;
+    left: 20%;
+    animation-delay: 0s;
+    position: fixed;
+  }
+  
+  .floating:nth-child(2) {
+    top: 40px;
+    left: 50%;
+    animation-delay: 0.5s;
+    position: fixed;
+  }
+  
+  .floating:nth-child(3) {
+    top: 100px;
+    left: 80%;
+    animation-delay: 1s;
+    position: fixed;
+  }
+
+  .floating:nth-child(4) {
+    top: 500px;
+    left: 70%;
+    animation-delay: 1.5s;
+    position: fixed;
+  }
+  .floating:nth-child(5) {
+    top: 340px;
+    left: 30%;
+    animation-delay: 2s;
+    position: fixed;
+  }
+  .floating:nth-child(6) {
+    top: 700px;
+    left: 50%;
+    animation-delay: 2.5s;
+    position: fixed;
+  }
+
+ /* Media Query for small screens (max-width 900px) */
+@media (max-width: 900px) {
+    .under-construction, .under-construction:before , .under-construction:after{
+      background-color: transparent; /* Set background to transparent */
+      box-shadow: none; /* Remove shadow */
+      width: auto; /* Adjust width */
+      height: auto; /* Adjust height */
+      padding: 10px 20px; /* Adjust padding for smaller view */
+      border-radius: 0; /* Remove rounded corners for simplicity */
+    }
+  
+    .floating {
+      display: none; /* Hide the floating icons */
+    }
+  
+    .under-construction h2 {
+      font-size: 1.5rem; /* Slightly larger font for better readability on small screens */
+      color: #333; /* Adjust text color for better contrast */
+    }
+  }
+  

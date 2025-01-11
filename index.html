@@ -9,9 +9,50 @@
     <link rel="stylesheet" type="text/css" href="css/listing.css" />
     <link rel="stylesheet" type="text/css" href="css/card.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 </head>
+<div class="under-construction">
+    <div class="floating">
+        <img src="images/random_cat.png" alt="Icon 1">
+    </div>
+    <div class="floating">
+      🛠️
+    </div>
+    <div class="floating">
+      🚀
+    </div>
+    <div class="floating">
+        🚧
+      </div>
+      <div class="floating">
+        🛠️
+      </div>
+      <div class="floating">
+        🚀
+      </div>
+    <h2>Under Construction</h2>
+    <script>
+        // Get the .under-construction element
+        const underConstruction = document.querySelector('.under-construction');
+      
+        // Get all the .floating elements
+        const floatingIcons = document.querySelectorAll('.floating');
+      
+        // Add click event listener to the .under-construction element
+        underConstruction.addEventListener('click', () => {
+          // Toggle the 'hidden' class on each floating icon
+          floatingIcons.forEach(icon => {
+            icon.classList.toggle('hidden');
+          });
+        });
+      </script>
+      
+      
+      
+  </div>
 <body>
+      
     <!-- Navigation -->
     <nav id="myNav" class="nav">
 
@@ -74,68 +115,81 @@
 
     <!-- Experience Section -->
     <section id="experience">
+
         <h2>Experiences</h2>
+        <div id="timeline">
+            <div class="dot" id="developer">
+                <span></span>
+                <date>2024</date>
+            </div>
+            <div class="dot" id="support">
+                <span></span>
+                <date>2023</date>
+            </div>
+            <div class="dot" id="tutor">
+                <span></span>
+                <date>2022</date>
+            </div>
+            <div class="dot" id="ambassador">
+                <span></span>
+                <date>2021</date>
+            </div>
+            <div class="inside"></div>
+        </div>
+    
+        <article class="modal developer">
+            <date>2024 - Developer (Protégé)</date>
+            <h2>Software Developer</h2>
+            <ul>
+                <li>Utilized <strong>iReport</strong> to create and customize reports integrated with JasperReports.</li>
+                <li>Debugged and resolved complex issues in Java and SQL.</li>
+                <li>Collaborated with senior developers and system analysts to deliver solutions.</li>
+            </ul>
+        </article>
+    
+        <article class="modal support">
+            <date>2023 - Application Support</date>
+            <h2>Application Support Engineer</h2>
+            <ul>
+                <li>Prepared integration setups for new business initiatives.</li>
+                <li>Maintained business continuity through end-to-end support.</li>
+                <li>Facilitated deployments and resolved production incidents.</li>
+            </ul>
+        </article>
+    
+        <article class="modal tutor">
+            <date>2022 - Tutor</date>
+            <h2>Private Tutor</h2>
+            <ul>
+                <li>Conducted weekly sessions for Computer Science and Mathematics.</li>
+                <li>Personalized lessons to individual learning styles.</li>
+            </ul>
+        </article>
+    
+        <article class="modal ambassador">
+            <date>2021 - STEM Outreach</date>
+            <h2>Ambassador</h2>
+            <ul>
+                <li>Guided high school students in hands-on Python labs.</li>
+                <li>Adapted Java/C# knowledge for effective Python teaching.</li>
+            </ul>
+        </article>
         <script>
-            function toggleDetails(event) {
-                const details = event.currentTarget;
-            
-                // Check if the click is on an area other than <summary>
-                if (!event.target.closest("summary")) {
-                    details.open = !details.open;
-                }
-            }
+            $(document).ready(function () {
+                $(".dot").click(function () {
+                  $(".dot").removeClass("active"); // Remove active class from all dots
+                  $(this).addClass("active"); // Add active class to the clicked dot
+              
+                  const id = $(this).attr("id");
+                  $(".modal").removeClass("active"); // Hide all modals
+                  $(`.modal.${id}`).addClass("active"); // Show the corresponding modal
+                });
+              });
+              
             
         </script>
-        <ul>
-            <li>
-                <details class="developer-protege" onclick="toggleDetails(event)">
-                    <summary></summary>
-                    <ul>
-                        <li>Utilized <strong>iReport</strong> to create and customize reports integrated with JasperReports, ensuring high-quality output aligned with client requirements.</li>
-                        <li>Debugged and resolved complex issues in conditional logic to maintain consistent functionality across reports and applications.</li>
-                        <li>Collaborated closely with senior developers to troubleshoot and debug Java code, gaining insights into industry best practices.</li>
-                        <li>Worked with system analysts and clients to gather requirements, clarify specifications, and deliver effective solutions within project timelines.</li>
-                        <li>Enhanced proficiency in SQL and Java while maintaining and improving legacy systems to support ongoing operations.</li>
-                    </ul>
-                </details>
-                
-                
-            </li>
-            <li>
-                <details class="support" onclick="toggleDetails(event)">
-                    <summary></summary>
-                    <ul>
-                        <li>Prepared integration setups for new business initiatives, ensuring smooth onboarding and seamless functionality.</li>
-                        <li>Provided comprehensive end-to-end support to maintain business continuity and meet agreed service-level targets.</li>
-                        <li>Collaborated with the development team to facilitate the deployment of fixed packages, enhancing system reliability and efficiency.</li>
-                        <li>Troubleshot and resolved production incidents through detailed analysis, ensuring minimal downtime and high service availability.</li>
-                    </ul>
-                </details>
-                
-            </li>
-            <li>
-                <details class="tutor" onclick="toggleDetails(event)">
-                    <summary></summary>
-                    <ul>
-                        <li>Conducted engaging 1-hour trial sessions in Additional Mathematics, Mathematics, and Computer Science, fostering student interest and understanding.</li>
-                        <li>Delivered personalized weekly tutoring sessions tailored to individual learning styles and goals, ensuring measurable progress.</li>
-                        <li>Demonstrated exceptional organizational skills through meticulous session planning, promoting a structured and productive learning environment.</li>
-                    </ul>
-                </details>
-            </li>
-            <li>
-                <details class="ambassador" onclick="toggleDetails(event)">
-                    <summary></summary>
-                    <ul>
-                        <li>Served as an ambassador for the DStem Outreach Event, facilitating engaging sessions for high
-                        school students interested in STEM at the university.</li>
-                        <li>Guided students through a hands-on Python lab session, utilising exercises provided by lecturers;
-                    quickly adapted to Python, leveraging strong foundations in Java and C#.</li>
-                    </ul>
-                </details>
-            </li>
-        </ul>
     </section>
+    
     <!-- Skills Section -->
     <section id="skills">
         <h2>My Skills</h2>
@@ -430,51 +484,5 @@
         </div>
     </section>
 
-    <button id="like-button" style="padding-left: 50%;">Like</button>
-<div id="like-count">Likes: 0</div>
-<script type="module">
-    // Import the necessary functions from the Firebase SDK
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-    import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
-
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyB9hTK6p-nVtCCwJk880tdknMzOhlDLoB4",
-        authDomain: "like-button-for-portfolio.firebaseapp.com",
-        databaseURL: "https://like-button-for-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "like-button-for-portfolio",
-        storageBucket: "like-button-for-portfolio.firebasestorage.app",
-        messagingSenderId: "866873358671",
-        appId: "1:866873358671:web:4c54c614af672c9cbc6d3a",
-        measurementId: "G-2YPZ0GC584"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-
-    // Initialize Realtime Database
-    const db = getDatabase(app);
-
-    // Like button functionality
-    const likeButton = document.getElementById("like-button");
-    const likeCount = document.getElementById("like-count");
-
-    // Reference to the "likes" node in the database
-    const likeRef = ref(db, "likes");
-
-    // Listen for updates to the "likes" value
-    onValue(likeRef, (snapshot) => {
-        likeCount.innerText = `Likes: ${snapshot.val() || 0}`;
-    });
-
-    // Increment the "likes" value when the button is clicked
-    likeButton.addEventListener("click", () => {
-        runTransaction(likeRef, (likes) => (likes || 0) + 1);
-    });
-</script>
-
-    
-
-    
 </body>
 </html>
