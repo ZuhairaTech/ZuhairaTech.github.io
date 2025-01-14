@@ -10,6 +10,8 @@
         <link rel="stylesheet" type="text/css" href="../../css/card.css" />
         <link rel="stylesheet" type="text/css" href="../../css/projects.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     </head>
     <body>
         <nav id="myNav" class="nav">
@@ -135,41 +137,207 @@
             <button class="collapsible"><h3>Methodology</h3></button>
             <div class="content">
                 <p>In this project, L-systems were adapted to generate plant growth models in Blender using Python scripting. 
-                   Growth patterns such as branching angles, plant height, and radius were controlled based on predefined rules for each plant type.</p>
+                   Growth patterns such as branching angles, plant height, and radius were controlled based on predefined rules for each plant type such as below:</p>
                 <pre><code>
-                    # Example code for setting plant properties
-                    plant_rules = {
+                    plants_rules = {
                         "SUNFLOWER": {
-                            "angle_of_branching": 0,
-                            "radius": 0.1,
-                            "height": 0.5
-                        },
+                                "angle_of_branching": 0,  # degrees
+                                "radius": 0.1,
+                                "height": 0.5,
+                            },
                         "BABYSBREATH": {
-                            "angle_of_branching": 1,
-                            "radius": 0.01,
-                            "height": 0.2
-                        }
+                                "angle_of_branching": 1,  # degrees
+                                "radius": 0.01,
+                                "height": 0.2,
+                            },
+                        # Add more plant types as needed
                     }
                 </code></pre>
+                <p>Refer: <a href="https://github.com/ZuhairaTech/garden-planner-lsystem/blob/main/garden_planning.py"><i class="fa fa-fw fa-github"></i>garden_planning.py</a></p>
+                
+                <div class="project-point">
+                    <h4 class="project-heading">
+                      Concept Inspiration
+                    </h4>
+                    <p class="project-description">
+                      Adapted the idea of branching with a set of rules, inspired by L-systems, but simplified for integration with Blender and Python.
+                    </p>
+                  </div>
+                  
+                  <div class="project-point">
+                    <h4 class="project-heading">
+                      Project Focus
+                    </h4>
+                    <p class="project-description">
+                      Developed a tool for garden planning to design and visualize layouts efficiently, balancing functionality and simplicity.
+                    </p>
+                  </div>
+                  
+                  <div class="project-point">
+                    <h4 class="project-heading">
+                      Technologies Used
+                    </h4>
+                    <p class="project-description">
+                      Leveraged Blender for 3D modeling and Python for scripting.
+                    </p>
+                  </div>
+                  
+                  <div class="project-point">
+                    <h4 class="project-heading">
+                      Project Status
+                    </h4>
+                    <p class="project-description">
+                      The project is functional but incomplete, with room for improvements such as expanded functionality and optimization for complex environments.
+                    </p>
+                  </div>
+                  
+                  <div class="project-point">
+                    <h4 class="project-heading">
+                      Future Potential
+                    </h4>
+                    <p class="project-description">
+                      The modular system and flexible design suggest adaptability for broader applications beyond garden planning.
+                    </p>
+                  </div>
+                  
+
+                
             </div>
 
             <button class="collapsible"><h3>Future Work / Improvements</h3></button>
             <div class="content">
                 <p>While the current implementation of L-systems for modeling plant growth demonstrates the potential for computational simulations, there are several areas for future exploration and improvement:</p>
-                <ul class="project-list">
-                    <li><strong>Refining Plant Models:</strong> Future work could focus on refining the models of plants, especially sunflowers and baby's breath, by incorporating more accurate growth rules based on real-world data.</li>
-                    <li><strong>Implementing Specific Plant Rules:</strong> Implementing detailed and specific growth rules for a wider range of plants, considering environmental factors such as light, soil, and temperature.</li>
-                    <li><strong>Expanding the Scope of L-systems:</strong> Exploring the application of L-systems in simulating other natural phenomena like tree growth, coral reefs, or even architectural structures.</li>
-                    <li><strong>Improving Randomness in Growth Patterns:</strong> Enhancing the randomness in the branching patterns of plants to more closely resemble real-life variability in plant growth.</li>
-                    <li><strong>3D Visualization and Integration:</strong> Developing a 3D visualization of plant growth to provide a more interactive and immersive experience for users.</li>
-                    <li><strong>Optimization and Performance:</strong> Optimizing the code to handle more complex plant structures, allowing for larger-scale simulations and real-time rendering.</li>
-                </ul>
+                <div class="project-point">
+                    <h4 class="project-heading">
+                      Refining Plant Models
+                    </h4>
+                    <p class="project-description">
+                      Future work could focus on refining the models of plants, especially sunflowers and baby's breath, by incorporating more accurate growth rules based on real-world data.
+                    </p>
+                  </div>
+                  
+                  <div class="project-point">
+                    <h4 class="project-heading">
+                      Implementing Specific Plant Rules
+                    </h4>
+                    <p class="project-description">
+                      Implementing detailed and specific growth rules for a wider range of plants, considering environmental factors such as light, soil, and temperature.
+                    </p>
+                  </div>
+                  
+                  <div class="project-point">
+                    <h4 class="project-heading">
+                      Expanding the Scope of L-systems
+                    </h4>
+                    <p class="project-description">
+                      Exploring the application of L-systems in simulating other natural phenomena like tree growth, coral reefs, or even architectural structures.
+                    </p>
+                  </div>
+                  
+                  <div class="project-point">
+                    <h4 class="project-heading">
+                      Improving Randomness in Growth Patterns
+                    </h4>
+                    <p class="project-description">
+                      Enhancing the randomness in the branching patterns of plants to more closely resemble real-life variability in plant growth.
+                    </p>
+                  </div>
+                  
+                  <div class="project-point">
+                    <h4 class="project-heading">
+                      3D Visualization and Integration
+                    </h4>
+                    <p class="project-description">
+                      Developing a 3D visualization of plant growth to provide a more interactive and immersive experience for users.
+                    </p>
+                  </div>
+                  
+                  <div class="project-point">
+                    <h4 class="project-heading">
+                      Optimization and Performance
+                    </h4>
+                    <p class="project-description">
+                      Optimizing the code to handle more complex plant structures, allowing for larger-scale simulations and real-time rendering.
+                    </p>
+                  </div>
+                  
             </div>
 
-            <button class="collapsible"><h3>Project Timeline</h3></button>
+            <button class="collapsible">
+                <h3>Timeline</h3>
+            </button>
             <div class="content">
-                <p>Timeline content goes here...</p>
-            </div>
+                <div id="timeline">
+                    <div class="dot" id="developer">
+                        <span></span>
+                        <date>2024</date>
+                    </div>
+                    <div class="dot" id="support">
+                        <span></span>
+                        <date>2023</date>
+                    </div>
+                    <div class="dot" id="tutor">
+                        <span></span>
+                        <date>2022</date>
+                    </div>
+                    <div class="dot" id="ambassador">
+                        <span></span>
+                        <date>2021</date>
+                    </div>
+                    <div class="inside"></div>
+                </div>
+            
+                <article class="modal developer">
+                    <date>2024 - Developer (Protégé)</date>
+                    <h2>Software Developer</h2>
+                    <ul>
+                        <li>Utilized <strong>iReport</strong> to create and customize reports integrated with JasperReports.</li>
+                        <li>Debugged and resolved complex issues in Java and SQL.</li>
+                        <li>Collaborated with senior developers and system analysts to deliver solutions.</li>
+                    </ul>
+                </article>
+            
+                <article class="modal support">
+                    <date>2023 - Application Support</date>
+                    <h2>Application Support Engineer</h2>
+                    <ul>
+                        <li>Prepared integration setups for new business initiatives.</li>
+                        <li>Maintained business continuity through end-to-end support.</li>
+                        <li>Facilitated deployments and resolved production incidents.</li>
+                    </ul>
+                </article>
+            
+                <article class="modal tutor">
+                    <date>2022 - Tutor</date>
+                    <h2>Private Tutor</h2>
+                    <ul>
+                        <li>Conducted weekly sessions for Computer Science and Mathematics.</li>
+                        <li>Personalized lessons to individual learning styles.</li>
+                    </ul>
+                </article>
+            
+                <article class="modal ambassador">
+                    <date>2021 - STEM Outreach</date>
+                    <h2>Ambassador</h2>
+                    <ul>
+                        <li>Guided high school students in hands-on Python labs.</li>
+                        <li>Adapted Java/C# knowledge for effective Python teaching.</li>
+                    </ul>
+                </article>
+                <script>
+                    $(document).ready(function () {
+                        $(".dot").click(function () {
+                          $(".dot").removeClass("active"); // Remove active class from all dots
+                          $(this).addClass("active"); // Add active class to the clicked dot
+                      
+                          const id = $(this).attr("id");
+                          $(".modal").removeClass("active"); // Hide all modals
+                          $(`.modal.${id}`).addClass("active"); // Show the corresponding modal
+                        });
+                      });
+                      
+                    
+                </script>
 
             <button class="collapsible"><h3>References</h3></button>
             <div class="content">

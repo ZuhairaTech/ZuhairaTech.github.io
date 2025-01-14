@@ -437,3 +437,46 @@ details ul {
 details ul li {
   margin-bottom: 10px;
 }
+
+#writingsection a {
+  display: inline-block;
+  text-decoration: none; /* Remove default underline */
+  color: #7a748c; /* Default link color */
+  font-weight: bold; /* Make the text stand out */
+  font-size: 1rem; /* Adjust font size */
+  padding: 5px 10px; /* Add some padding */
+  border: 2px solid transparent; /* Border for hover effect */
+  border-radius: 5px; /* Rounded edges for smoother appearance */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+#writingsection a:hover {
+  color: #7a748c; /* Change text color on hover */
+  background-color: #d8ccca; /* Add background color */
+  border-color: #d8ccca; /* Match border color with background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+}
+
+.project-point {
+  margin-bottom: 15px;
+}
+
+.project-heading {
+  color: #333; /* Garden-inspired green */
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 1.0rem;
+  font-weight: bold;
+}
+
+.project-description {
+  margin: 5px 0 0 25px; /* Slight indent for better visual hierarchy */
+  font-size: 1rem;
+  color: #333; /* Neutral text color for readability */
+  line-height: 1.6;
+}
+
+.project-heading::before {
+  margin-right: 8px;
+}
