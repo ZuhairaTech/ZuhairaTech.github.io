@@ -168,6 +168,12 @@ td a:hover {
 .card:hover {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
 
 /* Image Styling */
 .card img {
@@ -240,10 +246,35 @@ td a:hover {
 }
 
 
+/* Overview projects */
+#overview {
+  padding: 50px 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+  background-color: #c6bbb9;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#overview h2 {
+  color: #222f3e;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Card container for responsive layout */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
 
 /************************************
 * Reusable button
 ************************************/
+
 .btn {
   display: flex;
   flex-wrap: wrap;
@@ -265,6 +296,8 @@ td a:hover {
   transition: transform 0.3s ease, background-color 0.3s ease;
   font-weight: bold;
 }
+
+
 
 .btn a:hover {
   background-color: #21242b; /* Slightly darker shade on hover */
@@ -330,7 +363,7 @@ article.modal strong {
   color: #21242b; /* Bright text for emphasis */
 }
 
-#writingsection a {
+p a {
   display: inline-block;
   text-decoration: none; /* Remove default underline */
   color: #7a748c; /* Default link color */
@@ -342,7 +375,7 @@ article.modal strong {
   transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
 }
 
-#writingsection a:hover {
+p a:hover {
   color: #7a748c; /* Change text color on hover */
   background-color: #d8ccca; /* Add background color */
   border-color: #d8ccca; /* Match border color with background */

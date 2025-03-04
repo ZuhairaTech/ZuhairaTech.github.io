@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projects Overview</title>
+        <link rel="stylesheet" type="text/css" href="../css/form.css" />
+        <link rel="stylesheet" type="text/css" href="../css/mainstyles.css" />
+        <link rel="stylesheet" type="text/css" href="../css/listing.css" />
+        <link rel="stylesheet" type="text/css" href="../css/card.css" />
+        <link rel="stylesheet" type="text/css" href="../css/projects.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    </head>
+    <body>
+        <nav id="myNav" class="nav">
+            <img src="../images/logowhite.png" alt="Avatar" class="avatar" >
+            <script>
+                document.querySelector("#myNav img").addEventListener("click", function() {
+                    window.location.href = "../index.html";
+                });
+            </script>
+            <script>
+                function burgernav() {
+                var x = document.getElementById("myNav");
+                if (x.classList.contains("responsive")) {
+                    x.classList.remove("responsive");
+                } else {
+                    x.classList.add("responsive");
+                }
+            }
+    
+            function activateNav(event) {
+                var navLinks = document.querySelectorAll('#myNav a');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                event.currentTarget.classList.add('active');
+            }
+    
+            var navLinks = document.querySelectorAll('#myNav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', activateNav);
+            });
+            </script>
+            <a href="javascript:void(0);" class="iconburger" onclick="burgernav()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="projectsmain.html">Overview</a>
+            <a href="projects/gardenPlanning.html">Garden Planning</a>
+            <a href="projects/hackcessible.html">Hackcessible</a>
+            <a href="projects/viridis.html">Viridis</a>
+        </nav>
+        
+        <section id="overview">
+            <h2>Project Overview</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="../images/gardenplanning.png" alt="Garden Planning">
+                    <figcaption class="card-caption">
+                        <h5>Garden Planning</h5>
+                        <p class="card-description">
+                            A comprehensive garden planning tool developed as part of my dissertation project.
+                        </p>
+                        <a href="projects/gardenPlanning.html" class="card-button">Read more</a>
+                    </figcaption>
+                </div>
+        
+                <div class="card">
+                    <img src="../images/dmdhackcessible.jpg" alt="Hackcessible">
+                    <figcaption class="card-caption">
+                        <h5>Hackcessible</h5>
+                        <p class="card-description">
+                            Assistive technology project designed to improve accessibility for individuals with disabilities.
+                        </p>
+                        <a href="projects/hackcessible.html" class="card-button">Read more</a>
+                    </figcaption>
+                </div>
+        
+                <div class="card">
+                    <img src="../images/viridis.jpg" alt="Viridis">
+                    <figcaption class="card-caption">
+                        <h5>Viridis</h5>
+                        <p class="card-description">
+                            A predictive analysis tool for environmental data and sustainable resource planning.
+                        </p>
+                        <a href="projects/viridis.html" class="card-button">Read more</a>
+                    </figcaption>
+                </div>
+            </div>
+        </section>
+        
+    </body>
+
+</html>
