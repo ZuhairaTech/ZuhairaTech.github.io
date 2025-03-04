@@ -284,48 +284,8 @@ td a:hover {
   color: #c6bbb9; /* Lighten icon color on hover */
 }
 
-
-
-/* test - replace details for experience */
-#timeline {
-  position: relative;
-  height: 10px;
-  background-color: #d3d3d3;
-  margin: 50px 0;
-}
-.dot {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #4c1e3c; /* Default burgundy button background */
-  position: absolute;
-  top: -15px;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-.dot:hover {
-  transform: scale(1.2);
-}
-
-.dot.active {
-  background-color: #d69ab3 ; /* Highlight color when clicked */
-}
-
-.dot span {
-  display: block;
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  border-radius: 50%;
-  margin: 10px auto;
-}
-.dot:nth-child(1) { left: 20%; }
-.dot:nth-child(2) { left: 40%; }
-.dot:nth-child(3) { left: 60%; }
-.dot:nth-child(4) { left: 80%; }
 article.modal {
-  display: none;
+  /* display: none; */
   position: relative;
   max-width: 800px;
   background-color: #21242b ;
@@ -339,20 +299,22 @@ article.modal.active {
 }
 
 article.modal h2 {
-  color: #c6bbb9; /* Bright text color for headings */
-  font-size: 1.5rem; /* Adjust heading size */
+  color: #21242b; /* Bright text color for headings */
+  font-size: 1.0rem; /* Adjust heading size */
   margin-bottom: 10px;
   text-transform: uppercase; /* Optional: Make the heading text uppercase */
 }
 
 article.modal ul li {
-  background-color: #21242b ;
-  color: #c6bbb9; /* Ensure lists and list items use the bright text color */
+  background-color: #c6bbb9;
+  color: #21242b; /* Ensure lists and list items use the bright text color */
+  margin: -5px;
+  padding-left: 15px;
 }
 
 article.modal {
-  background-color: #21242b; 
-  color: #c6bbb9; 
+  background-color: #c6bbb9; 
+  color:#21242b ; 
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -365,77 +327,7 @@ article.modal date {
 }
 
 article.modal strong {
-  color: #c6bbb9; /* Bright text for emphasis */
-}
-
-
-
-/* Details Element */
-details {
-  background-color: #c6bbb9;
-  color: #333;
-  border-radius: 5px;
-  text-decoration: none;
-  padding: 0px 10px 10px 10px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-details:hover {
-  background-color: #e1e1e1;
-  transform: scale(1.02);
-}
-
-details > summary {
-  list-style-type: none;
-  outline: none;
-  cursor: pointer;
-  border: 0px solid #eee;
-  padding: 5px;
-  border-radius: 50%;
-}
-
-details > summary::-webkit-details-marker {
-  display: none;
-}
-
-.developer-protege > summary::before {
-  content: 'Software Developer (Protégé) - HeiTech Padu Berhad';
-}
-
-.support > summary::before {
-  content: 'Application Support Engineer - MobilityOne Sdn Bhd';
-}
-
-.tutor > summary::before {
-  content: 'Mathematics and Computer Science Tutor - Frenztalk';
-}
-
-.ambassador > summary::before {
-  content: 'STEM Ambassador - University of Sheffield';
-}
-
-details[open]:hover {
-  background-color: #d8ccca;
-  cursor: pointer;
-}
-
-details[open] {
-  background-color: #d8ccca;
-  cursor: pointer;
-  border-color: #c6bbb9;
-}
-
-details:hover{
-  cursor: pointer;
-}
-
-details ul {
-  background-color: #c6bbb9;
-  padding: 10px 5px 10px 10px;
-}
-
-details ul li {
-  margin-bottom: 10px;
+  color: #21242b; /* Bright text for emphasis */
 }
 
 #writingsection a {
