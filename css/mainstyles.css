@@ -6,13 +6,31 @@
 /************************************
  * Global Styles
  ************************************/
-body {
+/* body {
     line-height: 1.6;
-    font-family: 'El Messiri', sans-serif;
     background-color: #1c1026;
+} */
+body {
     color: #333;
     margin: 0;
     padding: 0;
+    font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+    
+    -webkit-animation: bg-scrolling-reverse 10s infinite linear;
+    -moz-animation:    bg-scrolling-reverse 10s infinite linear;
+    -o-animation:      bg-scrolling-reverse 10s infinite linear;
+    animation:         bg-scrolling-reverse 10s infinite linear;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function:    linear;
+    -o-animation-timing-function:      linear;
+    animation-timing-function:         linear;
+    
+  }
+  @keyframes bg-scrolling-reverse {
+    0% { background-position: 0 0; }
+    50% { background-position: 10px 10px; } /* Slight movement */
+    100% { background-position: 0 0; }
 }
 
 h1, h2 {
@@ -34,6 +52,74 @@ ul li {
     margin-top: 20px;
 }
 
+p a {
+    display: inline-block;
+    text-decoration: none; 
+    color: #7a748c; 
+    font-weight: bold; 
+    font-size: 1rem; 
+    padding: 5px 10px; 
+    border: 2px solid transparent; 
+    border-radius: 5px; 
+    transition: all 0.3s ease-in-out; 
+}
+
+p a:hover {
+    color: #7a748c;
+    background-color: #d8ccca; 
+    border-color: #d8ccca;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+/************************************
+ * Article Styles
+ ************************************/
+article.modal {
+    /* display: none; */
+    position: relative;
+    max-width: 800px;
+    background-color: #21242b ;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  article.modal.active {
+    display: block;
+  }
+  
+  article.modal h2 {
+    color: #21242b;
+    font-size: 1.0rem; 
+    margin-bottom: 10px;
+    text-transform: uppercase; 
+  }
+  
+  article.modal ul li {
+    background-color: #c6bbb9;
+    color: #21242b; 
+    margin: -5px;
+    padding-left: 15px;
+  }
+  
+  article.modal {
+    background-color: #c6bbb9; 
+    color:#21242b ; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  article.modal date {
+    display: block;
+    font-style: italic;
+    color: #7a748c; 
+  }
+  
+  article.modal strong {
+    color: #21242b;
+  }
+  
 /************************************
  * Navigation Styles
  ************************************/
@@ -163,23 +249,7 @@ section {
     border-radius: 10px;
 }
 
-/************************************
- * Button Styles
- ************************************/
-.button {
-    display: inline-block;
-    background-color: #c6bbb9;
-    color: #333;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
 
-.button:hover {
-    background-color: #d8ccca;
-}
 
 /************************************
  * Media Queries
@@ -233,3 +303,38 @@ section {
         padding-left: 10%;
     }
 }
+
+/* Cool infinite background scrolling animation.
+ * Twitter: @kootoopas
+ */
+
+/* Exo thin font from Google. */
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+
+/* Animations */
+@-webkit-keyframes bg-scrolling-reverse {
+  100% { background-position: 50px 50px; }
+}
+@-moz-keyframes    bg-scrolling-reverse {
+  100% { background-position: 50px 50px; }
+}
+@-o-keyframes      bg-scrolling-reverse {
+  100% { background-position: 50px 50px; }
+}
+@keyframes         bg-scrolling-reverse {
+  100% { background-position: 50px 50px; }
+}
+
+@-webkit-keyframes bg-scrolling {
+  0% { background-position: 50px 50px; }
+}
+@-moz-keyframes    bg-scrolling {
+  0% { background-position: 50px 50px; }
+}
+@-o-keyframes      bg-scrolling {
+  0% { background-position: 50px 50px; }
+}
+@keyframes         bg-scrolling {
+  0% { background-position: 50px 50px; }
+}
+
