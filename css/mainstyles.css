@@ -1,5 +1,7 @@
 /* #1c1026 #c6bbb9 #4c1e3c #21242b #7a748c */
-
+* {
+    cursor: none !important; /* Hides all default cursors */
+}
 /* Import Font */
 @import url('https://fonts.googleapis.com/css?family=El+Messiri');
 
@@ -14,6 +16,7 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
+    cursor: none;
     font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
     
@@ -31,6 +34,29 @@ body {
     0% { background-position: 0 0; }
     50% { background-position: 10px 10px; } /* Slight movement */
     100% { background-position: 0 0; }
+}
+
+.ink-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: rgba(76, 30, 60, 0.8); /* Use your theme color #4c1e3c */
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    transition: transform 0.15s ease-out, opacity 0.2s;
+    z-index: 9999; /* Ensure it's on top */
+    left: 0;
+    top: 0;
+    transform: translate(-10px, -10px); /* Fine-tune offset */
+}
+.ink-light { background: rgba(198, 187, 185, 0.8); } /* #c6bbb9 */
+.ink-dark { background: rgba(28, 16, 38, 0.8); } /* #1c1026 */
+.ink-button { background: rgba(122, 116, 140, 0.8); } /* #7a748c */
+
+.ink-cursor.expand {
+    transform: scale(2); /* Expands on click */
+    opacity: 0;
 }
 
 h1, h2 {
@@ -141,6 +167,7 @@ nav a {
     margin: 10px 0;
     text-decoration: none;
     color: #7a748c;
+    transition: color 0.3s ease-in-out;
     font-weight: bold;
     width: 100%;
     padding: 10px;
@@ -149,9 +176,9 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #d8ccca;
     border-radius: 5px;
     transform: scale(1.02);
+    color: #c6bbb9;
 }
 
 nav a:active {
@@ -168,7 +195,7 @@ nav a:active {
 }
 
 #myNav .avatar {
-    cursor: pointer;
+    /* cursor: pointer; */
     
 }
 
@@ -192,7 +219,8 @@ nav a:active {
     width: 100px;
     height: 100px;
     border-radius: 10%;
-    cursor: pointer; /* Makes it clear that the avatar is clickable */
+    /* cursor: pointer;  */
+    transition: opacity 0.3s ease-in-out;
 }
 
 .business-card {
@@ -234,7 +262,7 @@ nav a:active {
     background: none;
     border: none;
     font-size: 1.5rem;
-    cursor: pointer;
+    cursor: none;
     color: #333;
 }
 

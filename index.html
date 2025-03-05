@@ -14,7 +14,8 @@
 </head>
 
 <body>
-    
+    <div class="ink-cursor"></div>
+
     <div class="vertical-social-icons">
         <a href="mailto:zuhairanasrin.zakaria@gmail.com" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
         <a href="http://www.linkedin.com/in/zuhaira-nasrin-zakaria/" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i></a>
@@ -27,8 +28,39 @@
     <!-- Navigation -->
     <nav id="myNav" class="nav">
 
-        <img src="images/logoblack.png" alt="Avatar" class="avatar" >
+        <img src="images/logopurple.png" alt="Avatar" class="avatar" id="logo">
+    
         <script>
+            const cursor = document.querySelector(".ink-cursor");
+
+            document.addEventListener("mousemove", (e) => {
+                cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            });
+
+            document.addEventListener("mousedown", () => {
+                cursor.style.transform += " scale(2)";
+                setTimeout(() => cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px) scale(1)`, 150);
+            });
+
+            const logo = document.getElementById("logo");
+
+            logo.addEventListener("mouseenter", function() {
+                this.style.opacity = "0"; 
+                setTimeout(() => {
+                    this.src = "images/logolightpurple.png"; 
+                    this.style.opacity = "1"; 
+                }, 300); // Delay should match the transition duration (0.3s)
+            });
+
+            logo.addEventListener("mouseleave", function() {
+                this.style.opacity = "0"; 
+                setTimeout(() => {
+                    this.src = "images/logopurple.png"; 
+                    this.style.opacity = "1"; // Fade in
+                }, 300);
+            });
+
+
             document.querySelector("#myNav img").addEventListener("click", function() {
                 window.location.href = "index.html";
             });

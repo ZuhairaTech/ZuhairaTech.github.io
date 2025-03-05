@@ -14,9 +14,47 @@
 
     </head>
     <body>
+        <div class="ink-cursor"></div>
+        <div class="vertical-social-icons">
+            <a href="mailto:zuhairanasrin.zakaria@gmail.com" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+            <a href="http://www.linkedin.com/in/zuhaira-nasrin-zakaria/" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i></a>
+            <a href="https://medium.com/@zuhairanasrin.zakaria" target="_blank"><i class="fa fa-fw fa-medium"></i></a>
+            <a href="https://www.hackerrank.com/profile/zuhairanasrin77" target="_blank"><i class="fa fa-fw fa-code"></i></a>
+            <a href="https://github.com/ZuhairaTech/" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+            <a href="https://bloomopine.blogspot.com/" target="_blank"><i class="fa fa-fw fa-leaf"></i></a>
+        </div>
+        
         <nav id="myNav" class="nav">
-            <img src="../images/logoblack.png" alt="Avatar" class="avatar" >
+            <img src="../images/logopurple.png" alt="Avatar" class="avatar" id="logo" >
             <script>
+                const cursor = document.querySelector(".ink-cursor");
+            
+                document.addEventListener("mousemove", (e) => {
+                    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+                });
+
+                document.addEventListener("mousedown", () => {
+                    cursor.style.transform += " scale(2)";
+                    setTimeout(() => cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px) scale(1)`, 150);
+                });
+
+                const logo = document.getElementById("logo");
+
+                logo.addEventListener("mouseenter", function() {
+                    this.style.opacity = "0"; // Fade out
+                    setTimeout(() => {
+                        this.src = "../images/logolightpurple.png"; // Change image
+                        this.style.opacity = "1"; // Fade in
+                    }, 300); // Delay should match the transition duration (0.3s)
+                });
+
+                logo.addEventListener("mouseleave", function() {
+                    this.style.opacity = "0"; // Fade out
+                    setTimeout(() => {
+                        this.src = "../images/logopurple.png"; // Revert image
+                        this.style.opacity = "1"; // Fade in
+                    }, 300);
+                });
                 document.querySelector("#myNav img").addEventListener("click", function() {
                     window.location.href = "../index.html";
                 });

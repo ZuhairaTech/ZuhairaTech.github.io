@@ -135,7 +135,7 @@ td a:hover {
   color: white;
   border: none;
   padding: 12px;
-  cursor: pointer;
+  /* cursor: pointer; */
   z-index: 10;
   border-radius: 50%;
   transition: all 0.3s ease-in-out;
@@ -311,6 +311,17 @@ td a:hover {
   gap: 15px;
 }
 
+.button:hover, a:hover, input:hover , .btn:hover{
+  cursor: none; /* Make sure default cursor never appears */
+}
+
+.button:hover ~ .ink-cursor,
+.a:hover ~ .ink-cursor,
+.input:hover ~ .ink-cursor,
+.btn:hover ~ .ink-cursor {
+  background: rgba(122, 116, 140, 0.9); /* Change color on hover */
+}
+
 .btn a {
   display: flex;
   align-items: center;
@@ -358,7 +369,7 @@ td a:hover {
 .vertical-social-icons a {
   text-decoration: none;
   font-size: 24px;
-  color: #7a748c; /* Adjust color */
+  color: #7a748c;
   transition: color 0.3s ease-in-out;
 }
 
