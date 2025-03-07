@@ -289,10 +289,13 @@ section {
     transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
 }
 
-#overview,
-#projectscreen { 
+#overview { 
     opacity: 1;
     visibility:visible;
+}
+
+.hidden {
+    display: none;
 }
 
 section.active {
