@@ -92,12 +92,48 @@
         <a href="javascript:void(0);" class="iconburger" onclick="burgernav()">
             <i class="fa fa-bars"></i>
         </a>
-        <a href="#about">About</a>
-        <a href="#experience">Experiences</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" class="nav-link" data-target="about">About</a>
+        <a href="#experience" class="nav-link" data-target="experience">Experience</a>
+        <a href="#skills" class="nav-link" data-target="skills">Skills</a>
+        <a href="#projects" class="nav-link" data-target="projects">Projects</a>
+        <a href="#education" class="nav-link" data-target="education">Education</a>
+        <a href="#contact" class="nav-link" data-target="contact">Contact</a>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            const navLinks = document.querySelectorAll(".nav-link");
+            const sections = document.querySelectorAll("section");
+
+            function showSection(targetId) {
+                // Hide all sections
+                sections.forEach(section => {
+                    section.style.opacity = "0";
+                    setTimeout(() => {
+                        section.classList.remove("active");
+                    }, 300); // Match transition duration
+                });
+
+                // Show the selected section after a short delay
+                setTimeout(() => {
+                    const targetSection = document.getElementById(targetId);
+                    targetSection.classList.add("active");
+                    targetSection.style.opacity = "1";
+                }, 300);
+            }
+
+            // Add click event listeners to nav links
+            navLinks.forEach(link => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault(); // Prevent default anchor behavior
+                    const targetId = this.getAttribute("data-target");
+                    showSection(targetId);
+                });
+            });
+
+            // Show the first section by default (optional)
+            showSection("about");
+        });
+
+        </script>
     </nav>
 
     <!-- About Section -->
@@ -118,7 +154,7 @@
     <!-- Experience Section -->
     <section id="experience">
 
-        <h2>Experiences</h2>
+        <h2>Experience</h2>
     
         <article class="modal developer">
             <date>2024 - Developer (Protégé)</date>
@@ -185,9 +221,41 @@
 
             function moveTooltip(event) {
                 const tooltip = event.currentTarget.querySelector('.tooltip');
-                tooltip.style.left = event.pageX + 10 + 'px'; // 10px offset to avoid covering the cursor
-                tooltip.style.top = event.pageY + 10 + 'px';  // 10px offset
+                const offsetX = -350; // Adjust as needed
+                const offsetY = -50;  // Adjust as needed
+
+                let leftPosition = event.clientX + offsetX;
+                let topPosition = event.clientY + window.scrollY + offsetY; // Adjust for scrolling
+
+                // Ensure tooltip stays within screen boundaries
+                const screenWidth = window.innerWidth;
+                const screenHeight = window.innerHeight;
+
+                // Prevent going off the left side
+                if (leftPosition < 10) {
+                    leftPosition = 10;
+                }
+
+                // Prevent going off the right side
+                if (leftPosition + tooltip.offsetWidth > screenWidth) {
+                    leftPosition = screenWidth - tooltip.offsetWidth - 10;
+                }
+
+                // Prevent going off the top
+                if (topPosition < 10 + window.scrollY) {
+                    topPosition = 10 + window.scrollY;
+                }
+
+                // Prevent going off the bottom
+                if (topPosition + tooltip.offsetHeight > window.scrollY + screenHeight) {
+                    topPosition = window.scrollY + screenHeight - tooltip.offsetHeight - 10;
+                }
+
+                tooltip.style.left = `${leftPosition}px`;
+                tooltip.style.top = `${topPosition}px`;
             }
+
+
 
             function hideTooltip() {
                 const tooltips = document.querySelectorAll('.tooltip');
@@ -292,17 +360,6 @@
             </tr>
         </table>
 
-    
-
-
-        <h3>Soft Skills</h3>
-        <div class="softskills">
-            <p>Effective time management</p>
-            <p>Adaptability</p>
-            <p>Reliability and Commitment</p>
-            <p>Problem-Solving and Communication</p>
-        </div>
-
         <h3>Language proficiency</h3>
       
         <table>
@@ -343,6 +400,17 @@
                 </td>
             </tr>
         </table>    
+
+
+        <h3>Soft Skills</h3>
+        <div class="softskills">
+            <p>Effective time management</p>
+            <p>Adaptability</p>
+            <p>Reliability and Commitment</p>
+            <p>Problem-Solving and Communication</p>
+        </div>
+
+ 
     </section>
 
     <section id="projects">

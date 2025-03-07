@@ -108,70 +108,49 @@
                 "Blending computational algorithms with nature's intricate design."
             </blockquote>
 
-            <div class="carousel">
-                <button class="arrow left-arrow"><i class="fa fa-arrow-left"></i></button>
-                <div class="projects-container">
-                    <div class="card">
-                        <img src="../../images/gardenplanning.png" alt="Garden Planning Add-on">
-                        <figcaption class="card-caption">
-                            <p class="card-description">
-                                A close-up view of a sunflower and baby's breath simulated in Blender using randomized growth patterns.
-                            </p>
-                        </figcaption>
-                    </div>
-                    <div class="card">
-                        <img src="../../images/growthrule.png" alt="Sunflower and Baby's Breath Growth">
-                        <figcaption class="card-caption">
-                            <p class="card-description">
-                                The initial stages of growth, with randomized branching based on L-systems.
-                            </p>
-                        </figcaption>
-                    </div>
-                    <div class="card">
-                        <img src="../../images/growthrule1.png" alt="Sunflower and Baby's Breath Growth">
-                        <figcaption class="card-caption">
-                            <p class="card-description">
-                                Further development of sunflower and baby's breath with increased branching.
-                            </p>
-                        </figcaption>
-                    </div>
-                    <div class="card">
-                        <img src="../../images/growthrule2.png" alt="Sunflower and Baby's Breath Growth">
-                        <figcaption class="card-caption">
-                            <p class="card-description">
-                                Third stage of growth, with more complexity in plant structure.
-                            </p>
-                        </figcaption>
-                    </div>
-                    <div class="card">
-                        <img src="../../images/iteration.png" alt="L-System Rules">
-                        <figcaption class="card-caption">
-                            <p class="card-description">
-                                Applying L-system rules to generate complex branching patterns, not limited to specific plants.
-                            </p>
-                        </figcaption>
-                    </div>
-                </div>
-                <button class="arrow right-arrow"><i class="fa fa-arrow-right"></i></button>
-                <script>
-                    document.addEventListener("DOMContentLoaded", () => {
-                        const container = document.querySelector(".projects-container");
-                        const leftArrow = document.querySelector(".left-arrow");
-                        const rightArrow = document.querySelector(".right-arrow");
-                        const scrollAmount = 220; // Card width (300px) + gap (20px)
-                      
-                        // Scroll right
-                        rightArrow.addEventListener("click", () => {
-                          container.scrollLeft += scrollAmount;
-                        });
-                      
-                        // Scroll left
-                        leftArrow.addEventListener("click", () => {
-                          container.scrollLeft -= scrollAmount;
-                        });
-                      });
-                </script>
-            </div>
+            <div class="projects-showcase">
+              <div class="project-card">
+                  <img src="../../images/gardenplanning.png" alt="Garden Planning Add-on">
+                  <figcaption>
+                      <p>
+                          A close-up view of a sunflower and baby's breath simulated in Blender using randomized growth patterns.
+                      </p>
+                  </figcaption>
+              </div>
+              <div class="project-card">
+                  <img src="../../images/growthrule.png" alt="Sunflower and Baby's Breath Growth">
+                  <figcaption>
+                      <p>
+                          The initial stages of growth, with randomized branching based on L-systems.
+                      </p>
+                  </figcaption>
+              </div>
+              <div class="project-card">
+                  <img src="../../images/growthrule1.png" alt="Sunflower and Baby's Breath Growth">
+                  <figcaption>
+                      <p>
+                          Further development of sunflower and baby's breath with increased branching.
+                      </p>
+                  </figcaption>
+              </div>
+              <div class="project-card">
+                  <img src="../../images/growthrule2.png" alt="Sunflower and Baby's Breath Growth">
+                  <figcaption>
+                      <p>
+                          Third stage of growth, with more complexity in plant structure.
+                      </p>
+                  </figcaption>
+              </div>
+              <div class="project-card">
+                  <img src="../../images/iteration.png" alt="L-System Rules">
+                  <figcaption>
+                      <p>
+                          Applying L-system rules to generate complex branching patterns, not limited to specific plants.
+                      </p>
+                  </figcaption>
+              </div>
+          </div>
+          
 
             <div id="writingsection">
             <button class="collapsible"><h3>Methodology</h3></button>

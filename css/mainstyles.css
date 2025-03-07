@@ -12,6 +12,12 @@
     line-height: 1.6;
     background-color: #1c1026;
 } */
+
+html, body {
+    overflow: hidden; /* Disable main scrollbar */
+    height: 100vh; /* Ensure body does not exceed viewport */
+}
+
 body {
     color: #333;
     margin: 0;
@@ -182,21 +188,16 @@ nav a:hover {
 }
 
 nav a:active {
-    background-color: #333;
+    background-color: #33333300;
     border-radius: 5px;
 }
 
 #myNav a.active {
     background-color: #c6bbb9;
-    color: #1c1026;
+    color: #1c102600;
     font-weight: bold;
     border-radius: 5px;
     padding: 10px;
-}
-
-#myNav .avatar {
-    /* cursor: pointer; */
-    
 }
 
 .nav .iconburger {
@@ -270,14 +271,68 @@ nav a:active {
  * Section Styles
  ************************************/
 section {
+    position: absolute; 
+    top: 0;
+    left: 25%;
+    padding: 50px 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    width: 100vw; /* Force full viewport width */
+    height: 80vh; /* Full viewport height */
+    background: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #c6bbb9;
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+}
+
+#overview,
+#projectscreen { 
+    opacity: 1;
+    visibility:visible;
+}
+
+section.active {
     padding: 50px 20px;
     margin: 20px auto;
     max-width: 800px;
     background-color: #c6bbb9;
     border-radius: 10px;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out, visibility 0s linear 0s;
 }
 
+/************************************
+ * Scrollbar Styles
+ ************************************/
 
+/* Styling the scrollbar */
+::-webkit-scrollbar {
+    width: 0.9em; /* Adjust width */
+}
+
+/* Track (the background of the scrollbar) */
+::-webkit-scrollbar-track {
+    background: #c4b3aa00; 
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px #c4b3aa;
+}
+
+/* Handle (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+    background: #a0948d75; 
+    border-radius: 10px;
+    border: 2px solid #c4b3aa; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #7c6d65;
+}
 
 /************************************
  * Media Queries
