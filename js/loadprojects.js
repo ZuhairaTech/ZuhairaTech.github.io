@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("../html/sectionsmain.html")
+    fetch("../html/sectionsprojects.html")
         .then(response => response.text())
         .then(data => {
-            document.getElementById("content-container").innerHTML = data;
+            document.getElementById("project-container").innerHTML = data;
 
             // 🟢 Now that sections are loaded, initialize navigation
             handleNavigation();
@@ -12,5 +12,4 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Error loading sections:", error));
 });
-
 

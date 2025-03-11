@@ -103,6 +103,40 @@ p a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
+.see-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px; /* Spacing between icon and text */
+    text-decoration: none;
+    color: #7a748c;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 8px 14px;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+    background: #d8ccca00; /* Soft background */
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Unique Hover Effect */
+.see-more-btn:hover {
+    color: white;
+    background: #7a748c; 
+    border-color: #7a748c;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Smooth icon transition */
+.see-more-btn i {
+    transition: transform 0.3s ease-in-out;
+}
+
+.see-more-btn:hover i {
+    transform: translateX(4px); /* Moves arrow slightly right */
+}
+
 /************************************
  * Article Styles
  ************************************/
@@ -344,49 +378,59 @@ section.active {
     nav {
         width: 100%;
         background-color: #c6bbb9e2;
-
     }
-    #myNav a:not(:first-child) {
+
+    /* Hide all links except the burger icon */
+    #myNav a:not(.iconburger) {
         display: none;
     }
 
+    /* Style the burger icon */
     #myNav a.iconburger {
-        float: none;
-        text-align: left;
-        display: block;
-        margin: 0 auto;
-        width: 30px;
-        height: 30px;
-        border-radius: 5px;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: white;
+        width: 40px;  /* Slightly larger */
+        height: 40px;
+        background-color: #7a748c15;
+        border-radius: 5px;
+        color: #7a748c;
+        font-size: 1.5rem;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1000;
+        cursor: pointer;
     }
 
+    /* Hidden nav by default */
     #myNav {
-        width: 0px;
+        width: 0;
+        overflow: hidden;
+        transition: width 0.3s ease-in-out;
         background-color: #c6bbb900;
-    }
-
-    #myNav.responsive a.iconburger {
         position: fixed;
-        display: block; 
-        top: 16.19%; 
-        right: 94%; 
-        z-index: 9999; 
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 999;
     }
 
+    /* When menu is open */
     #myNav.responsive {
-        position: fixed;
-        width: 100%;
+        width: 70%; /* Set width for side menu */
         background-color: #c6bbb9d9;
+        padding-top: 60px; /* Space for burger */
     }
 
+    /* Show all menu items when expanded */
     #myNav.responsive a {
-        float: none;
         display: block;
-        padding-left: 10%;
+        transition: background 0.2s;
+    }
+
+    #myNav.responsive a:hover {
+        background: rgba(0, 0, 0, 0.1);
     }
 }
 
