@@ -115,15 +115,19 @@ td a:hover {
 
 .projects-container {
   display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  width: calc(200px * 3 + 20px * 3);
+  flex-direction: row;
+  gap: 30px;
   max-width: 100%;
+  padding-left: 60px;
 }
 
 .projects-container::-webkit-scrollbar {
   display: none;
+}
+
+.projects-container a {
+  text-decoration: none;
+  font-weight: bold;
 }
 
 /* Arrows */
@@ -213,122 +217,65 @@ td a:hover {
 .project-card:hover figcaption {
   opacity: 1;
 }
-/************************************
-* Image Card Styles
-************************************/
+
 .card {
-  flex: 0 0 200px;
-  height: 200px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 200px; /* Card width */
+  background: white;
+  border-radius: 12px;
   overflow: hidden;
-  position: relative;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
+  text-decoration: none; 
+  color: inherit;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .card:hover {
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
 }
 
 /* Image Styling */
 .card img {
-  width: 100%;
-  height: 100%;
+  width: 100%; /* Full width */
+  height: 180px;
   object-fit: cover;
-  transition: opacity 0.3s ease, transform 0.6s ease;
 }
 
-.card:hover img {
-  opacity: 0.7;
-  transform: scale(1.1);
-}
-
-/* Caption Styling */
-.card-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+/* Text Section */
+.card-content {
   padding: 15px;
-  background: rgba(0, 0, 0, 0.6); /* Dark background with low opacity */
-  color: white;
-  text-align: left;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
-  box-sizing: border-box;
+  text-align: left; /* Ensures left alignment */
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Adds spacing */
 }
 
-.card:hover .card-caption {
-  transform: translateY(0);  /* Changed from -25% to 0 */
+.card-content h5 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #222;
 }
 
-.card-caption h5 {
+.card-content p {
   margin: 0;
   font-size: 0.9rem;
-  color: #ffffff;
+  color: gray;
+  text-align: left; /* Ensures text is aligned left */
+  background: none; /* Removes unnecessary background */
 }
 
-/* Description Styling */
-.card-caption .card-description {
-  font-size: 0.8rem;
-  color: #ffffff;
-  display: block; /* Ensure it's visible */
-  opacity: 0; /* Initially hidden */
-  transition: opacity 0.3s ease;
-  background-color: rgba(0, 0, 0, 0); 
-  padding: 2px 0; 
-  line-height: 1.3; 
-}
-
-.card:hover .card-caption .card-description {
-  opacity: 1; 
-}
-
-/* Button Styling */
-.card-button {
-  display: inline-block;
-  text-decoration: none;
-  color: white;
-  background-color: #c6bbb9;
-  padding: 10px 15px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease;
-}
-
-.card-button:hover {
-  background-color: #7a748c;
-}
-
-
-/* Overview projects */
-/* #overview {
-  padding: 50px 20px;
-  margin: 20px auto;
-  max-width: 1200px;
-  background-color: #c6bbb9;
-  border-radius: 10px;
+/* Category Box */
+.card-category {
+  background: #d8cccac0;
+  padding: 8px;
+  font-size: 0.85rem;
+  font-weight: bold;
   text-align: center;
-} */
-
-#overview h2 {
-  color: #222f3e;
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-/* Card container for responsive layout */
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  border-radius: 6px;
+  margin-top: 10px;
 }
 
 

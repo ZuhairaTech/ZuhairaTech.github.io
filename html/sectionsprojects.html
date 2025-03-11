@@ -1,38 +1,40 @@
 <section id="overview">
     <h2>Project Overview</h2>
-    <div class="card-container">
-        <div class="card">
-            <img src="images/gardenplanning.png" alt="Garden Planning">
-            <figcaption class="card-caption">
-                <h5>Garden Planning</h5>
-                <p class="card-description">
-                    A comprehensive garden planning tool developed as part of my dissertation project.
-                </p>
-                <a href="#" class="card-button">Read more</a>
-            </figcaption>
-        </div>
-
-        <div class="card">
-            <img src="images/dmdhackcessible.jpg" alt="Hackcessible">
-            <figcaption class="card-caption">
-                <h5>Hackcessible</h5>
-                <p class="card-description">
-                    Assistive technology project designed to improve accessibility for individuals with disabilities.
-                </p>
-                <a href="#" class="card-button">Read more</a>
-            </figcaption>
-        </div>
-
-        <div class="card">
-            <img src="images/viridis.jpg" alt="Viridis">
-            <figcaption class="card-caption">
-                <h5>Viridis</h5>
-                <p class="card-description">
-                    A predictive analysis tool for environmental data and sustainable resource planning.
-                </p>
-                <a href="#" class="card-button">Read more</a>
-            </figcaption>
-        </div>
+    
+    <div class="projects-container">
+        <a href="../projectsmain.html#gardenplanning" alt="">
+            <div class="card">
+                <div class="image-holder">
+                    <img src="../images/gardenplanning.png" alt="Garden Planning">
+                </div>
+                <div class="card-content">
+                    <h5>Garden Planning</h5>
+                    <p class="card-category">Tool</p>
+                </div>
+            </div>
+        </a>
+        <a href="../projectsmain.html#hackcessible" alt="">
+            <div class="card">
+                <div class="image-holder">
+                    <img src="../images/dmdhackcessible.jpg" alt="Drum">
+                </div>
+                <div class="card-content">
+                    <h5>Hackcessible</h5>
+                    <p class="card-category">Team Project</p>
+                </div>
+            </div>
+        </a>
+        <a href="../projectsmain.html#viridis" alt="">
+            <div class="card">
+                <div class="image-holder">
+                    <img src="../images/viridis.jpg" alt="Analytics web">
+                </div>
+                <div class="card-content">
+                    <h5>Viridis</h5>
+                    <p class="card-category">Analytics web</p>
+                </div>
+            </div>
+        </a>
     </div>
 </section> 
 
@@ -365,3 +367,26 @@
     </div>
 </div>
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach((collapsible) => {
+        collapsible.addEventListener("click", function() {
+            this.classList.toggle("active");
+            const content = this.nextElementSibling;
+    
+            if (this.classList.contains("active")) {
+                content.style.transition = "none"; 
+                content.style.maxHeight = content.scrollHeight + "px";
+                setTimeout(() => {
+                    content.style.transition = "max-height 0.3s ease-out"; 
+                }, 10);
+            } else {
+                content.style.maxHeight = "0";
+            }
+        });
+    });
+});
+
+</script>

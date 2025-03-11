@@ -95,18 +95,17 @@ figcaption {
     }
 
     .content {
-        display: block;
-        max-height: 0; 
+        display: none;  /* Default is hidden */
         overflow: hidden;
         background-color: #c6bbb9;
         transition: max-height 0.3s ease-out; 
-    }    
-    
-    .collapsible.active + .content {
-        max-height: 500px; 
     }
     
-
+    /* When active, reveal content */
+    .collapsible.active + .content {
+        display: block;
+    }
+    
     .content ul {
         margin-top: 10px;
     }

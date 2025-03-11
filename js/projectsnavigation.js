@@ -16,7 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
             <a href="https://bloomopine.blogspot.com/" target="_blank"><i class="fa fa-fw fa-leaf"></i></a>
         </div>
         <nav id="myNav" class="nav">
-            <img src="${getImagePath('logopurple.png')}" alt="Avatar" class="avatar" id="logo">
+            <a href="/" id="logo-container">
+                <img src="${getImagePath('logopurple.png')}" alt="Avatar" class="avatar" id="logo">
+            </a>
             <a href="#overview">Overview</a>
             <a href="#viridis">Viridis</a>
             <a href="#hackcessible">Hackcessible</a>
@@ -29,32 +31,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 🟢 Wait for elements to load before adding event listeners
     setTimeout(() => {
-        const logo = document.getElementById("logo");
+        const logoContainer = document.getElementById("logo-container");
 
-        logo.addEventListener("mouseenter", function () {
-            this.style.opacity = "0";
-            setTimeout(() => {
-                this.src = getImagePath("logolightpurple.png");
-                this.style.opacity = "1";
-            }, 300);
-        });
+        function updateLogo() {
+            if (window.innerWidth < 900) {
+                // Change logo to text 'Home'
+                if (!document.getElementById("home-text")) {
+                    logoContainer.innerHTML = '<span id="home-text">Home</span>';
+                }
+            } else {
+                // Restore logo if it was changed
+                if (document.getElementById("home-text")) {
+                    logoContainer.innerHTML = `<img src="${getImagePath('logopurple.png')}" alt="Avatar" class="avatar" id="logo">`;
+                    addHoverEffect();
+                }
+            }
+        }
 
-        logo.addEventListener("mouseleave", function () {
-            this.style.opacity = "0";
-            setTimeout(() => {
-                this.src = getImagePath("logopurple.png");
-                this.style.opacity = "1";
-            }, 300);
-        });
+        function addHoverEffect() {
+            const logo = document.getElementById("logo");
+            if (logo) {
+                logo.addEventListener("mouseenter", function () {
+                    this.style.opacity = "0";
+                    setTimeout(() => {
+                        this.src = getImagePath("logolightpurple.png");
+                        this.style.opacity = "1";
+                    }, 300);
+                });
 
-        logo.addEventListener("click", function () {
-            window.location.href = "/";
-        });        
+                logo.addEventListener("mouseleave", function () {
+                    this.style.opacity = "0";
+                    setTimeout(() => {
+                        this.src = getImagePath("logopurple.png");
+                        this.style.opacity = "1";
+                    }, 300);
+                });
 
-        // 🟢 Fix burger navigation event
-        document.getElementById("burger-menu").addEventListener("click", burgernav);
+                logo.addEventListener("click", function () {
+                    window.location.href = "/";
+                });
+            }
+        }
+
+        // Run on page load & resize
+        updateLogo();
+        window.addEventListener("resize", updateLogo);
     }, 100);
+
+    // 🟢 Fix burger navigation event
+    document.getElementById("burger-menu").addEventListener("click", burgernav);
 });
+
+// 🟢 Burger Menu for Mobile
+function burgernav() {
+    var x = document.getElementById("myNav");
+    x.classList.toggle("responsive");
+}
+
 
 // 🟢 Section Navigation Handling
 function handleNavigation() {
@@ -81,7 +114,7 @@ function handleNavigation() {
     if (hash) {
         showSection(hash);
     } else {
-        showSection("about"); // Default to About section
+        showSection("overview"); 
     }
 }
 
