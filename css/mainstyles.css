@@ -289,7 +289,7 @@ section {
     transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
 }
 
-#overview { 
+#overview, #projectscreen{ 
     opacity: 1;
     visibility:visible;
 }
