@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <a href="https://medium.com/@zuhairanasrin.zakaria" target="_blank"><i class="fa fa-fw fa-medium"></i></a>
             <a href="https://www.hackerrank.com/profile/zuhairanasrin77" target="_blank"><i class="fa fa-fw fa-code"></i></a>
             <a href="https://github.com/ZuhairaTech/" target="_blank"><i class="fa fa-fw fa-github"></i></a>
-            <a href="https://bloomopine.blogspot.com/" target="_blank"><i class="fa fa-fw fa-leaf"></i></a>
+            <a href="https://www.goodreads.com/user/show/188515408-zuhaira" target="_blank"><i class="fa-brands fa-goodreads"></i></a>
         </div>
         <nav id="myNav" class="nav">
             <a href="/" id="logo-container">
@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Restore logo if it was changed
                 if (document.getElementById("home-text")) {
                     logoContainer.innerHTML = `<img src="${getImagePath('logopurple.png')}" alt="Avatar" class="avatar" id="logo">`;
-                    addHoverEffect();
                 }
+                addHoverEffect();
             }
         }
 
