@@ -6,11 +6,63 @@
 
 <body>
     <div class="ink-cursor"></div>
-    <div id="header-container"></div>
-    <div id="content-container"></div> <!-- Placeholder for sections -->
+
+    <div id="landing-container" class="fade show" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div id="landing">
+            <h1 class="name-brand">Zuhaira Nasrin Zakaria</h1>
+            <p>"I fix bugs and try things until they work" - a Dev in Progress
+            </p>
+            <button id="enter-site">Enter</button>
+        </div>
+    </div>
+
+    <div id="header-container" class="fade" ></div>
+    <div id="content-container" class="fade" ></div>
+
     <script src="js/navigation.js"></script>
     <script src="js/cursor.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/loadsections.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const landing = document.getElementById('landing-container');
+        const header = document.getElementById('header-container');
+        const content = document.getElementById('content-container');
+
+        // If user already entered, skip landing
+        if (sessionStorage.getItem('enteredSite')) {
+            landing.style.display = 'none';
+            header.classList.add('show');
+            content.classList.add('show');
+
+            const script = document.createElement('script');
+            script.src = 'js/loadsections.js';
+            document.body.appendChild(script);
+            return;
+        }
+
+            // Otherwise, wait for user to click "Enter"
+            const enterBtn = document.getElementById('enter-site');
+            enterBtn.addEventListener('click', function () {
+                // Save entry flag in sessionStorage
+                sessionStorage.setItem('enteredSite', 'true');
+
+                // Fade out landing
+                landing.classList.remove('show');
+
+                setTimeout(() => {
+                    landing.style.display = 'none';
+                    header.classList.add('show');
+                    content.classList.add('show');
+
+                    const script = document.createElement('script');
+                    script.src = 'js/loadsections.js';
+                    document.body.appendChild(script);
+                }, 600); // match transition duration
+            });
+        });
+
+    </script>
 </body>
 </html>

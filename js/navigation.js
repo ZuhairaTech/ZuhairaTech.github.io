@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
         <nav id="myNav" class="nav">
-            <a href="/" id="logo-container">
+            <a href="/#about" id="logo-container">
                 <img src="${getImagePath('logopurple.png')}" alt="Avatar" class="avatar" id="logo">
             </a>
             <a href="#about">About</a>
