@@ -8,13 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // 🟢 Load Navigation Bar
     document.getElementById("header-container").innerHTML = `
         <div class="vertical-social-icons">
-            <a href="mailto:zuhairanasrin.zakaria@gmail.com" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
-            <a href="http://www.linkedin.com/in/zuhaira-nasrin-zakaria/" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i></a>
-            <a href="https://medium.com/@zuhairanasrin.zakaria" target="_blank"><i class="fa fa-fw fa-medium"></i></a>
-            <a href="https://www.hackerrank.com/profile/zuhairanasrin77" target="_blank"><i class="fa fa-fw fa-code"></i></a>
-            <a href="https://github.com/ZuhairaTech/" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+            <a href="mailto:zuhairanasrin.zakaria@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+            <a href="http://www.linkedin.com/in/zuhaira-nasrin-zakaria/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://medium.com/@zuhairanasrin.zakaria" target="_blank"><i class="fa-brands fa-medium"></i></a>
+            <a href="https://www.hackerrank.com/profile/zuhairanasrin77" target="_blank"><i class="fa-solid fa-code"></i></a>
+            <a href="https://github.com/ZuhairaTech/" target="_blank"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.goodreads.com/user/show/188515408-zuhaira" target="_blank"><i class="fa-brands fa-goodreads"></i></a>
         </div>
+        
         <nav id="myNav" class="nav">
             <a href="/" id="logo-container">
                 <img src="${getImagePath('logopurple.png')}" alt="Avatar" class="avatar" id="logo">

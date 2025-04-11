@@ -2,8 +2,6 @@
 * {
     cursor: none !important; /* Hides all default cursors */
 }
-/* Import Font */
-@import url('https://fonts.googleapis.com/css?family=El+Messiri');
 
 /************************************
  * Global Styles
@@ -13,6 +11,20 @@
     background-color: #1c1026;
 } */
 
+/* Change text selection background and text color */
+::selection {
+    background: #7a748c; /* Change to your preferred color */
+    color: white; /* Change text color if needed */
+}
+
+/* For better browser support */
+::-moz-selection {
+    background: #8a6fbf;
+    color: white;
+}
+
+
+  
 html, body {
     overflow: hidden; /* Disable main scrollbar */
     height: 100vh; /* Ensure body does not exceed viewport */
@@ -34,6 +46,10 @@ body {
     -moz-animation-timing-function:    linear;
     -o-animation-timing-function:      linear;
     animation-timing-function:         linear;
+    user-select: none;
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; /* For IE/Edge */
     
   }
   @keyframes bg-scrolling-reverse {
@@ -437,9 +453,6 @@ section.active {
 /* Cool infinite background scrolling animation.
  * Twitter: @kootoopas
  */
-
-/* Exo thin font from Google. */
-@import url(https://fonts.googleapis.com/css?family=Exo:100);
 
 /* Animations */
 @-webkit-keyframes bg-scrolling-reverse {

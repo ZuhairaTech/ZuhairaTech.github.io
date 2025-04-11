@@ -95,17 +95,61 @@ figcaption {
     }
 
     .content {
-        display: none;  /* Default is hidden */
+        display: block;
+        max-height: 0; 
         overflow: hidden;
         background-color: #c6bbb9;
         transition: max-height 0.3s ease-out; 
-    }
+    }    
     
-    /* When active, reveal content */
     .collapsible.active + .content {
-        display: block;
+        max-height: 500px; 
     }
     
+
     .content ul {
         margin-top: 10px;
     }
+
+    .projects-showcase {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 20px;
+        justify-content: center;
+    }
+    
+    .project-card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    
+    .project-card img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    
+    figcaption {
+        position: absolute;
+        right: -150%; /* Start hidden */
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        font-style: italic;
+        width: 100%; /* Caption width */
+        transition: right 0.3s ease-in-out;
+        border-radius: 5px;
+    }
+    
+    .project-card:hover figcaption {
+        right: 0; /* Slide in on hover */
+    }
+    

@@ -171,51 +171,31 @@ td a:hover {
   transform: translateY(-50%);
 }
 
-.projects-showcase {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive layout */
-  gap: 10px;
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  padding: 10px;
-}
-
-.project-card {
-  background: #c6bbb9;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+.name-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
   text-align: center;
-  width: 100%;
-  height: 100%;
+  letter-spacing: 2px;
+  color: #4c1e3c; /* Deep rose plum */
+  background: linear-gradient(90deg, #4c1e3c, #7a748c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 20px 0;
+  border-bottom: 2px solid #4c1e3c;
+  margin-bottom: 30px;
+  animation: fadeInBrand 1s ease-out;
 }
 
-.project-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.project-card figcaption {
-  position: absolute;
-  bottom: -100px; /* Moves it below the image */
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0);
-  color: white;
-  padding: 10px;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.project-card figcaption p {
-  background-color: #968e8d
-}
-
-.project-card:hover figcaption {
-  opacity: 1;
+@keyframes fadeInBrand {
+  0% {
+      opacity: 0;
+      transform: translateY(-15px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
 }
 
 .card {

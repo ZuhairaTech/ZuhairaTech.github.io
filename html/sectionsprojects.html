@@ -95,7 +95,7 @@
         <button class="collapsible"><h3>References</h3></button>
         <div class="content">
             <ul class="project-list">
-                <li><a href="https://canrenewables.com/">CAN Renewables</a></li>
+                <li><a href="https://canrenewables.com/" target="_blank">CAN Renewables</a></li>
             </ul>
         </div>
     </div>
@@ -108,7 +108,7 @@
         This project, part of the Hackcessible event, involved creating assistive technology to help an individual enjoy playing drums. The main goal was to design and build a system using Arduino to enhance accessibility and provide a solution for physical challenges. The project was a collaborative effort, and I had the opportunity to apply my skills in coding and problem-solving.
     </p>
     <div class="btn">
-        <a href="https://www.linkedin.com/company/hackcessible/posts/?feedView=all"><i class="fa fa-fw fa-linkedin"></i>Hackcessible</a>
+        <a href="https://www.linkedin.com/company/hackcessible/posts/?feedView=all" target="_blank"><i class="fa-brands fa-linkedin-in"></i>Hackcessible</a>
     </div>
     <blockquote>
         "A great step toward making music more accessible for everyone."
@@ -169,7 +169,7 @@
         The add-on leverages L-systems and randomization to generate plant branching, offering a glimpse into nature's beauty through code.
     </p>
     <div class="btn">
-        <a href="https://github.com/ZuhairaTech/garden-planner-lsystem.git"><i class="fa fa-fw fa-github"></i>ZuhairaTech</a>
+        <a href="https://github.com/ZuhairaTech/garden-planner-lsystem.git" target="_blank"><i class="fa-brands fa-github"></i>ZuhairaTech</a>
     </div>
     
     <blockquote>
@@ -240,7 +240,7 @@
                 # Add more plant types as needed
             }
         </code></pre>
-        <p>Refer: <a href="https://github.com/ZuhairaTech/garden-planner-lsystem/blob/main/garden_planning.py"><i class="fa fa-fw fa-github"></i>garden_planning.py</a></p>
+        <p>Refer: <a href="https://github.com/ZuhairaTech/garden-planner-lsystem/blob/main/garden_planning.py" target="_blank"><i class="fa-brands fa-github"></i>garden_planning.py</a></p>
         
         <div class="project-point">
             <h4 class="project-heading">
@@ -360,33 +360,10 @@
     <button class="collapsible"><h3>References</h3></button>
     <div class="content">
         <ul class="project-list">
-            <li><a href="http://3map.snu.ac.kr/courses/2012/cg/2-1-lsystems.pdf">L-SYSTEMS: FROM THE THEORY TO VISUAL MODELS OF PLANTS</a></li>
-            <li><a href="https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2012.00076/full">L-Py: an L-system simulation framework</a></li>
-            <li><a href="https://archive.org/details/the-algorithmic-beauty-of-plants">The Algorithmic Beauty of Plants</a></li>
+            <li><a href="http://3map.snu.ac.kr/courses/2012/cg/2-1-lsystems.pdf" target="_blank">L-SYSTEMS: FROM THE THEORY TO VISUAL MODELS OF PLANTS</a></li>
+            <li><a href="https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2012.00076/full" target="_blank">L-Py: an L-system simulation framework</a></li>
+            <li><a href="https://archive.org/details/the-algorithmic-beauty-of-plants" target="_blank">The Algorithmic Beauty of Plants</a></li>
         </ul>
     </div>
 </div>
 </section>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-    const collapsibles = document.querySelectorAll(".collapsible");
-    collapsibles.forEach((collapsible) => {
-        collapsible.addEventListener("click", function() {
-            this.classList.toggle("active");
-            const content = this.nextElementSibling;
-    
-            if (this.classList.contains("active")) {
-                content.style.transition = "none"; 
-                content.style.maxHeight = content.scrollHeight + "px";
-                setTimeout(() => {
-                    content.style.transition = "max-height 0.3s ease-out"; 
-                }, 10);
-            } else {
-                content.style.maxHeight = "0";
-            }
-        });
-    });
-});
-
-</script>

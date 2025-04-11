@@ -1,18 +1,26 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", function () {
+    console.log("Collapsible script loaded!");
+
     const collapsibles = document.querySelectorAll(".collapsible");
-    collapsibles.forEach((collapsible) => {
-        collapsible.addEventListener("click", function() {
+    console.log(`Found ${collapsibles.length} collapsible buttons`);
+
+    collapsibles.forEach(button => {
+        console.log("Collapsible button found:", button);
+
+        button.addEventListener("click", function () {
+            console.log("Collapsible button CLICKED");
             this.classList.toggle("active");
             const content = this.nextElementSibling;
 
-            if (this.classList.contains("active")) {
-                content.style.transition = "none"; 
-                content.style.maxHeight = content.scrollHeight + "px";
-                setTimeout(() => {
-                    content.style.transition = "max-height 0.3s ease-out"; 
-                }, 10);
+            if (content) {
+                console.log("Content found:", content);
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
             } else {
-                content.style.maxHeight = "0";
+                console.log("No content found for:", button);
             }
         });
     });
