@@ -235,8 +235,9 @@ nav a {
 
 nav a:hover {
     border-radius: 5px;
-    /* transform: scale(1.02); */
+    transform: scale(1.02);
     color: #c6bbb9;
+    transition: transform 0.3s ease;
 }
 
 nav a:active {
@@ -250,6 +251,7 @@ nav a:active {
     font-weight: bold;
     border-radius: 5px;
     padding: 10px;
+    transition: color 0.3s ease;
 }
 
 .nav .iconburger {
@@ -403,6 +405,19 @@ section.active {
         display: none;
     }
 
+    nav a {
+        color: #c6bbb9;
+        transition: color 0.3s ease-in-out;
+        transition: all 0.3s ease;
+    }
+    
+    nav a:hover {
+        transform: scale(1.02);
+        color: #7a748c;
+        transition: all 0.3s ease;
+    }
+    
+
     /* Style the burger icon */
     #myNav a.iconburger {
         display: flex;
@@ -436,7 +451,7 @@ section.active {
 
     /* When menu is open */
     #myNav.responsive {
-        width: 70%; /* Set width for side menu */
+        width: 50%; /* Set width for side menu */
         background-color: #c6bbb9d9;
         padding-top: 60px; /* Space for burger */
     }
@@ -444,11 +459,14 @@ section.active {
     /* Show all menu items when expanded */
     #myNav.responsive a {
         display: block;
-        transition: background 0.2s;
+        color: #7a748c;
+        transition: color 0.3s ease-in-out;
+        transition: all 0.3s ease;
     }
 
     #myNav.responsive a:hover {
         background: rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
     }
 }
 
