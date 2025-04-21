@@ -372,6 +372,7 @@ td a:hover {
 .button:hover {
   background-color: #d8ccca;
 }
+
 .btn {
   display: flex;
   flex-wrap: wrap;
@@ -423,7 +424,7 @@ td a:hover {
   transition: color 0.3s ease;
 }
 
-.btn a:hover i {
+.btn a:hover i{
   color: #c6bbb9; 
 }
 
@@ -508,6 +509,11 @@ td a:hover {
   margin-bottom: 6px;
 }
 
+#contact div {
+  width: 50%;
+  margin: auto;
+}
+
 #contact input,
 #contact textarea {
   width: 95%;
@@ -529,15 +535,30 @@ td a:hover {
 }
 
 #contact button {
-  padding: 12px 25px;
-  background-color: #4f3b56; /* purple-ish */
+  /* padding: 12px 25px;
+  background-color: #4f3b56; 
   color: white;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease; */
+  display: block;
+  margin: 0 auto;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Fira Sans', sans-serif;
+  background-color: #4c1e3c;
+  color: #c6bbb9; 
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(76, 30, 60, 0.3);
+  transition: all 0.3s ease;
+  animation: fadeInButton 2s ease-out;
+  text-decoration: none;
 }
 
 #contact button:hover {
