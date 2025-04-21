@@ -478,3 +478,18 @@ td a:hover {
 .project-heading::before {
   margin-right: 8px;
 }
+
+
+.certificate-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.certificate-gallery img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}

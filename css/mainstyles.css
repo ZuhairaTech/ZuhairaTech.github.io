@@ -23,7 +23,10 @@
     color: white;
 }
 
-
+p {
+    text-align: justify;
+  }
+  
   
 html, body {
     overflow: hidden; /* Disable main scrollbar */

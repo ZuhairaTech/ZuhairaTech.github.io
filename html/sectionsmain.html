@@ -275,32 +275,92 @@
 <!-- Education Section -->
 <section id="education">
     <h2>Education</h2>
-    <ul>
-        <li>University of Sheffield: BSc in Computer Science </a></li>
-        <li>MARA College Banting, Malaysia: International Baccalaureate in Applied Science</a></li>
-        <li>MRSM Pengkalan Chepa, Malaysia: Malaysian Certificate of Education</a></li>
-    </ul>
-</section>
+  
+    <div id="education-content">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <div class="projects-showcase">
+        <div class="project-card">
+            <img src="https://www.sheffield.ac.uk/sites/default/files/styles/two_thirds_2x/public/2019-08/Firth%20Court%20outdoors.jpg?h=e5452ff7&itok=NIx2wegi" alt="University of Sheffield Image">
+            <figcaption>
+                University of Sheffield: BSc in Computer Science
+            </figcaption>
+        </div>
+        <div class="project-card">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipMbclANKNTO9xG_8LkBtum8nC8dinDIB_xMH5Tz=s1360-w1360-h1020" alt="MARA College Banting, Malaysia">
+            <figcaption>
+                MARA College Banting, Malaysia: International Baccalaureate in Applied Science
+            </figcaption>
+        </div>
+        <div class="project-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9p52OQRWu73H_TRhzuFZ0vCi3y9OCg6b0hw&s" alt="MRSM Pengkalan Chepa">
+            <figcaption>
+                MRSM Pengkalan Chepa, Malaysia: Malaysian Certificate of Education
+            </figcaption>
+        </div>
+        
+    </div>
+      <!-- <button onclick="showCertificates()">Show Certificates</button> -->
+    </div>
+  
+    <!-- <div id="certificates" style="display: none;">
+      <button onclick="hideCertificates()">← Back</button>
+      <div class="certificate-gallery">
+        <img src="../images/gardenplanning.png" alt="Sheffield Certificate" />
+        <img src="your-ib-certificate.jpg" alt="IB Certificate" />
+        <img src="your-spm-certificate.jpg" alt="SPM Certificate" />
+      </div>
+    </div> -->
+  </section>
+  
 
 <!-- Contact Section -->
 <section id="contact">
     <h2>Contact Me</h2>
-    <p>Feel free to reach out if you want to collaborate or just say hi!</p>
-    <!-- <div class="btn">
-        <a href="mailto:zuhairanasrin.zakaria@gmail.com" class="downloadablepdf">
-            <i class="fa fa-fw fa-envelope"></i> Email Me
-        </a>
-        <a href="http://www.linkedin.com/in/zuhaira-nasrin-zakaria/" target="_blank" class="downloadablepdf">
-            <i class="fa fa-fw fa-linkedin-square"></i> LinkedIn
-        </a>
-        <a href="https://medium.com/@zuhairanasrin.zakaria" target="_blank" class="downloadablepdf">
-            <i class="fa fa-fw fa-medium"></i> Medium
-        </a>
-        <a href="https://www.hackerrank.com/profile/zuhairanasrin77" target="_blank" class="downloadablepdf">
-            <i class="fa fa-fw fa-code"></i> HackerRank
-        </a>
-        <a href="https://github.com/ZuhairaTech/" target="_blank" class="downloadablepdf">
-            <i class="fa fa-fw fa-github"></i> GitHub
-        </a>
-    </div> -->
-</section>
+    <p>Have a question or want to work together? Send me a message!</p>
+  
+    <form id="contact-form" style="max-width: 500px; margin-top: 20px;">
+      <label for="name">Your Name</label><br />
+      <input type="text" id="name" name="user_name" required style="width: 100%; padding: 10px; margin-bottom: 10px;"><br />
+  
+      <label for="email">Your Email</label><br />
+      <input type="email" id="email" name="user_email" required style="width: 100%; padding: 10px; margin-bottom: 10px;"><br />
+  
+      <label for="message">Your Message</label><br />
+      <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 10px; margin-bottom: 15px;"></textarea><br />
+  
+      <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer;">
+        Send Message
+      </button>
+  
+      <p id="response-message" style="margin-top: 15px;"></p>
+    </form>
+  </section>
+  
+  <!-- Load EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("n1z8mL1clgIBCB8pf"); // Replace with your actual EmailJS Public Key
+    })();
+  
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+  
+      emailjs.sendForm("service_gp1kkgt", "template_zkbfflh", this)
+        .then(function(response) {
+          document.getElementById("response-message").innerText = "Message sent successfully!";
+        }, function(error) {
+          document.getElementById("response-message").innerText = "Failed to send message. Please try again.";
+          console.error("EmailJS error:", error);
+        });
+  
+      // Optional: Reset form
+      this.reset();
+    });
+  </script>
+  
+  

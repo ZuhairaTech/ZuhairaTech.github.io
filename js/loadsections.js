@@ -13,4 +13,16 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error("Error loading sections:", error));
 });
 
+  function showCertificates() {
+    document.getElementById("education-content").style.display = "none";
+    document.getElementById("certificates").style.display = "block";
+  }
+
+  function hideCertificates() {
+    document.getElementById("certificates").style.display = "none";
+    document.getElementById("education-content").style.display = "block";
+  }
+
+
+
 
