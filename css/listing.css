@@ -493,3 +493,54 @@ td a:hover {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+
+#contact p {
+  color: #4e4e4e;
+  font-size: 1rem;
+  text-align: center;
+}
+
+#contact label {
+  display: block;
+  font-weight: 600;
+  color: #3f2e3e;
+  margin-bottom: 6px;
+}
+
+#contact input,
+#contact textarea {
+  width: 95%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 2px solid #bbaaaa;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  font-size: 1rem;
+  color: #333;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border-color: #8e7d8f;
+  box-shadow: 0 0 0 2px rgba(142, 125, 143, 0.2);
+  outline: none;
+}
+
+#contact button {
+  padding: 12px 25px;
+  background-color: #4f3b56; /* purple-ish */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#contact button:hover {
+  background-color: #6b4f6b;
+  transform: scale(1.03);
+}
