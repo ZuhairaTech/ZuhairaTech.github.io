@@ -54,7 +54,7 @@
     </blockquote>
 
     <!-- <div class="carousel">
-        <button class="arrow left-arrow">&lt;</button>
+        <button class="arrow left-arrow">&lt;
         <div class="projects-container">
             <div class="card">
                 <img src="../../images/viridis_project_image.png" alt="Viridis Project">
@@ -66,19 +66,19 @@
             </div>
            
         </div>
-        <button class="arrow right-arrow">&gt;</button>
+        <button class="arrow right-arrow">&gt;
     </div> -->
 
-    <div id="writingsection">
-        <button class="collapsible"><h3>Project Methodology</h3></button>
-        <div class="content">
+    <div class="writingsection">
+        <h3>Project Methodology</h3>
+        <div>
             <p>
                 In the first semester, our team worked closely with the client to gather requirements, which involved both online and offline meetings. We created mockups and refined them based on feedback from the client to better understand their needs. We used these insights to create a robust platform focused on generating predictive reports and providing insights that were easy to interpret.
             </p>
         </div>
 
-        <button class="collapsible"><h3>My Role & Contributions</h3></button>
-        <div class="content">
+        <h3>My Role & Contributions</h3>
+        <div>
             <p>
               I led the implementation of several key features in the project, including:
               <ul>
@@ -89,17 +89,18 @@
 
             </p>
         </div>
+        
 
-        <button class="collapsible"><h3>Future Improvements</h3></button>
-        <div class="content">
+        <h3>Future Improvements</h3>
+        <div>
             <ul>
                 <li><strong>Enhanced Data Visualization:</strong> Expanding the graphical reports to include more interactive features for users.</li>
                 <li><strong>Advanced Predictive Analytics:</strong> Implementing machine learning algorithms for more accurate predictions.</li>
             </ul>
         </div>
 
-        <button class="collapsible"><h3>References</h3></button>
-        <div class="content">
+        <h3>References</h3>
+        <div>
             <ul class="project-list">
                 <li><a href="https://canrenewables.com/" target="_blank">CAN Renewables</a></li>
             </ul>
@@ -140,14 +141,14 @@
         
     </div>
 
-    <div id="writingsection">
-        <button class="collapsible"><h3>Methodology</h3></button>
-        <div class="content">
+    <div class="writingsection">
+        <h3>Methodology</h3>
+        <div>
             <p>Our approach focused on using Arduino to create a device that would support the individual in interacting with musical instruments. As part of the team, I contributed by suggesting coding solutions and exploring the full potential of Arduino to achieve the desired functionality.</p>         
           </div>
 
-        <button class="collapsible"><h3>Future Work / Improvements</h3></button>
-        <div class="content">
+        <h3>Future Work / Improvements</h3>
+        <div>
             <p>The project showcased the potential of combining accessibility with technology. Moving forward, there are several areas for improvement:</p>
             <ul class="project-list">
                 <li><strong>Refining Hardware Integration:</strong> Enhancing the device’s hardware setup for improved durability and responsiveness.</li>
@@ -158,8 +159,8 @@
             <p>These improvements would help enhance the device’s impact and make it more effective for users with accessibility challenges.</p>
         </div>
 
-        <button class="collapsible"><h3>Project Timeline</h3></button>
-        <div class="content">
+        <h3>Project Timeline</h3>
+        <div>
             <p>The project progressed through various stages, including brainstorming, hardware setup, coding, testing, and refinement. Despite facing challenges, the team successfully built a functional prototype that helped us win first place in the event.</p>
         </div>
 
@@ -221,9 +222,9 @@
   </div>
   
 
-    <div id="writingsection">
-    <button class="collapsible"><h3>Methodology</h3></button>
-    <div class="content">
+    <div class="writingsection">
+    <h3>Methodology</h3>
+    <div>
         <p>In this project, L-systems were adapted to generate plant growth models in Blender using Python scripting. 
            Growth patterns such as branching angles, plant height, and radius were controlled based on predefined rules for each plant type such as below:</p>
         <pre><code>
@@ -289,8 +290,8 @@
           </div>
     </div>
 
-    <button class="collapsible"><h3>Future Work / Improvements</h3></button>
-    <div class="content">
+    <h3>Future Work / Improvements</h3>
+    <div>
         <p>While the current implementation of L-systems for modeling plant growth demonstrates the potential for computational simulations, there are several areas for future exploration and improvement:</p>
         <div class="project-point">
             <h4 class="project-heading">
@@ -348,15 +349,15 @@
           
     </div>
 
-    <button class="collapsible">
+    
         <h3>Timeline</h3>
-    </button>
-    <div class="content">
+    
+    <div>
         TO DO
     </div>
 
-    <button class="collapsible"><h3>References</h3></button>
-    <div class="content">
+    <h3>References</h3>
+    <div>
         <ul class="project-list">
             <li><a href="http://3map.snu.ac.kr/courses/2012/cg/2-1-lsystems.pdf" target="_blank">L-SYSTEMS: FROM THE THEORY TO VISUAL MODELS OF PLANTS</a></li>
             <li><a href="https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2012.00076/full" target="_blank">L-Py: an L-system simulation framework</a></li>
@@ -365,3 +366,19 @@
     </div>
 </div>
 </section>
+
+
+<!-- Add this script at the bottom of your page -->
+<script>
+  document.querySelectorAll('.writingsection button').forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+          const content = btn.nextElementSibling;
+          content.style.display = content.style.display === 'none' ? 'block' : 'none';
+      });
+  });
+
+  // Optional: hide all sections on load
+  document.querySelectorAll('.writingsection > div').forEach(div => {
+      div.style.display = 'none';
+  });
+</script>
