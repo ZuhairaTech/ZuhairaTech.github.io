@@ -2,6 +2,7 @@ const lines = document.querySelectorAll('.invitation-line');
 const finalImage = document.getElementById('finalImage');
 
 let currentIndex = 0;
+let touchStartY = 0;
 
 // Show lines up to index
 function updateVisibility() {
@@ -16,19 +17,33 @@ function updateVisibility() {
   }
 }
 
-// Handle wheel scroll
+// Handle mouse wheel scroll (desktop)
 window.addEventListener('wheel', (e) => {
-  if (e.deltaY > 0) {
-    // Scroll down
-    if (currentIndex < lines.length) {
-      currentIndex++;
-      updateVisibility();
-    }
-  } else {
-    // Scroll up
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateVisibility();
-    }
+  if (e.deltaY > 0 && currentIndex < lines.length) {
+    currentIndex++;
+    updateVisibility();
+  } else if (e.deltaY < 0 && currentIndex > 0) {
+    currentIndex--;
+    updateVisibility();
+  }
+});
+
+// Handle touch swipe (mobile)
+window.addEventListener('touchstart', (e) => {
+  touchStartY = e.touches[0].clientY;
+});
+
+window.addEventListener('touchend', (e) => {
+  const touchEndY = e.changedTouches[0].clientY;
+  const deltaY = touchStartY - touchEndY;
+
+  if (deltaY > 30 && currentIndex < lines.length) {
+    // Swipe up
+    currentIndex++;
+    updateVisibility();
+  } else if (deltaY < -30 && currentIndex > 0) {
+    // Swipe down
+    currentIndex--;
+    updateVisibility();
   }
 });
