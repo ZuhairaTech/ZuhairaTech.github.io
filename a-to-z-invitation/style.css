@@ -71,3 +71,19 @@ body {
     color: #888;
   }
   
+  .map-button {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-size: 0.95rem;
+    color: #b87d62;
+    text-decoration: none;
+    border: 1px solid #b87d62;
+    padding: 0.5rem 1.2rem;
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
+  }
+  .map-button:hover {
+    background: #b87d62;
+    color: #fff;
+  }
+  
