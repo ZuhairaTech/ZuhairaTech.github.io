@@ -4,7 +4,7 @@ const finalImage = document.getElementById('finalImage');
 let currentIndex = 0;
 let touchStartY = 0;
 
-// Show lines up to index
+// Show lines up to currentIndex
 function updateVisibility() {
   lines.forEach((line, index) => {
     line.classList.toggle('visible', index <= currentIndex);
@@ -17,7 +17,7 @@ function updateVisibility() {
   }
 }
 
-// Handle mouse wheel scroll (desktop)
+// Handle mouse wheel (desktop)
 window.addEventListener('wheel', (e) => {
   if (e.deltaY > 0 && currentIndex < lines.length) {
     currentIndex++;
@@ -28,7 +28,7 @@ window.addEventListener('wheel', (e) => {
   }
 });
 
-// Handle touch swipe (mobile)
+// Handle swipe (mobile)
 window.addEventListener('touchstart', (e) => {
   touchStartY = e.touches[0].clientY;
 });
@@ -38,11 +38,24 @@ window.addEventListener('touchend', (e) => {
   const deltaY = touchStartY - touchEndY;
 
   if (deltaY > 30 && currentIndex < lines.length) {
-    // Swipe up
     currentIndex++;
     updateVisibility();
   } else if (deltaY < -30 && currentIndex > 0) {
-    // Swipe down
+    currentIndex--;
+    updateVisibility();
+  }
+});
+
+// Handle tap (anywhere on screen)
+window.addEventListener('click', () => {
+  if (currentIndex < lines.length) {
+    currentIndex++;
+    updateVisibility();
+  }
+});
+
+document.getElementById('backBtn').addEventListener('click', () => {
+  if (currentIndex > 0) {
     currentIndex--;
     updateVisibility();
   }

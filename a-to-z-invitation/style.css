@@ -154,3 +154,23 @@ footer {
   background: #b87d62;
   color: #fff;
 }
+
+.back-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px 16px;
+  background-color: #7c4c39;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0.8;
+}
+
+.back-button:hover {
+  opacity: 1;
+}
