@@ -1,7 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap');
+
 body {
   margin: 0;
   background: #fffaf6;
-  font-family: 'Georgia', serif;
   overflow: hidden;
   height: 100vh;
   display: flex;
@@ -19,15 +22,26 @@ body {
 }
 
 .invitation-line {
-  position: relative;
-  transform: translateY(20px);
-  opacity: 0;
-  font-size: 0.8rem;
-  color: #7c4c39;
-  text-align: left;
-  width: 100%;
-  margin: 20px 0;
-  transition: transform 1s ease-out, opacity 1s ease-out;
+    font-family: "Great Vibes", cursive;
+    position: relative;
+    transform: translateY(20px);
+    opacity: 0;
+    font-size: 0.8rem;
+    color: #7c4c39;
+    text-align: center;
+    width: 70%;
+    margin: 20px 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.greetings {
+    font-family: "Quicksand", sans-serif;
+}
+
+.invitation-line.groombride {
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 1.2;
 }
 
 .invitation-line.visible {
@@ -38,7 +52,7 @@ body {
 #finalImage {
   display: block;
   margin: 60px auto;
-  width: 200px;
+  width: 500px;
   opacity: 0;
   transition: opacity 2s ease;
   top: 50vh;
