@@ -29,22 +29,22 @@ window.addEventListener('wheel', (e) => {
 });
 
 // Handle swipe (mobile)
-window.addEventListener('touchstart', (e) => {
-  touchStartY = e.touches[0].clientY;
-});
+// window.addEventListener('touchstart', (e) => {
+//   touchStartY = e.touches[0].clientY;
+// });
 
-window.addEventListener('touchend', (e) => {
-  const touchEndY = e.changedTouches[0].clientY;
-  const deltaY = touchStartY - touchEndY;
+// window.addEventListener('touchend', (e) => {
+//   const touchEndY = e.changedTouches[0].clientY;
+//   const deltaY = touchStartY - touchEndY;
 
-  if (deltaY > 30 && currentIndex < lines.length) {
-    currentIndex++;
-    updateVisibility();
-  } else if (deltaY < -30 && currentIndex > 0) {
-    currentIndex--;
-    updateVisibility();
-  }
-});
+//   if (deltaY > 30 && currentIndex < lines.length) {
+//     currentIndex++;
+//     updateVisibility();
+//   } else if (deltaY < -30 && currentIndex > 0) {
+//     currentIndex--;
+//     updateVisibility();
+//   }
+// });
 
 // Handle tap (anywhere on screen)
 window.addEventListener('click', () => {
@@ -60,3 +60,5 @@ document.getElementById('backBtn').addEventListener('click', () => {
     updateVisibility();
   }
 });
+
+

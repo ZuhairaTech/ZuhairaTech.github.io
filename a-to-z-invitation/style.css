@@ -38,10 +38,62 @@ body {
     font-family: "Quicksand", sans-serif;
 }
 
+.closing {
+  font-family: "Quicksand", sans-serif;
+  padding-bottom: 50px;
+}
+
 .invitation-line.groombride {
     font-size: 1.5rem;
     text-align: center;
     line-height: 1.2;
+}
+
+.invitation-line.events {
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.event-title {
+  display: block;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.event-item {
+  display: block;
+  margin: 8px 0;
+}
+
+.event-time {
+  font-weight: 600;
+  display: block;
+  font-size: 1rem;
+}
+
+.event-desc {
+  display: block;
+  font-size: 0.95rem;
+  margin-top: 2px;
+}
+
+.event-divider {
+  display: block;
+  font-size: 1.2rem;
+  margin: 6px 0;
+}
+
+.invitation-line.events:first-of-type {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #c4a494;
+  padding-bottom: 5px;
+  margin-top: 30px;
+  margin-bottom: 15px;
 }
 
 .invitation-line.visible {
@@ -72,6 +124,13 @@ body {
 
 .text-column {
   flex: 1;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow-y: auto; /* allows scroll if needed */
 }
 
 .image-column {
@@ -79,7 +138,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1; /* send it behind everything */
 }
+
 
 .text-column p {
   margin-bottom: 20px;
@@ -187,4 +251,41 @@ footer {
 
 .back-button:hover {
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .two-column {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .image-column {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+  }
+
+  .image-column img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+  }
+
+  .text-column {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    /* box-sizing: border-box; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+  }
 }
