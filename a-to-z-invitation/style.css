@@ -19,7 +19,29 @@ body {
   padding: 40px 20px;
   box-sizing: border-box;
   position: relative;
+  z-index: 1;
 }
+
+.corner-flower {
+  position: fixed;
+  z-index: 0; /* Make sure it stays behind text/images */
+  max-width: 45vw;
+  max-height: 45vh;
+  opacity: 0.8;
+  pointer-events: none; /* Prevent it from interfering with clicks */
+}
+
+/* Position variants */
+.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+}
+
 
 .invitation-line {
     font-family: "Great Vibes", cursive;
