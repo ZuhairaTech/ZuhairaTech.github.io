@@ -2,9 +2,53 @@
 <html lang="en">
 <head>
     <script src="js/head.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zuhaira Nasrin Zakaria</title>
+    <!-- Prevent FOUC with a small inline style -->
+    <style>
+        /* Hide content initially until CSS is loaded */
+        .js-loading * {
+            transition: none !important;
+        }
+        
+        /* Critical styles to prevent FOUC */
+        .name-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 2px;
+            color: #4c1e3c;
+            background: linear-gradient(90deg, #4c1e3c, #7a748c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        #landing p {
+            font-family: 'Fira Sans', sans-serif;
+            font-size: 1.1rem;
+            text-align: center;
+            color: #5a4a5d;
+        }
+        
+        #enter-site {
+            background: linear-gradient(45deg, #7a748c, #4c1e3c);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-family: 'Fira Sans', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+    </style>
+    
+    <script src="js/head.js"></script>
 </head>
 
-<body>
+<body class="js-loading">
     <div class="ink-cursor"></div>
 
     <div id="landing-container" class="fade show" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
@@ -16,9 +60,16 @@
         </div>
     </div>
 
-    <div id="header-container" class="fade" ></div>
-    <div id="content-container" class="fade" ></div>
+    <div id="header-container" class="fade"></div>
+    <div id="content-container" class="fade"></div>
 
+    <script>
+        // Remove js-loading class once page is fully loaded
+        window.addEventListener('load', function() {
+            document.body.classList.remove('js-loading');
+        });
+    </script>
+    
     <script src="js/navigation.js"></script>
     <script src="js/cursor.js"></script>
     <script src="js/utils.js"></script>
@@ -26,21 +77,21 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-        const landing = document.getElementById('landing-container');
-        const header = document.getElementById('header-container');
-        const content = document.getElementById('content-container');
+            const landing = document.getElementById('landing-container');
+            const header = document.getElementById('header-container');
+            const content = document.getElementById('content-container');
 
-        // If user already entered, skip landing
-        if (sessionStorage.getItem('enteredSite')) {
-            landing.style.display = 'none';
-            header.classList.add('show');
-            content.classList.add('show');
+            // If user already entered, skip landing
+            if (sessionStorage.getItem('enteredSite')) {
+                landing.style.display = 'none';
+                header.classList.add('show');
+                content.classList.add('show');
 
-            const script = document.createElement('script');
-            script.src = 'js/loadsections.js';
-            document.body.appendChild(script);
-            return;
-        }
+                const script = document.createElement('script');
+                script.src = 'js/loadsections.js';
+                document.body.appendChild(script);
+                return;
+            }
 
             // Otherwise, wait for user to click "Enter"
             const enterBtn = document.getElementById('enter-site');
@@ -62,7 +113,6 @@
                 }, 600); // match transition duration
             });
         });
-
     </script>
 </body>
 </html>
