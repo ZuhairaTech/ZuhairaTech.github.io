@@ -1,383 +1,370 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
 
-body {
-  margin: 0;
-  background: #fffaf6;
-  overflow: hidden;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    body {
+      margin: 0;
+      background: #fffaf6;
+      overflow-x: hidden;
+      /* min-height: 100vh; */
+      display: block;
+    }
 
-.invitation-line.bismillah {
-  font-family: 'Amiri', serif;
-  font-size: 0.9rem;
-  text-align: center;
-  color: #7c4c39;
-  margin-bottom: 20px;
-}
+    .invitation-line.bismillah {
+      font-family: 'Amiri', serif;
+      font-size: 0.9rem;
+      text-align: center;
+      color: #7c4c39;
+      margin-bottom: 20px;
+    }
 
+    #invitation-container {
+      width: 100%;
+      height: auto;
+      overflow: visible;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+      padding: 40px 20px;
+    }
 
-#invitation-container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden; /* No scroll */
-  /* padding: 40px 20px; */
-  box-sizing: border-box;
+    .corner-flower {
+      position: fixed;
+      z-index: 999; 
+      max-width: 45vw;
+      max-height: 45vh;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    /* Position variants */
+    .bottom-left {
+      bottom: 0;
+      left: 0;
+    }
+
+    .top-right {
+      top: 0;
+      right: 0;
+    }
+
+    .invitation-line {
+      font-family: "Great Vibes", cursive;
+      position: relative;
+      opacity: 0;
+      font-size: 0.8rem;
+      color: #7c4c39;
+      text-align: center;
+      width: 100%;
+      margin: 15px 0;
+      margin-top: 0;
+      transition: opacity 1s ease-out;
+    }
+
+    .greetings {
+      font-family: "Quicksand", sans-serif;
+    }
+
+    .closing {
+      font-family: "Quicksand", sans-serif;
+      padding-bottom: 50px;
+    }
+
+    .invitation-line.groombride {
+      font-size: 1.5rem;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .invitation-line.events {
+      font-family: "Quicksand", sans-serif;
+      text-align: center;
+      line-height: 1.4;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid #c4a494;
+      border-top: 1px solid #c4a494;
+      padding-bottom: 5px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    .event-title {
+      display: block;
+      font-family: "Quicksand", sans-serif;
+      margin-bottom: 1rem;
+    }
+
+    .event-item {
+      display: block;
+      margin: 8px 0;
+    }
+
+    .event-time {
+      font-weight: 600;
+      display: block;
+    }
+
+    .event-desc {
+      display: block;
+      margin-top: 2px;
+    }
+
+    .event-divider {
+      display: block;
+      margin: 6px 0;
+    }
+
+    .invitation-line.visible {
+      opacity: 1;
+    }
+
+ /* Slideshow styling */
+ .slideshow-container {
   position: relative;
-  z-index: 1;
-  padding: 0;
-}
-
-.corner-flower {
-  position: fixed;
-  z-index: 999; 
-  max-width: 45vw;
-  max-height: 45vh;
-  opacity: 0.8;
-  pointer-events: none; /* Prevent it from interfering with clicks */
-}
-
-/* Position variants */
-.bottom-left {
-  bottom: 0;
-  left: 0;
-}
-
-.top-right {
-  top: 0;
-  right: 0;
-}
-
-
-.invitation-line {
-    font-family: "Great Vibes", cursive;
-    position: relative;
-    /* transform: translateY(20px); */
-    opacity: 0;
-    font-size: 0.8rem;
-    color: #7c4c39;
-    text-align: center;
-    /* width: 70%; */
-    /* margin: 20px 0; */
-    transition: transform 1s ease-out, opacity 1s ease-out;
-}
-
-.greetings {
-    font-family: "Quicksand", sans-serif;
-}
-
-.closing {
-  font-family: "Quicksand", sans-serif;
-  padding-bottom: 50px;
-}
-
-.invitation-line.groombride {
-    font-size: 1.5rem;
-    text-align: center;
-    line-height: 1.2;
-}
-
-.invitation-line.events {
-  font-family: "Quicksand", sans-serif;
-  text-align: center;
-  line-height: 1.4;
-}
-
-.event-title {
-  display: block;
-  font-family: "Quicksand", sans-serif;
-  margin-bottom: 1rem;
-}
-
-.event-item {
-  display: block;
-  margin: 8px 0;
-}
-
-.event-time {
-  font-weight: 600;
-  display: block;
-}
-
-.event-desc {
-  display: block;
-  margin-top: 2px;
-}
-
-.event-divider {
-  display: block;
-  margin: 6px 0;
-}
-
-.invitation-line.events {
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-bottom: 1px solid #c4a494;
-  border-top: 1px solid #c4a494;
-  padding-bottom: 5px;
-  margin-top: 30px;
-  margin-bottom: 15px;
-}
-
-
-.invitation-line.visible {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-#finalImage {
-  display: block;
-  margin: 60px auto;
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  overflow: hidden;
   opacity: 0;
   transition: opacity 2s ease;
-  top: 50vh;
-}
-
-#finalImage.visible {
-  opacity: 1;
-}
-
-.three-column {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  gap: 20px;
-}
-
-.text-column {
-  flex: 1;
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  box-sizing: border-box;
-  overflow-y: auto; /* allows scroll if needed */
-}
-
-.info-column {
-  flex: 1;
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  box-sizing: border-box;
-  overflow-y: auto; /* allows scroll if needed */
-}
-
-.image-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: -1; /* send it behind everything */
-}
-
-.text-column p , .info-column p{
-  margin-bottom: 20px;
-  color: #7c4c39;
-  font-size: 0.9rem;
-}
-
-.image-column img {
-  max-width: 100%;
-  margin-bottom: 20px;
-  width: 150px; /* or adjust as needed */
-}
-
-
-.card {
-  background: #fff;
-  border-radius: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  max-width: 500px;
-  width: 90%;
-  text-align: center;
-}
-
-/* Header */
-.card header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.2rem;
-  color: #b87d62;
-}
-
-.slogan {
-  font-style: italic;
-  font-size: 1rem;
-  color: #666;
-}
-
-/* Details */
-.details h2 {
-  margin: 0.8rem 0;
-  font-size: 1.8rem;
-  color: #884d3c;
-}
-
-.date,
-.venue {
-  margin: 0.3rem 0;
-  font-weight: 500;
-}
-
-/* RSVP */
-.rsvp-button {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.8rem 1.5rem;
-  background: #b87d62;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 2rem;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-.rsvp-button:hover {
-  background: #a96b52;
-}
-
-/* Footer */
-footer {
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  color: #888;
-}
-
-.map-button {
-  display: inline-block;
-  margin-top: 0.8rem;
-  font-size: 0.95rem;
-  color: #b87d62;
-  text-decoration: none;
-  border: 1px solid #b87d62;
-  padding: 0.5rem 1.2rem;
-  border-radius: 1.5rem;
-  transition: all 0.3s ease;
-}
-.map-button:hover {
-  background: #b87d62;
-  color: #fff;
-}
-
-.back-button {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  padding: 10px 16px;
-  background-color: #7c4c39;
-  color: white;
-  border: none;
   border-radius: 12px;
-  font-size: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  cursor: pointer;
-  z-index: 1000;
-  opacity: 0.8;
+  box-shadow: 0 8px 25px rgba(124, 76, 57, 0.15);
+  background-color: #fff;
+  padding: 8px;
+  border: 1px solid rgba(196, 164, 148, 0.3);
 }
 
-.back-button:hover {
+.slideshow-container.visible {
   opacity: 1;
 }
 
-@media (min-width: 800px) {
-  .invitation-line {
-    transform: translateY(20px); 
-    width: 100%; /* Changed to 100% for full width */
-    margin: 20px 0; /* Adjusted margins */
-  }
-
-  #invitation-container {
-    margin: auto;
-    padding: 40px 20px;
-  }
-
-  .text-column {
-    flex: 1;
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    overflow-y: auto; /* allows scroll if needed */
-  }
-  
-  .info-column {
-    flex: 1;
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    padding: 2rem;
-    box-sizing: border-box;
-    overflow-y: auto; /* allows scroll if needed */
-  }
-
-  .image-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1; /* send it behind everything */
-  }
+.slide {
+  display: none;
+  width: 100%;
+  transition: opacity 0.8s ease-in-out;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
+.slide img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.5s ease;
+}
+
+.slide.active img:hover {
+  transform: scale(1.02);
+}
+
+.slide.active {
+  display: block;
+}
+
+/* Slideshow controls */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b87d62;
+  font-size: 22px;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  user-select: none;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 8px rgba(124, 76, 57, 0.2);
+  border: 1px solid rgba(184, 125, 98, 0.2);
+  z-index: 10;
+  opacity: 0.7;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #7c4c39;
+  opacity: 1;
+  box-shadow: 0 3px 12px rgba(124, 76, 57, 0.3);
+}
+
+/* For mobile screens make buttons slightly smaller */
 @media (max-width: 768px) {
-  body {
-    overflow-x: hidden;
-    overflow-y: auto;
-    min-height: 100vh;
-    height: auto;
-  }
-
-  .three-column {
-    position: relative;
-    width: 100vw;
-    min-height: 100vh;
-    /* 🔴 Remove this: it’s stopping the scroll! */
-    /* overflow: hidden; */
-    display: flex;
-    flex-direction: column;
-  }
-
-  .image-column {
-    position: fixed; /* ✅ Make it stay in the background */
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 0;
-    pointer-events: none; /* ✅ Let user interact with text above */
-  }
-
-  .image-column img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.3;
-  }
-
-  .text-column,
-  .info-column {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 2.5rem;
+  .prev, .next {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
   }
 }
+
+/* Dots indicator */
+.dots-container {
+  text-align: center;
+  padding: 15px 0 5px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(transparent, rgba(255, 250, 246, 0.8));
+  border-radius: 0 0 8px 8px;
+}
+
+.dot {
+  cursor: pointer;
+  height: 8px;
+  width: 8px;
+  margin: 0 5px;
+  background-color: rgba(184, 125, 98, 0.4);
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(124, 76, 57, 0.2);
+}
+
+.active-dot, .dot:hover {
+  background-color: #7c4c39;
+  transform: scale(1.2);
+  box-shadow: 0 0 4px rgba(124, 76, 57, 0.5);
+}
+
+
+    /* Three column layout */
+    .three-column {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      gap: 20px;
+      align-items: flex-start;
+      height: auto;
+    }
+
+    /* Column styles */
+    .text-column, .info-column, .image-column {
+      flex: 1;
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 100%;
+      height: auto;
+      padding: 10px;
+      box-sizing: border-box;
+      overflow-y: visible;
+      align-self: flex-start;
+    }
+
+    .text-column p, .info-column p {
+      margin-bottom: 20px;
+      color: #7c4c39;
+      font-size: 0.9rem;
+    }
+
+    /* Button container */
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 15px;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    .button-container.visible {
+      opacity: 1;
+    }
+
+    /* RSVP button */
+    .info-button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      background: #b87d62;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 2rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      font-family: "Quicksand", sans-serif;
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .info-button:hover {
+      background: #a96b52;
+    }
+
+    /* Map button */
+    .map-button {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+      color: #b87d62;
+      text-decoration: none;
+      border: 1px solid #b87d62;
+      padding: 0.5rem 1.2rem;
+      border-radius: 1.5rem;
+      transition: all 0.3s ease;
+      font-family: "Quicksand", sans-serif;
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .map-button:hover {
+      background: #b87d62;
+      color: #fff;
+    }
+
+    .back-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      padding: 10px 16px;
+      background-color: #7c4c39;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 1000;
+      opacity: 0.8;
+    }
+
+    .back-button:hover {
+      opacity: 1;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      .three-column {
+        flex-direction: column;
+      }
+
+      .text-column, .info-column, .image-column {
+        width: 100%;
+        padding: 0;
+      }
+
+      .info-button, .map-button {
+        max-width: 100%;
+      }
+    }
