@@ -79,14 +79,43 @@
     .invitation-line.events {
       font-family: "Quicksand", sans-serif;
       text-align: center;
-      line-height: 1.4;
+      line-height: 1.5;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      border-bottom: 1px solid #c4a494;
-      border-top: 1px solid #c4a494;
-      padding-bottom: 5px;
-      margin-top: 30px;
-      margin-bottom: 15px;
+      letter-spacing: 2px;
+      font-weight: 500;
+      color: #7c4c39;
+      position: relative;
+      padding: 12px 0;
+      margin-top: 36px;
+      margin-bottom: 22px;
+      background: linear-gradient(to right, transparent, rgba(196, 164, 148, 0.05), transparent);
+    }
+    
+    .invitation-line.events::before,
+    .invitation-line.events::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 1px;
+      width: 80%;
+      background: linear-gradient(to right, transparent, #c4a494, transparent);
+    }
+    
+    .invitation-line.events::before {
+      top: 0;
+    }
+    
+    .invitation-line.events::after {
+      bottom: 0;
+    }
+    
+    .invitation-line.events::before {
+      width: 100%;
+    }
+    
+    .invitation-line.events::after {
+      width: 70%;
     }
 
     .event-title {
