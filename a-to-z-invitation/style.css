@@ -151,7 +151,7 @@
  /* Slideshow styling */
  .slideshow-container {
   position: relative;
-  width: 100%;
+  width: 80%;
   max-width: 500px;
   margin: 0 auto;
   overflow: hidden;
@@ -317,6 +317,39 @@
       opacity: 1;
     }
 
+    .photo-credit-corner {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-family: "Quicksand", sans-serif;
+      background: linear-gradient(135deg, rgba(217,176,184,0.50) 0%, rgba(145,64,88,0) 100%);
+      color: white;
+      padding: 6px;
+      font-size: 12px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    
+    .photo-credit-corner:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      background: linear-gradient(135deg, rgba(217,176,184,0.95) 0%, rgba(145,64,88,0.95) 100%);
+    }
+    
+    .photo-credit-corner .insta-icon {
+      margin-right: 6px;
+      font-size: 14px;
+    }
+
     /* RSVP button */
     .info-button {
       display: inline-block;
@@ -397,3 +430,104 @@
         max-width: 100%;
       }
     }
+
+
+      /* Countdown Styles */
+  .countdown-container {
+    margin:auto;
+    padding: 5px 10px;
+    background: linear-gradient(135deg, rgba(217,176,184,0.2) 0%, rgba(145,64,88,0.2) 100%);
+    border-radius: 15px;
+    border: 1px solid rgba(145,64,88,0.3);
+    max-width: 80%;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    position: relative;
+    font-family: "Quicksand", sans-serif;
+  }
+  
+  .countdown-title {
+    font-size: 8px;
+    color: #914058;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  .countdown-units {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .countdown-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #914058;
+    background-color: white;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    /* margin-bottom: 8px; */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .countdown-value:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #d9b0b8, #914058);
+  }
+  
+  .countdown-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+  }
+  
+  .countdown-decoration {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 0.1;
+    z-index: 0;
+  }
+  
+  .countdown-decoration.top-left {
+    top: -10px;
+    left: -10px;
+    background: radial-gradient(circle, #d9b0b8 0%, transparent 70%);
+  }
+  
+  .countdown-decoration.bottom-right {
+    bottom: -10px;
+    right: -10px;
+    background: radial-gradient(circle, #914058 0%, transparent 70%);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .countdown-units {
+      gap: 10px;
+    }
+    
+    .countdown-value {
+      font-size: 24px;
+      height: 50px;
+      width: 50px;
+    }
+  }

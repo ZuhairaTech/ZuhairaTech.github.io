@@ -131,7 +131,42 @@ if (backBtn) {
   });
 }
 
+// Countdown Timer Script
+const weddingDate = new Date("Feb 14, 2026 00:00:00").getTime();
+  
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
+  
+  // Calculate days, hours, minutes, seconds
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+  // Update the countdown display
+  document.getElementById("countdown-days").textContent = days;
+  document.getElementById("countdown-hours").textContent = hours;
+  document.getElementById("countdown-minutes").textContent = minutes;
+  document.getElementById("countdown-seconds").textContent = seconds;
+  
+  // If the countdown is over
+  if (distance < 0) {
+    clearInterval(countdownTimer);
+    document.getElementById("countdown-days").textContent = "0";
+    document.getElementById("countdown-hours").textContent = "0";
+    document.getElementById("countdown-minutes").textContent = "0";
+    document.getElementById("countdown-seconds").textContent = "0";
+  }
+}
+
+// Update the countdown every second
+updateCountdown();
+const countdownTimer = setInterval(updateCountdown, 1000);
+
 // Initialize slideshow and visibility
 showSlides();
 startSlideTimer();
 updateVisibility();
+
+
