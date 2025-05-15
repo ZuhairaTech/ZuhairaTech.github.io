@@ -218,6 +218,19 @@
       font-size: 0.9rem;
     }
 
+    .contact-number a {
+      color: inherit;           /* Use the same text color as .contact-number */
+      text-decoration: none;    /* Remove underline */
+      display: inline-block;    /* Ensure padding and background apply properly */
+      width: 100%;              /* Make the link fill the container */
+      height: 100%;
+    }
+    .contact-number a:hover {
+      text-decoration: underline; /* Optional: underline on hover for UX */
+      cursor: pointer;
+    }
+    
+
     .button-container {
       text-align: center;
       margin: 40px 0 20px;
