@@ -2,6 +2,12 @@
     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
 
+    ::selection {
+      background: #f2c6b4; /* Soft peach */
+      color: #4a2b1b;       /* Deep brown for contrast */
+    }
+    
+    
     body {
       margin: 0;
       background: #fffaf6;
