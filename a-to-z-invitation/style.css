@@ -537,3 +537,255 @@
       width: 50px;
     }
   }
+
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <title>Walimatul Urus A & Z</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <!-- Additional styles for wishes section -->
+  <style>
+    /* Wishes Section Styles - Following wedding theme */
+    .wishes-section {
+      background: #fffaf6;
+      padding: 60px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wishes-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to right, transparent, rgba(196, 164, 148, 0.02), transparent);
+      pointer-events: none;
+    }
+
+    .wishes-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .wishes-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .wishes-title {
+      font-family: "Great Vibes", cursive;
+      font-size: 2.8rem;
+      color: #7c4c39;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .wishes-subtitle {
+      font-family: "Quicksand", sans-serif;
+      font-size: 1rem;
+      color: #7c4c39;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .wishes-loading {
+      text-align: center;
+      color: #7c4c39;
+      font-size: 1.1rem;
+      margin: 40px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: "Quicksand", sans-serif;
+    }
+
+    .loading-spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #f2c6b4;
+      border-top: 2px solid #7c4c39;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .wishes-error {
+      background: rgba(242, 198, 180, 0.2);
+      color: #7c4c39;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      margin: 20px 0;
+      border: 1px solid #f2c6b4;
+      font-family: "Quicksand", sans-serif;
+    }
+
+    .wishes-stats {
+      text-align: center;
+      color: #7c4c39;
+      margin: 30px 0;
+      font-size: 1.1rem;
+      font-family: "Quicksand", sans-serif;
+      font-weight: 500;
+    }
+
+    .wishes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .wish-card {
+      background: #fffaf6;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 4px 20px rgba(124, 76, 57, 0.08);
+      transition: all 0.3s ease;
+      position: relative;
+      border: 1px solid rgba(242, 198, 180, 0.3);
+    }
+
+    .wish-card:hover {
+      box-shadow: 0 8px 30px rgba(124, 76, 57, 0.12);
+    }
+
+    .wish-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      /* background: linear-gradient(90deg, #f2c6b4, #c4a494, #f2c6b4); */
+      border-radius: 15px 15px 0 0;
+    }
+
+    .wish-text {
+      font-family: "Quicksand", sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #7c4c39;
+      margin-bottom: 20px;
+      font-style: italic;
+      position: relative;
+      padding-left: 15px;
+      text-align: center;
+    }
+
+    .wish-text::before {
+      content: '"';
+      font-family: "Great Vibes", cursive;
+      font-size: 2.5rem;
+      color: rgba(196, 164, 148, 0.4);
+      position: absolute;
+      top: -10px;
+      left: -5px;
+    }
+
+    .wish-author {
+      text-align: right;
+      font-weight: 600;
+      color: #7c4c39;
+      font-size: 0.95rem;
+      position: relative;
+      font-family: "Quicksand", sans-serif;
+    }
+
+    .wish-author::before {
+      content: '— ';
+      color: #c4a494;
+    }
+
+    .refresh-wishes-btn {
+      background: linear-gradient(45deg, #c4a494, #7c4c39);
+      color: #fffaf6;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      margin: 20px auto;
+      display: block;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(124, 76, 57, 0.2);
+      font-family: "Quicksand", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .refresh-wishes-btn:hover {
+      background: linear-gradient(45deg, #7c4c39, #c4a494);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(124, 76, 57, 0.3);
+    }
+
+    .scroll-to-wishes {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(45deg, #c4a494, #7c4c39);
+      color: #fffaf6;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgba(124, 76, 57, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .scroll-to-wishes:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(124, 76, 57, 0.4);
+      background: linear-gradient(45deg, #7c4c39, #c4a494);
+    }
+
+    /* Selection styling for wishes section */
+    .wishes-section ::selection {
+      background: #f2c6b4;
+      color: #4a2b1b;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .wishes-section {
+        padding: 40px 15px;
+      }
+      
+      .wishes-title {
+        font-size: 2.2rem;
+      }
+      
+      .wishes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .wish-card {
+        padding: 20px;
+      }
+      
+      .scroll-to-wishes {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        bottom: 15px;
+        right: 15px;
+      }
+    }

@@ -170,3 +170,148 @@ startSlideTimer();
 updateVisibility();
 
 
+    // Configuration - Replace with your Google Sheet ID
+    const WISHES_CONFIG = {
+      SHEET_ID: '1sl330GOsuyc2haR334yMX-bIxcPnxJw97sPkz8Q6-3o', // Replace with your actual Sheet ID
+      USE_CSV_METHOD: true, // Using CSV method for simplicity
+      RANGE: 'Sheet1!A:F'
+    };
+
+    // Scroll to wishes section
+    function scrollToWishes() {
+      document.getElementById('wishes-section').scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    }
+
+    // Load wishes from Google Sheets
+    async function loadWishes() {
+      const loadingEl = document.getElementById('wishes-loading');
+      const errorEl = document.getElementById('wishes-error');
+      const statsEl = document.getElementById('wishes-stats');
+      const gridEl = document.getElementById('wishes-grid');
+
+      // Show loading state
+      loadingEl.style.display = 'flex';
+      errorEl.style.display = 'none';
+      statsEl.style.display = 'none';
+      gridEl.innerHTML = '';
+
+      try {
+        const data = await loadWishesFromCSV();
+        displayWishes(data);
+      } catch (error) {
+        console.error('Error loading wishes:', error);
+        showWishesError('Gagal memuatkan ucapan. Sila semak sambungan internet anda dan cuba lagi.');
+      }
+
+      loadingEl.style.display = 'none';
+    }
+
+    // Load wishes using CSV method
+    async function loadWishesFromCSV() {
+      const csvUrl = `https://docs.google.com/spreadsheets/d/${WISHES_CONFIG.SHEET_ID}/export?format=csv`;
+      
+      const response = await fetch(csvUrl);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const csvText = await response.text();
+      return parseCSV(csvText);
+    }
+
+    // Parse CSV data
+    function parseCSV(csvText) {
+      const lines = csvText.split('\n');
+      const result = [];
+      
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (line) {
+          // Simple CSV parsing
+          const cells = line.split(',').map(cell => 
+            cell.replace(/^"|"$/g, '').trim()
+          );
+          result.push(cells);
+        }
+      }
+      
+      return result;
+    }
+
+    // Display wishes on the page
+    function displayWishes(data) {
+      const gridEl = document.getElementById('wishes-grid');
+      const statsEl = document.getElementById('wishes-stats');
+      
+      if (!data || data.length <= 1) {
+        showWishesError('Tiada ucapan dijumpai dalam spreadsheet.');
+        return;
+      }
+
+      // Filter valid wishes (skip header row)
+      const validWishes = data.slice(1).filter(row => {
+        const name = row[2] ? row[2].toString().trim() : ''; // Column C
+        const wish = row[5] ? row[5].toString().trim() : ''; // Column F
+        return name && wish;
+      });
+
+      if (validWishes.length === 0) {
+        showWishesError('Tiada ucapan yang sah dijumpai. Sila pastikan lajur B (nama) dan F (ucapan) mengandungi data.');
+        return;
+      }
+
+      // Show statistics
+      statsEl.innerHTML = `📊 Jumlah ucapan diterima: <strong>${validWishes.length}</strong>`;
+      statsEl.style.display = 'block';
+
+      // Create wish cards
+      gridEl.innerHTML = validWishes.map(row => {
+        const name = row[2].toString().trim(); // Column B
+        const wish = row[5].toString().trim(); // Column F
+        
+        return `
+          <div class="wish-card">
+            <div class="wish-text">${escapeHtml(wish)}</div>
+            <div class="wish-author">${escapeHtml(name)}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Show error message
+    function showWishesError(message) {
+      const errorEl = document.getElementById('wishes-error');
+      errorEl.textContent = message;
+      errorEl.style.display = 'block';
+    }
+
+    // Escape HTML to prevent XSS
+    function escapeHtml(unsafe) {
+      return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    // Auto-refresh wishes every 5 minutes
+    setInterval(loadWishes, 5 * 60 * 1000);
+
+    // Load wishes when page loads
+    window.addEventListener('load', loadWishes);
+
+    // Hide floating button when in wishes section
+    window.addEventListener('scroll', function() {
+      const wishesSection = document.getElementById('wishes-section');
+      const floatingBtn = document.querySelector('.scroll-to-wishes');
+      const rect = wishesSection.getBoundingClientRect();
+      
+      if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+        floatingBtn.style.display = 'none';
+      } else {
+        floatingBtn.style.display = 'block';
+      }
+    });

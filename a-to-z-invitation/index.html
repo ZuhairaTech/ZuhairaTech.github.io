@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
 
@@ -82,7 +81,7 @@
           <a href="https://maps.app.goo.gl/H8Ay22CgTzp73WMi6" target="_blank" class="map-button" id="map-button" aria-label="Buka lokasi dalam Google Maps">
             📍 Lihat Lokasi di Google Maps
           </a>
-          <a href="info.html" target="_blank" target="_blank" class="map-button" id="map-button" aria-label="Info lanjut">
+          <a href="info.html" target="_blank" class="map-button" id="map-button" aria-label="Info lanjut">
             🌐 Info lanjut
           </a>
         </div>
@@ -125,8 +124,39 @@
       </div>
     </div>
   </div>
+
+  <!-- NEW WISHES SECTION -->
+  <section class="wishes-section" id="wishes-section">
+    <div class="wishes-container">
+      <div class="wishes-header">
+        <h2 class="invitation-line events">💐 Ucapan & Doa 💐</h2>
+        <button class="refresh-wishes-btn" onclick="loadWishes()">
+          🔄 Muat Semula Ucapan
+        </button>
+      </div>
+
+      <div id="wishes-loading" class="wishes-loading">
+        <div class="loading-spinner"></div>
+        <span>Sedang memuatkan ucapan...</span>
+      </div>
+
+      <div id="wishes-error" class="wishes-error" style="display: none;"></div>
+
+      <div id="wishes-stats" class="wishes-stats" style="display: none;"></div>
+
+      <div id="wishes-grid" class="wishes-grid"></div>
+    </div>
+  </section>
+
+  <!-- Floating scroll button -->
+  <button class="scroll-to-wishes" onclick="scrollToWishes()" title="Lihat Ucapan">
+    💌
+  </button>
+
   <img src="img/filler2.png" class="corner-flower bottom-left" alt="Flower Decoration">
   <img src="img/filler1.png" class="corner-flower top-right" alt="Flower Decoration">
+  
   <script src="script.js"></script>
-  </body>
+  
+</body>
 </html>
