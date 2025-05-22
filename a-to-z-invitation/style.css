@@ -537,18 +537,6 @@
       width: 50px;
     }
   }
-
-<!DOCTYPE html>
-<html lang="ms">
-<head>
-  <meta charset="UTF-8">
-  <title>Walimatul Urus A & Z</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
-  <!-- Additional styles for wishes section -->
-  <style>
     /* Wishes Section Styles - Following wedding theme */
     .wishes-section {
       background: #fffaf6;
@@ -651,16 +639,9 @@
 
     .wish-card {
       background: #fffaf6;
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 4px 20px rgba(124, 76, 57, 0.08);
+      padding: 15px;
       transition: all 0.3s ease;
       position: relative;
-      border: 1px solid rgba(242, 198, 180, 0.3);
-    }
-
-    .wish-card:hover {
-      box-shadow: 0 8px 30px rgba(124, 76, 57, 0.12);
     }
 
     .wish-card::before {

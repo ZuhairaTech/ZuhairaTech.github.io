@@ -263,7 +263,7 @@ updateVisibility();
       }
 
       // Show statistics
-      statsEl.innerHTML = `📊 Jumlah ucapan diterima: <strong>${validWishes.length}</strong>`;
+      statsEl.innerHTML = `Jumlah ucapan: <strong>${validWishes.length}</strong>`;
       statsEl.style.display = 'block';
 
       // Create wish cards
