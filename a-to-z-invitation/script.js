@@ -80,16 +80,40 @@ function startSlideTimer() {
 }
 
 // Auto-scroll reveal for mobile
+// if (isMobile) {
+//   let autoReveal = setInterval(() => {
+//     if (currentIndex < lines.length) {
+//       currentIndex++;
+//       updateVisibility();
+//     } else {
+//       clearInterval(autoReveal);
+//     }
+//   }, 1000); // adjust timing
+// } else {
 if (isMobile) {
   let autoReveal = setInterval(() => {
     if (currentIndex < lines.length) {
       currentIndex++;
       updateVisibility();
+
+      // Smooth scroll to latest line using requestAnimationFrame
+      const lastVisibleLine = lines[currentIndex - 1];
+      if (lastVisibleLine) {
+        // Delay scroll slightly to let DOM update first
+        setTimeout(() => {
+          requestAnimationFrame(() => {
+            lastVisibleLine.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center'
+            });
+          });
+        }, 150); // Adjust delay if needed
+      }
     } else {
       clearInterval(autoReveal);
     }
-  }, 1000); // adjust timing
-} else {
+  }, 1200); // Adjust overall speed if needed
+}else{
   // Manual scroll for desktop
   window.addEventListener('wheel', (e) => {
     e.preventDefault(); // Prevent default scroll
