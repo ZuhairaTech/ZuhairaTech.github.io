@@ -201,13 +201,42 @@ updateVisibility();
       RANGE: 'Sheet1!A:F'
     };
 
-    // Scroll to wishes section
-    function scrollToWishes() {
-      document.getElementById('wishes-section').scrollIntoView({ 
-        behavior: 'smooth' 
-      });
+    function toggleScroll() {
+      const wishesSection = document.getElementById('wishes-section');
+      const button = document.getElementById('scrollToggleBtn');
+      
+      // Check if we're currently at the wishes section
+      const wishesRect = wishesSection.getBoundingClientRect();
+      const isAtWishes = wishesRect.top <= 100 && wishesRect.bottom >= 100;
+      
+      if (isAtWishes) {
+        // Scroll back to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        button.title = "Lihat Ucapan";
+      } else {
+        // Scroll to wishes
+        wishesSection.scrollIntoView({ behavior: 'smooth' });
+        button.title = "Kembali ke Atas";
+      }
     }
 
+    // Update button state on scroll
+    window.addEventListener('scroll', function() {
+      const wishesSection = document.getElementById('wishes-section');
+      const button = document.getElementById('scrollToggleBtn');
+      const wishesRect = wishesSection.getBoundingClientRect();
+      const isAtWishes = wishesRect.top <= 100 && wishesRect.bottom >= 100;
+      
+     if (isAtWishes) {
+        button.classList.add('at-wishes');
+        button.title = "Kembali ke Atas";
+        button.innerHTML = '<i class="fa fa-chevron-up"></i>';
+      } else {
+        button.classList.remove('at-wishes');
+        button.title = "Lihat Ucapan";
+        button.innerHTML = '<i class="fa fa-chevron-down"></i>';
+      }
+    });
     // Load wishes from Google Sheets
     async function loadWishes() {
       const loadingEl = document.getElementById('wishes-loading');
@@ -327,15 +356,15 @@ updateVisibility();
     // Load wishes when page loads
     window.addEventListener('load', loadWishes);
 
-    // Hide floating button when in wishes section
-    window.addEventListener('scroll', function() {
-      const wishesSection = document.getElementById('wishes-section');
-      const floatingBtn = document.querySelector('.scroll-to-wishes');
-      const rect = wishesSection.getBoundingClientRect();
+    // // Hide floating button when in wishes section
+    // window.addEventListener('scroll', function() {
+    //   const wishesSection = document.getElementById('wishes-section');
+    //   const floatingBtn = document.querySelector('.scroll-to-wishes');
+    //   const rect = wishesSection.getBoundingClientRect();
       
-      if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-        floatingBtn.style.display = 'none';
-      } else {
-        floatingBtn.style.display = 'block';
-      }
-    });
+    //   if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+    //     floatingBtn.style.display = 'none';
+    //   } else {
+    //     floatingBtn.style.display = 'block';
+    //   }
+    // });

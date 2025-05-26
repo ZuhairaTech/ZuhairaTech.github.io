@@ -537,12 +537,21 @@
       width: 50px;
     }
   }
+
+  .scroll-toggle-btn {
+    transition: all 0.3s ease;
+  }
+
+  .scroll-toggle-btn.at-wishes {
+    transform: rotate(180deg);
+  }
     /* Wishes Section Styles - Following wedding theme */
     .wishes-section {
       background: #fffaf6;
       padding: 60px 20px;
       position: relative;
       overflow: hidden;
+      min-height: 100vh;
     }
 
     .wishes-section::before {
