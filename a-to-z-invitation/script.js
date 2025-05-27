@@ -101,6 +101,7 @@ class WeddingInvitation {
     this.initializeWishes();
     this.setupScrollToggle();
     this.setupBackButton();
+    this.setupWishesRefreshButton();
   }
 
   // =============================================================================
@@ -321,6 +322,13 @@ class WeddingInvitation {
   initializeWishes() {
     window.addEventListener('load', () => this.loadWishes());
     setInterval(() => this.loadWishes(), this.config.wishes.refreshInterval);
+  }
+
+  setupWishesRefreshButton() {
+    const button = document.querySelector('.refresh-btn');
+    if (button) {
+      button.addEventListener('click', () => this.loadWishes());
+    }
   }
 
   async loadWishes() {

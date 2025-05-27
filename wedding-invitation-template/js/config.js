@@ -26,7 +26,7 @@ const WEDDING_CONFIG = {
   
   // Google Sheets Configuration
   wishes: {
-    sheetId: '1sl330GOsuyc2haR334yMX-bIxcPnxJw97sPkz8Q6-3o', // Replace with client's Sheet ID
+    sheetId: '#', // Replace with client's Sheet ID
     useCsvMethod: true,
     range: 'Sheet1!A:F',
     nameColumn: 2,    // Column C (0-indexed)
@@ -101,6 +101,7 @@ class WeddingInvitation {
     this.initializeWishes();
     this.setupScrollToggle();
     this.setupBackButton();
+    this.setupWishesRefreshButton();
   }
 
   // =============================================================================
@@ -321,6 +322,13 @@ class WeddingInvitation {
   initializeWishes() {
     window.addEventListener('load', () => this.loadWishes());
     setInterval(() => this.loadWishes(), this.config.wishes.refreshInterval);
+  }
+
+  setupWishesRefreshButton() {
+    const button = document.querySelector('.refresh-btn');
+    if (button) {
+      button.addEventListener('click', () => this.loadWishes());
+    }
   }
 
   async loadWishes() {
