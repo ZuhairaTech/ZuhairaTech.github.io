@@ -34,49 +34,53 @@
           <p class="invitation-line closing-text">Semoga dengan kehadiran Tuan/Puan/Encik/Cik menjadi penyeri majlis dan membawa berkat sepanjang hayat mereka.</p>
         </div>
 
-        <!-- Info Column -->
+              <!-- Info Column with Scroll Reveal Classes -->
         <div class="info-column">
+          <!-- Event Schedule - Each part gets its own reveal -->
           <p class="invitation-line events-title">Aturcara Majlis</p>
-          <div class="event-schedule">
+          
+          <div class="invitation-line event-schedule">
             <div class="event-item">
                 <span class="event-time">12:00 PM</span>
                 <span class="event-desc">Jamuan Makan</span>
             </div>
             <span class="event-divider">|</span>
-          <div class="event-item">
-            <span class="event-time">1:00 PM</span>
-            <span class="event-desc">Ketibaan Pengantin</span>
-          </div>
-          <span class="event-divider">|</span>
-          <div class="event-item">
-            <span class="event-time">5:00 PM</span>
-            <span class="event-desc">Majlis Bersurai</span>
-          </div>
+            <div class="event-item">
+              <span class="event-time">1:00 PM</span>
+              <span class="event-desc">Ketibaan Pengantin</span>
+            </div>
+            <span class="event-divider">|</span>
+            <div class="event-item">
+              <span class="event-time">5:00 PM</span>
+              <span class="event-desc">Majlis Bersurai</span>
+            </div>
           </div>
 
-          <div class="countdown-container">
-          <div class="countdown-decoration top-left"></div>
-          <div class="countdown-decoration bottom-right"></div>
-          <p class="countdown-title">Menanti Hari Bahagia</p>
-          <div class="countdown-units">
-            <div class="countdown-unit">
-              <div class="countdown-value" id="countdown-days">265</div>
-              <div class="countdown-label">Hari</div>
-            </div>
-            <div class="countdown-unit">
-              <div class="countdown-value" id="countdown-hours">12</div>
-              <div class="countdown-label">Jam</div>
-            </div>
-            <div class="countdown-unit">
-              <div class="countdown-value" id="countdown-minutes">30</div>
-              <div class="countdown-label">Minit</div>
-            </div>
-            <div class="countdown-unit">
-              <div class="countdown-value" id="countdown-seconds">45</div>
-              <div class="countdown-label">Saat</div>
+          <!-- Countdown - Separate reveals for title and counter -->
+          <div class="invitation-line countdown-container">
+            <div class="countdown-decoration top-left"></div>
+            <div class="countdown-decoration bottom-right"></div>
+            <p class="countdown-title">Menanti Hari Bahagia</p>
+            <div class="countdown-units">
+              <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-days">265</div>
+                <div class="countdown-label">Hari</div>
+              </div>
+              <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-hours">12</div>
+                <div class="countdown-label">Jam</div>
+              </div>
+              <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-minutes">30</div>
+                <div class="countdown-label">Minit</div>
+              </div>
+              <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-seconds">45</div>
+                <div class="countdown-label">Saat</div>
+              </div>
             </div>
           </div>
-        </div>
+        
 
           <div class="button-container">
             <a href="https://forms.gle/1hLaD3QR4mmGzbTJ8" target="_blank" class="btn btn-primary">
@@ -96,6 +100,7 @@
 
         <!-- Image Column -->
         <div class="image-column">
+          <p class="invitation-line events-title">Galeri</p>
           <div class="slideshow-container" id="slideshowContainer">
             <div class="slide active">
               <img src="img/bride_detail.jpeg" alt="Couple Photo 1">
@@ -112,7 +117,7 @@
             <div class="slide">
               <img src="img/natural_both.jpeg" alt="Couple Photo 5">
             </div>
-            
+
             <button class="slide-nav prev" onclick="changeSlide(-1)">
               <i class="fas fa-chevron-left"></i>
             </button>
@@ -138,7 +143,7 @@
   </div>
 
   <!-- Wishes Section -->
-  <section class="wishes-section" id="wishes-section">
+  <section class="invitation-line wishes-section" id="wishes-section">
     <div class="container">
       <div class="wishes-header">
         <h2 class="wishes-title">Ucapan & Doa</h2>
@@ -160,7 +165,7 @@
 
   <!-- Floating Action Button -->
   <button class="floating-btn" onclick="toggleScroll()" id="scrollToggleBtn">
-    <i class="fas fa-envelope-heart"></i>
+    <i class="fa fa-chevron-down"></i>
   </button>
 
   <!-- Decorative Elements -->
