@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css"/>
+  <title>Wedding Components</title>
+</head>
+<body>
+
+  <section class="video-section">
+    <h2>Our Wedding Highlights</h2>
+    <p>Relive the beautiful moments from our special day 💕</p>
+    
+    <div class="video-wrapper">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/E-97_ytpFCY?si=xXUMlIBvjBZrj3dM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <div style="padding: 40px; background-color: #f8f9fa; min-height: 100vh;">
+        <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Event Actions</h2>
+        
+        <div class="button-container">
+            <a href="https://forms.gle/1hLaD3QR4mmGzbTJ8" target="_blank" class="btn btn-primary">
+                <i class="fas fa-calendar-check"></i>
+                Sahkan Kehadiran
+            </a>
+            <button onclick="openLocationModal()" class="btn btn-outline">
+                <i class="fas fa-map-marker-alt"></i>
+                Lihat Lokasi
+            </button>
+            <a href="info.html" target="_blank" class="btn btn-outline">
+                <i class="fas fa-info-circle"></i>
+                Info Lanjut
+            </a>
+        </div>
+    </div>
+
+    <!-- Location Modal -->
+    <div id="locationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLocationModal()">&times;</span>
+            <div class="modal-header">
+                <h3><i class="fas fa-map-marker-alt"></i> Pilih Aplikasi Peta</h3>
+                <p>Buka lokasi dengan aplikasi pilihan anda</p>
+            </div>
+            <div class="modal-buttons">
+                <a href="https://maps.app.goo.gl/H8Ay22CgTzp73WMi6" target="_blank" class="modal-btn btn-google" onclick="closeLocationModal()">
+                    <i class="fab fa-google"></i>
+                    Google Maps
+                </a>
+                <a href="https://waze.com/ul/hw238dqvnu" target="_blank" class="modal-btn btn-waze" onclick="closeLocationModal()">
+                    <i class="fab fa-waze"></i>
+                    Waze
+                </a>
+                <button onclick="closeLocationModal()" class="modal-btn btn-cancel">
+                    <i class="fas fa-times"></i>
+                    Batal
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openLocationModal() {
+            const modal = document.getElementById('locationModal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeLocationModal() {
+            const modal = document.getElementById('locationModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('locationModal');
+            if (event.target === modal) {
+                closeLocationModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLocationModal();
+            }
+        });
+    </script>
+</body>
+</html>

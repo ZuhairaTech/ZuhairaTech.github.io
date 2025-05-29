@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Maklumat Tambahan - Walimatul Urus Zuhaira & Aiman</title>
   <link rel="stylesheet" href="infostyles.css"/>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -113,10 +114,47 @@
     <div class="section">
       <h3 class="section-title">Peta Laluan & Checkpoint</h3>
       <div class="section-content">
-        <div class="map-container" style="width: 600px; height: 300px;">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3966.689226527842!2d102.08616699999999!3d6.1723479999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMTAnMjAuNSJOIDEwMsKwMDUnMTAuMiJF!5e0!3m2!1sen!2smy!4v1747293989024!5m2!1sen!2smy" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="tabbed-container">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('google')">📍 Google Maps</button>
+                <button class="tab" onclick="showTab('waze')">🚗 Waze</button>
+            </div>
+            <div id="google" class="tab-content active">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3966.689226527842!2d102.08616699999999!3d6.1723479999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMTAnMjAuNSJOIDEwMsKwMDUnMTAuMiJF!5e0!3m2!1sen!2smy!4v1747293989024!5m2!1sen!2smy" 
+                    height="400" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div id="waze" class="tab-content">
+              <iframe src="https://embed.waze.com/iframe?
+                zoom=12&lat=6.172407&lon=102.086356&pin=1"
+                height="400"></iframe>
+              </div>
         </div>
-      
+       <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+    </script>
         <div class="info-item">
           <div class="info-icon">📄</div>
           <div class="info-text">

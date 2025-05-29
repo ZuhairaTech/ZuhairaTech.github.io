@@ -6,6 +6,19 @@ const WEDDING_CONFIG = {
   // Wedding Details
   weddingDate: "Feb 14, 2026 00:00:00", // Format: "MMM DD, YYYY HH:mm:ss"
   
+  // Location Settings
+  location: {
+    googleMapsUrl: "https://maps.app.goo.gl/H8Ay22CgTzp73WMi6",
+    wazeUrl: "https://waze.com/ul/hw30e559hb", // Replace with your actual Waze URL
+    modalText: {
+      title: "Pilih Aplikasi Peta",
+      subtitle: "Buka lokasi dengan aplikasi pilihan anda",
+      googleMaps: "Google Maps",
+      waze: "Waze",
+      cancel: "Batal"
+    }
+  },
+  
   // Slideshow Settings
   slideshow: {
     autoAdvanceDelay: 5000, // milliseconds
@@ -78,6 +91,7 @@ class WeddingInvitation {
       backBtn: document.getElementById('backBtn'),
       scrollToggleBtn: document.getElementById('scrollToggleBtn'),
       wishesSection: document.getElementById('wishes-section'),
+      locationModal: document.getElementById('locationModal'),
       countdown: {
         days: document.getElementById("countdown-days"),
         hours: document.getElementById("countdown-hours"),
@@ -102,6 +116,76 @@ class WeddingInvitation {
     this.setupScrollToggle();
     this.setupBackButton();
     this.setupWishesRefreshButton();
+    this.setupLocationModal(); // Add location modal setup
+  }
+
+  // =============================================================================
+  // LOCATION MODAL MODULE
+  // =============================================================================
+
+  setupLocationModal() {
+    // Make location modal functions globally accessible for HTML onclick handlers
+    window.openLocationModal = () => this.openLocationModal();
+    window.closeLocationModal = () => this.closeLocationModal();
+    
+    // Close modal when clicking outside of it
+    window.addEventListener('click', (event) => {
+      if (this.elements.locationModal && event.target === this.elements.locationModal) {
+        this.closeLocationModal();
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        this.closeLocationModal();
+      }
+    });
+    
+    // Update modal content with config text
+    this.updateLocationModalContent();
+  }
+
+  openLocationModal() {
+    if (this.elements.locationModal) {
+      this.elements.locationModal.classList.add('show');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+  }
+
+  closeLocationModal() {
+    if (this.elements.locationModal) {
+      this.elements.locationModal.classList.remove('show');
+      document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+  }
+
+  updateLocationModalContent() {
+    if (!this.elements.locationModal) return;
+    
+    const modalTitle = this.elements.locationModal.querySelector('.modal-header h3');
+    const modalSubtitle = this.elements.locationModal.querySelector('.modal-header p');
+    const googleBtn = this.elements.locationModal.querySelector('.btn-google');
+    const wazeBtn = this.elements.locationModal.querySelector('.btn-waze');
+    const cancelBtn = this.elements.locationModal.querySelector('.btn-cancel');
+    
+    if (modalTitle) {
+      modalTitle.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${this.config.location.modalText.title}`;
+    }
+    if (modalSubtitle) {
+      modalSubtitle.textContent = this.config.location.modalText.subtitle;
+    }
+    if (googleBtn) {
+      googleBtn.href = this.config.location.googleMapsUrl;
+      googleBtn.innerHTML = `<i class="fab fa-google"></i> ${this.config.location.modalText.googleMaps}`;
+    }
+    if (wazeBtn) {
+      wazeBtn.href = this.config.location.wazeUrl;
+      wazeBtn.innerHTML = `<i class="fab fa-waze"></i> ${this.config.location.modalText.waze}`;
+    }
+    if (cancelBtn) {
+      cancelBtn.innerHTML = `<i class="fas fa-times"></i> ${this.config.location.modalText.cancel}`;
+    }
   }
 
   // =============================================================================
@@ -153,8 +237,9 @@ class WeddingInvitation {
   }
 
   shouldIgnoreClick(target) {
-    const ignoreClasses = ['prev', 'next', 'dot', 'info-button', 'map-button', 'back-button'];
-    return ignoreClasses.some(className => target.classList.contains(className));
+    const ignoreClasses = ['prev', 'next', 'dot', 'info-button', 'map-button', 'back-button', 'modal', 'modal-content', 'modal-btn'];
+    return ignoreClasses.some(className => target.classList.contains(className)) ||
+           target.closest('.modal') !== null;
   }
 
   smoothScrollToLatestLine() {
@@ -510,6 +595,7 @@ class WeddingInvitation {
   // Method to update configuration after initialization
   updateConfig(newConfig) {
     this.config = { ...this.config, ...newConfig };
+    this.updateLocationModalContent(); // Update modal content when config changes
   }
 
   // Method to manually trigger wishes reload
@@ -550,6 +636,10 @@ function createWeddingConfig(customConfig) {
   return {
     ...WEDDING_CONFIG,
     ...customConfig,
+    location: {
+      ...WEDDING_CONFIG.location,
+      ...(customConfig.location || {})
+    },
     wishes: {
       ...WEDDING_CONFIG.wishes,
       ...(customConfig.wishes || {})

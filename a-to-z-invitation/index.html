@@ -87,18 +87,43 @@
               <i class="fas fa-calendar-check"></i>
               Sahkan Kehadiran
             </a>
-            <a href="https://maps.app.goo.gl/H8Ay22CgTzp73WMi6" target="_blank" class="btn btn-outline">
-              <i class="fas fa-map-marker-alt"></i>
-              Lihat Lokasi
-            </a>
+            <button onclick="openLocationModal()" class="btn btn-outline">
+                <i class="fas fa-map-marker-alt"></i>
+                Lihat Lokasi
+            </button>
             <a href="info.html" target="_blank" class="btn btn-outline">
               <i class="fas fa-info-circle"></i>
               Info Lanjut
             </a>
           </div>
-        </div>
 
-        <!-- Image Column -->
+          <div id="locationModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeLocationModal()">&times;</span>
+                <div class="modal-header">
+                    <h3><i class="fas fa-map-marker-alt"></i> Pilih Aplikasi Peta</h3>
+                    <p>Buka lokasi dengan aplikasi pilihan anda</p>
+                </div>
+                <div class="modal-buttons">
+                    <a href="https://maps.app.goo.gl/H8Ay22CgTzp73WMi6" target="_blank" class="modal-btn btn-google" onclick="closeLocationModal()">
+                        <i class="fab fa-google"></i>
+                        Google Maps
+                    </a>
+                    <a href="https://waze.com/ul/hw30e559hb" target="_blank" class="modal-btn btn-waze" onclick="closeLocationModal()">
+                        <i class="fab fa-waze"></i>
+                        Waze
+                    </a>
+                    <button onclick="closeLocationModal()" class="modal-btn btn-cancel">
+                        <i class="fas fa-times"></i>
+                        Batal
+                    </button>
+                </div>
+            </div>
+        </div>
+      </div>
+
+        
+      <!-- Image Column -->
         <div class="image-column">
           <p class="invitation-line events-title">Galeri</p>
           <div class="slideshow-container" id="slideshowContainer">
