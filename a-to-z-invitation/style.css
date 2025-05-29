@@ -108,6 +108,41 @@
       margin: 30px 0;
     }
 
+
+    .hashtag {
+      font-size: 1.3rem;
+      font-family: var(--font-body);
+      letter-spacing: -4px;
+      transition: 700ms ease;
+      font-variation-settings: "wght" 311;
+      margin-bottom: 0.8rem;
+      color: var(--primary-color);
+      outline: none;
+      text-align: center;
+    }
+
+    .hashtag:hover {
+      font-variation-settings: "wght" 582; 
+      letter-spacing: 3px;
+    }
+  
+    @media (hover: none) and (pointer: coarse) {
+  .hashtag {
+    animation: hashtag-pulse 3s ease-in-out infinite;
+  }
+  
+  @keyframes hashtag-pulse {
+    0%, 100% {
+      font-variation-settings: "wght" 311;
+      letter-spacing: -4px;
+    }
+    50% {
+      font-variation-settings: "wght" 582;
+      letter-spacing: 3px;
+    }
+  }
+}
+
     .events-title {
       font-family: var(--font-body);
       text-align: center;
