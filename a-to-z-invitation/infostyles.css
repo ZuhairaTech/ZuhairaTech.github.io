@@ -378,3 +378,33 @@
                 min-width: auto;
             }
         }
+
+        .map-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  background-color: #b87d62; /* secondary */
+  color: #ffffff; /* white text */
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(124, 76, 57, 0.2); /* primary shadow */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.map-button:hover {
+  background-color: #c4a494; /* accent */
+  transform: translateY(-2px);
+}
+
+.map-button:active {
+  transform: translateY(0);
+  background-color: #a56d57; /* darker tone for click */
+}
+
+.map-button i {
+  font-size: 1.2rem;
+}

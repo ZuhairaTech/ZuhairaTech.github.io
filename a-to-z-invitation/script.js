@@ -4,7 +4,7 @@
 
 const WEDDING_CONFIG = {
   // Wedding Details
-  weddingDate: "Feb 14, 2026 00:00:00", // Format: "MMM DD, YYYY HH:mm:ss"
+  weddingDate: "Feb 14, 2026 12:01:00", // Format: "MMM DD, YYYY HH:mm:ss"
   
   // Location Settings
   location: {

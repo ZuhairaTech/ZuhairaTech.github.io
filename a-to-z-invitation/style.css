@@ -244,14 +244,16 @@
        COUNTDOWN TIMER STYLES
        ================================ */
     .countdown-container {
-      background: linear-gradient(135deg, rgba(217,176,184,0.3) 0%, rgba(145,64,88,0.2) 100%);
+      background: linear-gradient(135deg, var(--background-color) 0%, var(--background-color) 100%);
       border-radius: var(--border-radius);
+      border: 1px solid rgba(196, 164, 148, 0.3);
       padding: 10px;
       width: 80%;
       margin: 30px auto;
       text-align: center;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 8px 25px rgba(124, 76, 57, 0.15);
     }
 
     .countdown-title {
@@ -264,7 +266,7 @@
     .countdown-units {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
+      gap: 5px;
     }
 
     .countdown-unit {
@@ -276,17 +278,21 @@
     .countdown-value {
       font-size: 1.3rem;
       font-weight: 700;
-      color: var(--primary-color);
-      background: var(--white);
-      width: 40px;
-      height: 40px;
+      border: 1px solid #d8cdb6;
+      color: #5a4a30;
+      background-color: var(--white);
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: var(--small-radius);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      margin-bottom: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     }
+
+    .countdown-value:hover {
+            transform: translateY(-3px);
+            transition: all 1s ease-in-out;
+        }
 
     .countdown-label {
       font-size: 0.8rem;

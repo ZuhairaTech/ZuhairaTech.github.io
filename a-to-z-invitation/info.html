@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="infostyles.css"/>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 <body>
   <div class="pdf-container">
@@ -116,8 +118,8 @@
       <div class="section-content">
         <div class="tabbed-container">
             <div class="tabs">
-                <button class="tab active" onclick="showTab('google')">📍 Google Maps</button>
-                <button class="tab" onclick="showTab('waze')">🚗 Waze</button>
+                <button class="tab active" onclick="showTab('google')"><i class="fab fa-google"></i> Google Maps</button>
+                <button class="tab" onclick="showTab('waze')"><i class="fab fa-waze"></i> Waze</button>
             </div>
             <div id="google" class="tab-content active">
                 <iframe 
@@ -129,10 +131,14 @@
                 </iframe>
             </div>
             <div id="waze" class="tab-content">
-              <iframe src="https://embed.waze.com/iframe?
-                zoom=12&lat=6.172407&lon=102.086356&pin=1"
-                height="400"></iframe>
-              </div>
+              <iframe 
+                src="https://embed.waze.com/iframe?zoom=16&lat=6.172276&lon=102.086377&ct=livemap&pin=1&desc=Target%20Location&navigate=yes" 
+                width="100%" 
+                height="450" 
+                allowfullscreen
+                style="border: none;">
+              </iframe>            
+            </div>
         </div>
        <script>
         function showTab(tabName) {
@@ -155,6 +161,16 @@
             event.target.classList.add('active');
         }
     </script>
+      <div class="button-container">
+        <p>Klik ini untuk memudahkan anda:</p>
+        <a class="map-button google" href="https://maps.app.goo.gl/H8Ay22CgTzp73WMi6" target="_blank">
+          <i class="fab fa-google"></i> Google Maps
+        </a>
+        <a class="map-button waze" href="https://waze.com/ul/hw30e559hb" target="_blank">
+          <i class="fab fa-waze"></i> Waze
+        </a>
+      </div>
+
         <div class="info-item">
           <div class="info-icon">📄</div>
           <div class="info-text">
@@ -174,28 +190,28 @@
           <div class="contact-name">En. Zakaria</div>
           <div class="contact-role">(Bapa Pengantin Perempuan)</div>
           <div class="contact-number">
-            <a href="https://wa.me/60167637506" target="_blank" rel="noopener noreferrer">016-7637506</a>
+            <a href="https://wa.me/60167637506" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>   016-7637506</a>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-name">Pn. Mazni</div>
           <div class="contact-role">(Ibu Pengantin Perempuan)</div>
           <div class="contact-number">
-            <a href="https://wa.me/60167689481" target="_blank" rel="noopener noreferrer">016-7689481</a>
+            <a href="https://wa.me/60167689481" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>   016-7689481</a>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-name">Zakira</div>
           <div class="contact-role">(Kakak Pengantin)</div>
           <div class="contact-number">
-            <a href="https://wa.me/60139707260" target="_blank" rel="noopener noreferrer">013-9707260</a>
+            <a href="https://wa.me/60139707260" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>   013-9707260</a>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-name">Zulfikri</div>
           <div class="contact-role">(Abang Pengantin)</div>
           <div class="contact-number">
-            <a href="https://wa.me/60145359579" target="_blank" rel="noopener noreferrer">014-5359579</a>
+            <a href="https://wa.me/60145359579" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>   014-5359579</a>
           </div>
         </div>
       </div>
@@ -237,7 +253,7 @@
         <div class="info-item">
           <div class="info-icon">📷</div>
           <div class="info-text">
-            <strong>Fotografi:</strong> Perkhidmatan fotografi disediakan oleh Dani Rahmat Production. Tetamu digalakkan untuk berkongsi gambar di media sosial dengan hashtag #AtoZForever
+            <strong>Fotografi:</strong> Perkhidmatan fotografi disediakan oleh Dani Rahmat Production. Tetamu digalakkan untuk berkongsi gambar di media sosial dengan hashtag #FromAToZ
           </div>
         </div>
       </div>
