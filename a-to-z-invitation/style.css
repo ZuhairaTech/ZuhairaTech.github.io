@@ -923,8 +923,15 @@
       }
       
       .wishes-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column-reverse;
         gap: 20px;
+        direction: ltr;
+      }
+
+      .wish-author::before {
+        content: '— ';
+        color: var(--accent-color);
       }
       
       .slide img {
