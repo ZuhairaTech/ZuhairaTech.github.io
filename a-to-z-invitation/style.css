@@ -565,13 +565,19 @@
     .btn-band {
       background: transparent;
       color: var(--secondary-color);
-      border: 2px solid var(--secondary-color);
+      border: 0.5px solid var(--secondary-color);
+      height: 40px;
+      border-radius: 0;
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.5);
     }
 
     .btn-band:hover {
       background: var(--secondary-color);
       color: var(--white);
-      transform: translateY(-2px);
+      transform: translateY(-10px);
+      box-shadow: 0 4px 15px rgba(124, 76, 57, 0.3);
     }
 
     /* ================================
@@ -646,6 +652,7 @@
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 25px;
       margin-top: 40px;
+      direction: rtl;
     }
 
     .wish-card {
@@ -672,6 +679,7 @@
       position: relative;
       padding-left: 20px;
       text-align: left;
+      direction: ltr;
     }
 
     .wish-text::before {
@@ -691,7 +699,7 @@
       font-size: 0.95rem;
     }
 
-    .wish-author::before {
+    .wish-author::after {
       content: '— ';
       color: var(--accent-color);
     }
@@ -864,13 +872,12 @@
 
         .sticky-bottom-band {
           position: fixed;
-          bottom: 1%;
+          bottom: -1%;
           right: 130px;
           z-index: 999;
           display: flex;
           flex-direction: row;
           align-items: center;
-          gap: 15px;
       }
 
         @keyframes fadeIn {
