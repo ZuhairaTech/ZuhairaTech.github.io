@@ -8,216 +8,295 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <!-- Main Invitation Section -->
-  <div class="section">
-    <div class="container">
-      <div class="three-column">
-        
-        <!-- Text Column -->
-        <div class="text-column">
-          <p class="invitation-line events-title">Walimatul Urus</p>
-          <p class="invitation-line bismillah">بِسْمِ ٱللّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</p>
-          <p class="invitation-line body-text">Dengan nama Allah Yang Maha Pemurah Lagi Maha Penyayang</p>
-          <p class="invitation-line body-text">Dengan penuh rendah hati serta kesyukuran ke hadrat Ilahi, kami,</p>
-          <p class="invitation-line body-text"><strong>ZAKARIA BIN CHE DOLLAH</strong><br>&<br><strong>MAZNI BINTI SHAFII</strong></p>
-          <p class="invitation-line body-text">menyusun sepuluh jari menjemput Tuan, Puan, Encik</p>
-          <p class="invitation-line body-text">dan Cik, ke majlis perkahwinan anakanda kami,</p>
-          <p class="invitation-line couple-names">
-            Zuhaira Nasrin Binti Zakaria
-            <br>&<br>
-            Muhammad Aiman Haikal Bin Hairol Anuar
-          </p>
-          <p class="invitation-line body-text"><strong>Sabtu, 14 Februari 2026</strong><br>bersamaan <strong>25 Sha'ban 1447 H</strong></p>
-          <p class="invitation-line body-text">di <strong>Lot. 1063 Kampung Bendang Pak Yong,<br>16200 Tumpat, Kelantan</strong></p>
-          <p class="invitation-line body-text">Semoga dengan kehadiran Tuan/Puan/Encik/Cik menjadi</p>
-          <p class="invitation-line body-text">penyeri majlis dan membawa berkat sepanjang hayat mereka.</p>
+  <!-- Landing Page Overlay -->
+  <div class="landing-overlay" id="landingOverlay" onclick="openInvitation()">
+    <div class="landing-decoration top-left"></div>
+    <div class="landing-decoration bottom-right"></div>
+    
+    <div class="landing-content">
+      <div class="landing-subtitle">Walimatul Urus</div>
+      <div class="landing-decorative-line"></div>
+      <div class="landing-title">
+                Z
+                <div class="initial-divider"></div>
+                A
+            </div>
+      <div class="landing-decorative-line"></div>
+      <div class="landing-names">Zuhaira <span class="landing-ampersand">&</span> Aiman
+      </div>
+      <div class="landing-date-container">
+        <div>
+        <div class="divider"></div>
+        <div class="landing-date-day">Sabtu</div>
+        <div class="divider"></div>
         </div>
-
-              <!-- Info Column with Scroll Reveal Classes -->
-        <div class="info-column">
-          <!-- Event Schedule - Each part gets its own reveal -->
-          <p class="invitation-line events-title">Aturcara Majlis</p>
-
-          <div class="invitation-line event-schedule">
-            <div class="event-item">
-              <span class="event-time">12:00 PM</span>
-              <span class="event-desc">Jamuan Makan</span>
-            </div>
-
-            <div class="event-item">
-              <span class="event-time">1:00 PM</span>
-              <span class="event-desc">Ketibaan Pengantin</span>
-            </div>
-
-            <div class="event-item">
-              <span class="event-time">5:00 PM</span>
-              <span class="event-desc">Majlis Bersurai</span>
-            </div>
-          </div>
-
-
-          <!-- Countdown - Separate reveals for title and counter -->
-          <div class="invitation-line countdown-container">
-            <div class="countdown-decoration top-left"></div>
-            <div class="countdown-decoration bottom-right"></div>
-            <p class="countdown-title">Menanti Hari Bahagia</p>
-            <div class="countdown-units">
-              <div class="countdown-unit">
-                <div class="countdown-value" id="countdown-days">265</div>
-                <div class="countdown-label">Hari</div>
-              </div>
-              <div class="countdown-unit">
-                <div class="countdown-value" id="countdown-hours">12</div>
-                <div class="countdown-label">Jam</div>
-              </div>
-              <div class="countdown-unit">
-                <div class="countdown-value" id="countdown-minutes">30</div>
-                <div class="countdown-label">Minit</div>
-              </div>
-              <div class="countdown-unit">
-                <div class="countdown-value" id="countdown-seconds">45</div>
-                <div class="countdown-label">Saat</div>
-              </div>
-            </div>
-          </div>
-        
-
-          <div class="button-container">
-            <a href="https://forms.gle/1hLaD3QR4mmGzbTJ8" target="_blank" class="btn btn-primary">
-              <i class="fas fa-calendar-check"></i>
-              Sahkan Kehadiran
-            </a>
-            <button onclick="openLocationModal()" class="btn btn-outline">
-                <i class="fas fa-map-marker-alt"></i>
-                Lihat Lokasi
-            </button>
-            <a href="info.html" target="_blank" class="btn btn-outline">
-              <i class="fas fa-info-circle"></i>
-              Info Lanjut
-            </a>
-          </div>
-
-          <div id="locationModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeLocationModal()">&times;</span>
-                <div class="modal-header">
-                    <h3><i class="fas fa-map-marker-alt"></i> Pilih Aplikasi Peta</h3>
-                    <p>Buka lokasi dengan aplikasi pilihan anda</p>
-                </div>
-                <div class="modal-buttons">
-                    <a href="https://maps.app.goo.gl/H8Ay22CgTzp73WMi6" target="_blank" class="modal-btn btn-google" onclick="closeLocationModal()">
-                        <i class="fab fa-google"></i>
-                        Google Maps
-                    </a>
-                    <a href="https://waze.com/ul/hw30e559hb" target="_blank" class="modal-btn btn-waze" onclick="closeLocationModal()">
-                        <i class="fab fa-waze"></i>
-                        Waze
-                    </a>
-                    <button onclick="closeLocationModal()" class="modal-btn btn-cancel">
-                        <i class="fas fa-times"></i>
-                        Batal
-                    </button>
-                </div>
-            </div>
+        <div>
+          <div class="landing-date-month">Feb</div>
+          <div class="landing-date-number">14</div>
+          <div class="landing-date-year">2026</div>
+        </div>
+        <div>
+          <div class="divider"></div>
+          <div class="landing-date-time">12pm</div>
+          <div class="divider"></div>
         </div>
       </div>
-
-        
-      <!-- Image Column -->
-        <div class="image-column">
-          <p class="invitation-line events-title">Galeri</p>
-          <div class="slideshow-container" id="slideshowContainer">
-            <div class="slide active">
-              <img src="img/bride_detail.jpeg" alt="Couple Photo 1">
-            </div>
-            <div class="slide">
-              <img src="img/bride_only.jpeg" alt="Couple Photo 2">
-            </div>
-            <div class="slide">
-              <img src="img/formal_both.jpeg" alt="Couple Photo 3">
-            </div>
-            <div class="slide">
-              <img src="img/fun_both.jpeg" alt="Couple Photo 4">
-            </div>
-            <div class="slide">
-              <img src="img/natural_both.jpeg" alt="Couple Photo 5">
-            </div>
-
-            <button class="slide-nav prev" onclick="changeSlide(-1)">
-              <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="slide-nav next" onclick="changeSlide(1)">
-              <i class="fas fa-chevron-right"></i>
-            </button>
-            
-            <a href="https://www.facebook.com/rahmatphotozaidani" target="_blank" class="photo-credit">
-              <i class="fab fa-facebook"></i> rahmatphotozaidani
-            </a>
-            
-            <div class="slide-indicators">
-              <span class="slide-dot active" onclick="currentSlide(0)"></span>
-              <span class="slide-dot" onclick="currentSlide(1)"></span>
-              <span class="slide-dot" onclick="currentSlide(2)"></span>
-              <span class="slide-dot" onclick="currentSlide(3)"></span>
-              <span class="slide-dot" onclick="currentSlide(4)"></span>
-            </div>
-          </div>
-          <div class="invitation-line hashtag" contenteditable>#FromAToZ</div>
-        </div>
+      
+      <div class="landing-click-hint">
+        <i class="fas fa-hand-pointer"></i> Ketik untuk membuka jemputan
       </div>
     </div>
   </div>
 
-  <!-- Wishes Section -->
-  <section class="invitation-line wishes-section" id="wishes-section">
-    <div class="container">
-      <div class="wishes-header">
-        <h2 class="wishes-title">Ucapan & Doa</h2>
-        <button class="refresh-btn" onclick="loadWishes()">
-          <i class="fas fa-sync-alt"></i> Muat Semula Ucapan
-        </button>
-      </div>
+  <!-- Main Content (Your existing content) -->
+  <div class="main-content" id="mainContent">
+    <!-- Main Invitation Section -->
+    <div class="section">
+      <div class="container">
+        <div class="three-column">
+          
+          <!-- Text Column -->
+          <div class="text-column">
+            <p class="invitation-line events-title">Walimatul Urus</p>
+            <p class="invitation-line bismillah">بِسْمِ ٱللّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</p>
+            <p class="invitation-line body-text">Dengan nama Allah Yang Maha Pemurah Lagi Maha Penyayang</p>
+            <p class="invitation-line body-text">Dengan penuh rendah hati serta kesyukuran ke hadrat Ilahi, kami,</p>
+            <p class="invitation-line body-text"><strong>ZAKARIA BIN CHE DOLLAH</strong><br>&<br><strong>MAZNI BINTI SHAFII</strong></p>
+            <p class="invitation-line body-text">menyusun sepuluh jari menjemput Tuan, Puan, Encik</p>
+            <p class="invitation-line body-text">dan Cik, ke majlis perkahwinan anakanda kami,</p>
+            <p class="invitation-line couple-names">
+              Zuhaira Nasrin Binti Zakaria
+              <br>&<br>
+              Muhammad Aiman Haikal Bin Hairol Anuar
+            </p>
+            <p class="invitation-line body-text"><strong>Sabtu, 14 Februari 2026</strong><br>bersamaan <strong>25 Sha'ban 1447 H</strong></p>
+            <p class="invitation-line body-text">di <strong>Lot. 1063 Kampung Bendang Pak Yong,<br>16200 Tumpat, Kelantan</strong></p>
+            <p class="invitation-line body-text">Semoga dengan kehadiran Tuan/Puan/Encik/Cik menjadi</p>
+            <p class="invitation-line body-text">penyeri majlis dan membawa berkat sepanjang hayat mereka.</p>
+          </div>
 
-      <div id="wishes-loading" class="wishes-loading">
-        <div class="loading-spinner"></div>
-        <span>Sedang memuatkan ucapan...</span>
-      </div>
+          <!-- Info Column with Scroll Reveal Classes -->
+          <div class="info-column">
+            <!-- Event Schedule - Each part gets its own reveal -->
+            <p class="invitation-line events-title">Aturcara Majlis</p>
 
-      <div id="wishes-error" class="wishes-error hidden"></div>
-      <div id="wishes-stats" class="wishes-stats hidden"></div>
-      <div id="wishes-grid" class="wishes-grid"></div>
-    </div>
-  </section>
+            <div class="invitation-line event-schedule">
+              <div class="event-item">
+                <span class="event-time">12:00 PM</span>
+                <span class="event-desc">Jamuan Makan</span>
+              </div>
 
-  <!-- Floating Action Button -->
-  <button class="floating-btn" onclick="toggleScroll()" id="scrollToggleBtn">
-    <i class="fa fa-chevron-down"></i>
-  </button>
+              <div class="event-item">
+                <span class="event-time">1:00 PM</span>
+                <span class="event-desc">Ketibaan Pengantin</span>
+              </div>
 
-  <!-- Decorative Elements -->
-  <img src="img/filler2.png" class="corner-decoration bottom-left" alt="Flower Decoration">
-  <img src="img/filler1.png" class="corner-decoration top-right" alt="Flower Decoration">
+              <div class="event-item">
+                <span class="event-time">5:00 PM</span>
+                <span class="event-desc">Majlis Bersurai</span>
+              </div>
+            </div>
 
-    <script src="script.js"></script>
-  <div class="sticky-bottom-band">
-        <div class="band-content">
-            <a href="https://forms.gle/1hLaD3QR4mmGzbTJ8" target="_blank" class="btn btn-band">
+            <!-- Countdown - Separate reveals for title and counter -->
+            <div class="invitation-line countdown-container">
+              <div class="countdown-decoration top-left"></div>
+              <div class="countdown-decoration bottom-right"></div>
+              <p class="invitation-line events-title">Menanti Hari Bahagia</p>
+              <div class="countdown-units">
+                <div class="countdown-unit">
+                  <div class="countdown-value" id="countdown-days">265</div>
+                  <div class="countdown-label">Hari</div>
+                </div>
+                <div class="countdown-unit">
+                  <div class="countdown-value" id="countdown-hours">12</div>
+                  <div class="countdown-label">Jam</div>
+                </div>
+                <div class="countdown-unit">
+                  <div class="countdown-value" id="countdown-minutes">30</div>
+                  <div class="countdown-label">Minit</div>
+                </div>
+                <div class="countdown-unit">
+                  <div class="countdown-value" id="countdown-seconds">45</div>
+                  <div class="countdown-label">Saat</div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="button-container">
+              <a href="https://forms.gle/1hLaD3QR4mmGzbTJ8" target="_blank" class="btn btn-primary">
                 <i class="fas fa-calendar-check"></i>
-            </a>
-        </div>
-        <div class="band-content">
-            <button onclick="openLocationModal()" class="btn btn-band">
-                <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <div class="band-content">
-            <a href="info.html" target="_blank" class="btn btn-band">
+                Sahkan Kehadiran
+              </a>
+              <button onclick="openLocationModal()" class="btn btn-outline">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Lihat Lokasi
+              </button>
+              <a href="info.html" target="_blank" class="btn btn-outline">
                 <i class="fas fa-info-circle"></i>
-            </a>
+                Info Lanjut
+              </a>
+            </div>
+
+            <div id="locationModal" class="modal">
+              <div class="modal-content">
+                  <span class="close" onclick="closeLocationModal()">&times;</span>
+                  <div class="modal-header">
+                      <h3><i class="fas fa-map-marker-alt"></i> Pilih Aplikasi Peta</h3>
+                      <p>Buka lokasi dengan aplikasi pilihan anda</p>
+                  </div>
+                  <div class="modal-buttons">
+                      <a href="https://maps.app.goo.gl/H8Ay22CgTzp73WMi6" target="_blank" class="modal-btn btn-google" onclick="closeLocationModal()">
+                          <i class="fab fa-google"></i>
+                          Google Maps
+                      </a>
+                      <a href="https://waze.com/ul/hw30e559hb" target="_blank" class="modal-btn btn-waze" onclick="closeLocationModal()">
+                          <i class="fab fa-waze"></i>
+                          Waze
+                      </a>
+                      <button onclick="closeLocationModal()" class="modal-btn btn-cancel">
+                          <i class="fas fa-times"></i>
+                          Batal
+                      </button>
+                  </div>
+              </div>
+          </div>
         </div>
+
+          
+        <!-- Image Column -->
+          <div class="image-column">
+            <p class="invitation-line events-title">Galeri</p>
+            <div class="slideshow-container" id="slideshowContainer">
+              <div class="slide active">
+                <img src="img/bride_detail.jpeg" alt="Couple Photo 1">
+              </div>
+              <div class="slide">
+                <img src="img/bride_only.jpeg" alt="Couple Photo 2">
+              </div>
+              <div class="slide">
+                <img src="img/formal_both.jpeg" alt="Couple Photo 3">
+              </div>
+              <div class="slide">
+                <img src="img/fun_both.jpeg" alt="Couple Photo 4">
+              </div>
+              <div class="slide">
+                <img src="img/natural_both.jpeg" alt="Couple Photo 5">
+              </div>
+
+              <button class="slide-nav prev" onclick="changeSlide(-1)">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="slide-nav next" onclick="changeSlide(1)">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              
+              <a href="https://www.facebook.com/rahmatphotozaidani" target="_blank" class="photo-credit">
+                <i class="fab fa-facebook"></i> rahmatphotozaidani
+              </a>
+              
+              <div class="slide-indicators">
+                <span class="slide-dot active" onclick="currentSlide(0)"></span>
+                <span class="slide-dot" onclick="currentSlide(1)"></span>
+                <span class="slide-dot" onclick="currentSlide(2)"></span>
+                <span class="slide-dot" onclick="currentSlide(3)"></span>
+                <span class="slide-dot" onclick="currentSlide(4)"></span>
+              </div>
+            </div>
+            <div class="invitation-line hashtag" contenteditable>#FromAToZ</div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Wishes Section -->
+    <section class="invitation-line wishes-section" id="wishes-section">
+      <div class="container">
+        <div class="wishes-header">
+          <h2 class="wishes-title">Ucapan & Doa</h2>
+          <button class="refresh-btn" onclick="loadWishes()">
+            <i class="fas fa-sync-alt"></i> Muat Semula Ucapan
+          </button>
+        </div>
+
+        <div id="wishes-loading" class="wishes-loading">
+          <div class="loading-spinner"></div>
+          <span>Sedang memuatkan ucapan...</span>
+        </div>
+
+        <div id="wishes-error" class="wishes-error hidden"></div>
+        <div id="wishes-stats" class="wishes-stats hidden"></div>
+        <div id="wishes-grid" class="wishes-grid"></div>
+      </div>
+    </section>
+
+    <!-- Floating Action Button -->
+    <button class="floating-btn" onclick="toggleScroll()" id="scrollToggleBtn">
+      <i class="fa fa-chevron-down"></i>
+    </button>
+
+    <!-- Decorative Elements -->
+    <img src="img/filler2.png" class="corner-decoration bottom-left" alt="Flower Decoration">
+    <img src="img/filler1.png" class="corner-decoration top-right" alt="Flower Decoration">
+
+    <div class="sticky-bottom-band">
+      <div class="band-content">
+          <a href="https://forms.gle/1hLaD3QR4mmGzbTJ8" target="_blank" class="btn btn-band">
+              <i class="fas fa-calendar-check"></i>
+          </a>
+      </div>
+      <div class="band-content">
+          <button onclick="openLocationModal()" class="btn btn-band">
+              <i class="fas fa-map-marker-alt"></i>
+      </div>
+      <div class="band-content">
+          <a href="info.html" target="_blank" class="btn btn-band">
+              <i class="fas fa-info-circle"></i>
+          </a>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Landing page functionality
+    function openInvitation() {
+      const overlay = document.getElementById('landingOverlay');
+      const mainContent = document.getElementById('mainContent');
+      
+      // Fade out the landing overlay
+      overlay.classList.add('fade-out');
+      
+      // Show main content after a short delay
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        mainContent.classList.add('show');
+      }, 800);
+      
+      // Store that user has seen the landing page in this session
+      sessionStorage.setItem('landingShown', 'true');
+      setTimeout(() => {
+        location.reload(); // Reloads the page to trigger script.js
+      }, 800);
+    }
+    
+    // Check if landing page should be shown
+    window.addEventListener('load', function() {
+      const landingShown = sessionStorage.getItem('landingShown');
+      const overlay = document.getElementById('landingOverlay');
+      const mainContent = document.getElementById('mainContent');
+      
+      if (landingShown) {
+        // If already shown in this session, skip landing page
+        overlay.style.display = 'none';
+        mainContent.classList.add('show');
+      }
+    });
+  </script>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
