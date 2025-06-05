@@ -784,6 +784,20 @@
       padding: 2rem;
       box-sizing: border-box;
     }
+
+    .landing-overlay::before{
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('img/batik.png');
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      opacity: 0.05; /* Adjust opacity */
+      z-index: -1;
+    }
     
     .landing-overlay.fade-out {
       opacity: 0;
@@ -949,24 +963,19 @@
     }
     
     .landing-decoration.top-left {
-      top: 10%;
-      left: 10%;
-      transform: rotate(-15deg);
-      width: 80px;
-      height: 80px;
-      background: radial-gradient(circle, #8b6b3d, transparent);
-      border-radius: 50%;
+      margin: auto;
+      width: 30%;
+      height: 85%;
+background: radial-gradient(
+  circle,
+  rgba(250, 248, 246, 1) 0%,      /* Fully opaque at center */
+  rgba(250, 248, 246, 0.8) 30%,   /* Slightly transparent */
+  rgba(250, 248, 246, 0.4) 60%,   /* More transparent */
+  rgba(250, 248, 246, 0) 100%     /* Fully transparent at edge */
+);      border-radius: 50%;
     }
     
-    .landing-decoration.bottom-right {
-      bottom: 10%;
-      right: 10%;
-      transform: rotate(15deg);
-      width: 100px;
-      height: 100px;
-      background: radial-gradient(circle, #8b6b3d, transparent);
-      border-radius: 50%;
-    }
+    
     
     @keyframes fadeInUp {
       from {
