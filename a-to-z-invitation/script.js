@@ -26,12 +26,21 @@ if (sessionStorage.getItem('landingShown') === 'true') {
     },
     
     // Animation Settings
-    animation: {
-      mobileRevealDelay: 1200, // milliseconds between line reveals on mobile
-      mobileScrollDelay: 150,  // delay before scrolling to revealed line
-      buttonShowDelay: 500     // delay before showing buttons after all lines are visible
+      animation: {
+      mobileRevealDelay: 1200, // Keep for compatibility
+      mobileScrollDelay: 150,  // Keep for compatibility
+      buttonShowDelay: 500,    // Keep for compatibility
+      
+      // New scroll-triggered animation settings
+      scrollTrigger: {
+        threshold: 0.2,        // Percentage of element that needs to be visible (0.2 = 20%)
+        rootMargin: '0px 0px -10% 0px', // Trigger animation when element is 10% from bottom
+        fadeDistance: 30,      // Distance in pixels for fade-up animation
+        animationDuration: 800, // Animation duration in milliseconds
+        animationEasing: 'cubic-bezier(0.4, 0, 0.2, 1)' // Smooth easing function
+      }
     },
-    
+      
     // Responsive Settings
     breakpoint: {
       mobile: 768 // pixels
@@ -194,23 +203,228 @@ if (sessionStorage.getItem('landingShown') === 'true') {
 
     setupScrollReveal() {
       if (this.state.isMobile) {
-        this.setupMobileAutoReveal();
+        this.setupMobileScrollTrigger(); 
       } else {
         this.setupDesktopManualReveal();
       }
     }
 
-    setupMobileAutoReveal() {
-      const autoReveal = setInterval(() => {
-        if (this.state.currentIndex < this.elements.lines.length) {
-          this.state.currentIndex++;
-          this.updateVisibility();
-          this.smoothScrollToLatestLine();
-        } else {
-          clearInterval(autoReveal);
-        }
-      }, this.config.animation.mobileRevealDelay);
+    setupMobileScrollTrigger() {
+      this.initializeScrollObserver();
+      this.addScrollTriggerStyles();
     }
+
+    initializeScrollObserver() {
+  // Create intersection observer options
+  const observerOptions = {
+    root: null, // Use viewport as root
+    rootMargin: this.config.animation.scrollTrigger.rootMargin,
+    threshold: this.config.animation.scrollTrigger.threshold
+  };
+
+  // Create the intersection observer
+  this.scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Element is entering the viewport - fade in with slide up
+        this.animateElementIn(entry.target);
+      } else {
+        // Element is leaving the viewport - fade out
+        this.animateElementOut(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all invitation lines
+  this.elements.lines.forEach((line, index) => {
+    // Reset line visibility for scroll-triggered animation
+    line.classList.remove('visible');
+    line.classList.add('scroll-trigger-element');
+    
+    // Add initial transform for fade-up animation
+    line.style.transform = `translateY(${this.config.animation.scrollTrigger.fadeDistance}px)`;
+    line.style.opacity = '0';
+    line.style.transition = `all ${this.config.animation.scrollTrigger.animationDuration}ms ${this.config.animation.scrollTrigger.animationEasing}`;
+    
+    // Start observing this element
+    this.scrollObserver.observe(line);
+  });
+
+  // Also observe slideshow container
+  if (this.elements.slideshowContainer) {
+    this.elements.slideshowContainer.classList.add('scroll-trigger-element');
+    this.elements.slideshowContainer.style.transform = `translateY(${this.config.animation.scrollTrigger.fadeDistance}px)`;
+    this.elements.slideshowContainer.style.opacity = '0';
+    this.elements.slideshowContainer.style.transition = `all ${this.config.animation.scrollTrigger.animationDuration}ms ${this.config.animation.scrollTrigger.animationEasing}`;
+    this.scrollObserver.observe(this.elements.slideshowContainer);
+  }
+
+  // Observe button container
+  if (this.elements.buttonContainer) {
+    this.elements.buttonContainer.classList.add('scroll-trigger-element');
+    this.elements.buttonContainer.style.transform = `translateY(${this.config.animation.scrollTrigger.fadeDistance}px)`;
+    this.elements.buttonContainer.style.opacity = '0';
+    this.elements.buttonContainer.style.transition = `all ${this.config.animation.scrollTrigger.animationDuration}ms ${this.config.animation.scrollTrigger.animationEasing}`;
+    this.scrollObserver.observe(this.elements.buttonContainer);
+  }
+}
+
+// Animate element into view
+animateElementIn(element) {
+  element.classList.add('visible', 'scroll-triggered');
+  element.style.transform = 'translateY(0)';
+  element.style.opacity = '1';
+  
+  // Add a subtle delay based on element index for staggered effect
+  const elementIndex = Array.from(this.elements.lines).indexOf(element);
+  if (elementIndex !== -1) {
+    element.style.transitionDelay = `${elementIndex * 50}ms`; // 50ms stagger
+  }
+}
+
+// Animate element out of view
+animateElementOut(element) {
+  element.classList.remove('visible', 'scroll-triggered');
+  element.style.transform = `translateY(${this.config.animation.scrollTrigger.fadeDistance}px)`;
+  element.style.opacity = '0';
+  element.style.transitionDelay = '0ms'; // Reset delay when fading out
+}
+
+// Add CSS styles for scroll-triggered elements
+addScrollTriggerStyles() {
+  // Check if styles are already added
+  if (document.getElementById('scroll-trigger-styles')) return;
+  
+  const styleSheet = document.createElement('style');
+  styleSheet.id = 'scroll-trigger-styles';
+  styleSheet.textContent = `
+    /* Scroll-triggered animation styles */
+    .scroll-trigger-element {
+      will-change: transform, opacity;
+    }
+    
+    .scroll-trigger-element.scroll-triggered {
+      transform: translateY(0) !important;
+      opacity: 1 !important;
+    }
+    
+    /* Enhanced mobile animations */
+    @media (max-width: ${this.config.breakpoint.mobile}px) {
+      .invitation-line {
+        transform: translateY(30px);
+        opacity: 0;
+        transition: all 800ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .invitation-line.visible {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      /* Smooth slideshow reveal */
+      #slideshowContainer {
+        transform: translateY(40px);
+        opacity: 0;
+        transition: all 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      #slideshowContainer.visible {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      /* Button container fade-in */
+      .button-container {
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all 600ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .button-container.visible {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  `;
+  
+  document.head.appendChild(styleSheet);
+}
+
+// Updated updateVisibility method to work with scroll-triggered animations
+updateVisibility() {
+  // For mobile, visibility is now handled by scroll observer
+  if (this.state.isMobile) {
+    // Don't manually update visibility - let scroll observer handle it
+    return;
+  }
+  
+  // Keep original desktop behavior
+  this.elements.lines.forEach((line, index) => {
+    line.classList.toggle('visible', index <= this.state.currentIndex);
+  });
+
+  // Show/hide slideshow and buttons for desktop
+  if (this.state.currentIndex >= this.elements.lines.length) {
+    this.elements.slideshowContainer.classList.add('visible');
+    
+    setTimeout(() => {
+      if (this.elements.buttonContainer) {
+        this.elements.buttonContainer.classList.add('visible');
+      }
+    }, this.config.animation.buttonShowDelay);
+  } else {
+    this.elements.slideshowContainer.classList.remove('visible');
+    if (this.elements.buttonContainer) {
+      this.elements.buttonContainer.classList.remove('visible');
+    }
+  }
+}
+
+// Cleanup method update to include scroll observer
+destroy() {
+  if (this.state.slideTimer) clearTimeout(this.state.slideTimer);
+  if (this.state.countdownTimer) clearInterval(this.state.countdownTimer);
+  
+  // Clean up scroll observer
+  if (this.scrollObserver) {
+    this.scrollObserver.disconnect();
+    this.scrollObserver = null;
+  }
+  
+  // Remove added styles
+  const styleSheet = document.getElementById('scroll-trigger-styles');
+  if (styleSheet) {
+    styleSheet.remove();
+  }
+}
+
+// Optional: Method to manually trigger scroll check (useful for dynamic content)
+triggerScrollCheck() {
+  if (this.scrollObserver && this.state.isMobile) {
+    // Re-observe all elements to trigger intersection check
+    this.elements.lines.forEach(line => {
+      this.scrollObserver.unobserve(line);
+      this.scrollObserver.observe(line);
+    });
+  }
+}
+
+// Optional: Method to update scroll trigger settings
+updateScrollTriggerSettings(newSettings) {
+  if (!this.state.isMobile) return;
+  
+  // Update config
+  this.config.animation.scrollTrigger = {
+    ...this.config.animation.scrollTrigger,
+    ...newSettings
+  };
+  
+  // Reinitialize scroll observer with new settings
+  if (this.scrollObserver) {
+    this.scrollObserver.disconnect();
+  }
+  this.initializeScrollObserver();
+}
 
     setupDesktopManualReveal() {
       // Mouse wheel scroll
@@ -240,20 +454,6 @@ if (sessionStorage.getItem('landingShown') === 'true') {
       const ignoreClasses = ['prev', 'next', 'dot', 'info-button', 'map-button', 'back-button', 'modal', 'modal-content', 'modal-btn'];
       return ignoreClasses.some(className => target.classList.contains(className)) ||
             target.closest('.modal') !== null;
-    }
-
-    smoothScrollToLatestLine() {
-      const lastVisibleLine = this.elements.lines[this.state.currentIndex - 1];
-      if (lastVisibleLine) {
-        setTimeout(() => {
-          requestAnimationFrame(() => {
-            lastVisibleLine.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center'
-            });
-          });
-        }, this.config.animation.mobileScrollDelay);
-      }
     }
 
     updateVisibility() {

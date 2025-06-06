@@ -966,13 +966,13 @@
       margin: auto;
       width: 30%;
       height: 85%;
-background: radial-gradient(
-  circle,
-  rgba(250, 248, 246, 1) 0%,      /* Fully opaque at center */
-  rgba(250, 248, 246, 0.8) 30%,   /* Slightly transparent */
-  rgba(250, 248, 246, 0.4) 60%,   /* More transparent */
-  rgba(250, 248, 246, 0) 100%     /* Fully transparent at edge */
-);      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(250, 248, 246, 1) 0%,      /* Fully opaque at center */
+        rgba(250, 248, 246, 0.8) 30%,   /* Slightly transparent */
+        rgba(250, 248, 246, 0.4) 60%,   /* More transparent */
+        rgba(250, 248, 246, 0) 100%     /* Fully transparent at edge */
+      );      border-radius: 50%;
     }
     
     
