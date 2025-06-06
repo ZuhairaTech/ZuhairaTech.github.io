@@ -48,7 +48,7 @@ if (sessionStorage.getItem('landingShown') === 'true') {
     
     // Google Sheets Configuration
     wishes: {
-      sheetId: '1sl330GOsuyc2haR334yMX-bIxcPnxJw97sPkz8Q6-3o', // Replace with client's Sheet ID
+      sheetId: '1pGniIsCYrVZZav3XIEdD51XO-CSGsyWp7ESrLPA0UdE', // Replace with client's Sheet ID
       useCsvMethod: true,
       range: 'Sheet1!A:F',
       nameColumn: 2,    // Column C (0-indexed)
@@ -427,17 +427,7 @@ updateScrollTriggerSettings(newSettings) {
 }
 
     setupDesktopManualReveal() {
-      // Mouse wheel scroll
-      window.addEventListener('wheel', (e) => {
-        e.preventDefault();
-        if (e.deltaY > 0 && this.state.currentIndex < this.elements.lines.length) {
-          this.state.currentIndex++;
-          this.updateVisibility();
-        } else if (e.deltaY < 0 && this.state.currentIndex > 0) {
-          this.state.currentIndex--;
-          this.updateVisibility();
-        }
-      }, { passive: false });
+      this.startAutoReveal();
 
       // Click to advance
       window.addEventListener('click', (e) => {
@@ -448,6 +438,21 @@ updateScrollTriggerSettings(newSettings) {
           this.updateVisibility();
         }
       });
+    }
+
+    startAutoReveal() {
+      const revealDelay = 700; // 1.5 seconds between each reveal
+      
+      const revealNext = () => {
+        if (this.state.currentIndex < this.elements.lines.length) {
+          this.state.currentIndex++;
+          this.updateVisibility();
+          setTimeout(revealNext, revealDelay);
+        }
+      };
+      
+      // Start the first reveal after a short delay
+      setTimeout(revealNext, 300);
     }
 
     shouldIgnoreClick(target) {
