@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zuhaira Nasrin Zakaria - Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Floating icon -->
+    <div class="vertical-social-icons">
+        <!-- Existing Icons -->
+        <a href="mailto:zuhairanasrin.zakaria@gmail.com" target="_blank"><i class="fa-solid fa-envelope"  title="Email me"></i></a>
+        <a href="http://www.linkedin.com/in/zuhaira-nasrin-zakaria/" target="_blank"><i class="fa-brands fa-linkedin-in"  title="LinkedIn"></i></a>
+        <a href="https://medium.com/@zuhairanasrin.zakaria" target="_blank"><i class="fa-brands fa-medium"  title="Medium"></i></a>
+        <a href="https://www.hackerrank.com/profile/zuhairanasrin77" target="_blank"><i class="fa-solid fa-code" title="Hackerrank"></i></a>
+        <a href="https://github.com/ZuhairaTech/" target="_blank"><i class="fa-brands fa-github" title="github.com/ZuhairaTech"></i></a>
+        <a href="https://www.goodreads.com/user/show/188515408-zuhaira" target="_blank"><i class="fa-brands fa-goodreads" title="Reading List"></i></a>
+        
+        <!-- Language/Translate Icon -->
+        <a href="#" id="translate-icon" class="translate-trigger" title="Translate this page">
+            <i class="fa-solid fa-language"></i>
+        </a>
+    </div>
+
+    <!-- Custom Google Translate Container -->
+    <div id="google_translate_container" class="translate-container">
+        <div class="translate-header">
+            <span class="translate-title">
+                <i class="fa-solid fa-globe"></i>
+                Choose Language
+            </span>
+            <button class="translate-close" id="translate-close">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        </div>
+        <div id="google_translate_element"></div>
+    </div>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">ZNZ</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://drive.google.com/file/d/1p2s_qfhhKHiR_U5a-n9RxATcZKujbeoy/view?usp=sharing" class="resume-btn" target="_blank">Resume</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="radial-overlay"></div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm 
+                    <span class="waviy" translate="no">
+                        <span style="--i:1">Z</span>
+                        <span style="--i:2">u</span>
+                        <span style="--i:3">h</span>
+                        <span style="--i:4">a</span>
+                        <span style="--i:5">i</span>
+                        <span style="--i:6">r</span>
+                        <span style="--i:7">a</span>
+                        <span style="--i:8">.</span>
+                    </span></h1>
+                    
+                    <p>A passionate developer who loves solving problems and building things that work. Currently growing my skills in full-stack development, one bug fix at a time.</p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-code"></i>
+                            View My Work
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="code-block">
+                        <div class="code-line">
+                            <span class="code-comment">// Developer in progress</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="code-keyword">const</span> <span class="code-function">developer</span> = {
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;name: <span class="code-string" translate="no">'Zuhaira'</span>,
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;role: <span class="code-string">'Problem Solver'</span>,
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;skills: [<span class="code-string">'Java'</span>, <span class="code-string">'Python'</span>, <span class="code-string">'SQL'</span>],
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;passion: <span class="code-string">'Making things work'</span>
+                        </div>
+                        <div class="code-line">
+                            };
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="profile-placeholder ripple-effect">
+                        <img src="img/pfp1.jpg" alt="Profile" class="profile-image ">
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>I'm a tech enthusiast and junior developer still finding my footing in the world of software. While I'm not someone who writes fancy front-end interfaces (yet!), I've discovered that I thrive when it comes to solving problems, especially the ones that leave others scratching their heads.</p>
+                    
+                    <p>My experience so far includes working with tools like ZK Framework, databases, and JasperReports, where I've handled bug fixing, troubleshooting, and figuring things out on the fly. I enjoy learning independently, picking up new technologies as I go, and making things work — even if it takes a bit of trial and error.</p>
+                    
+                    <p>I'm currently exploring my path toward becoming a full-stack developer, building on what I've learned and growing one step at a time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming & Development</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name" translate="no">Python</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name" translate="no">Java</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name" translate="no">HTML/CSS</span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name" translate="no">JavaScript</span>
+                            <span class="skill-percentage">65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name" translate="no">Ruby</span>
+                            <span class="skill-percentage">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name" translate="no">Ruby on Rails</span>
+                            <span class="skill-percentage">60%</span>
+                        </div>
+                        <div class="skill-bar" >
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name" translate="no">Visual Studio Code</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name" translate="no">SQL</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name" translate="no">Git</span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name" translate="no">Eclipse</span>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Problem Solving</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Team Collaboration</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Communication</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Project Management</span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Adaptability</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-content">
+                        <div class="experience-date">2024</div>
+                        <h3 class="experience-title">Software Developer (Protégé)</h3>
+                        <div class="experience-description">
+                            Utilized iReport to create and customize reports integrated with JasperReports. Debugged and resolved complex issues in Java and SQL. Collaborated with senior developers and system analysts to deliver solutions.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-content">
+                        <div class="experience-date">2023</div>
+                        <h3 class="experience-title">Application Support Engineer</h3>
+                        <div class="experience-description">
+                            Prepared integration setups for new business initiatives. Maintained business continuity through end-to-end support. Facilitated deployments and resolved production incidents.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-content">
+                        <div class="experience-date">2022</div>
+                        <h3 class="experience-title">Private Tutor</h3>
+                        <div class="experience-description">
+                            Conducted weekly sessions for Computer Science and Mathematics. Personalized lessons to individual learning styles.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-content">
+                        <div class="experience-date">2021</div>
+                        <h3 class="experience-title">STEM Outreach Ambassador</h3>
+                        <div class="experience-description">
+                            Guided high school students in hands-on Python labs. Adapted Java/C# knowledge for effective Python teaching.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Garden Planning</h3>
+                        <div class="project-category">Tool</div>
+                        <p class="project-description">A planning tool for garden enthusiasts to organize their planting schedules and track garden progress.</p>
+                        <div class="project-links view-project-btn" data-project="garden">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-universal-access"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Hackcessible</h3>
+                        <div class="project-category">Team Project</div>
+                        <p class="project-description">A collaborative project focused on creating accessible solutions for people with disabilities.</p>
+                        <div class="project-links view-project-btn" data-project="hackcessible">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Viridis</h3>
+                        <div class="project-category">Analytics Web</div>
+                        <p class="project-description">An analytics web application providing insights and data visualization for business intelligence.</p>
+                        <div class="project-links view-project-btn" data-project="viridis">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal" id="projectModal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <div id="modalProjectContent">
+                        <!-- Project content will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p>I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology. Feel free to reach out!</p>
+                <!-- <div class="contact-links">
+                    <a href="mailto:your.email@example.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        Email
+                    </a>
+                    <a href="https://linkedin.com/in/yourprofile" class="contact-link">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/yourprofile" class="contact-link">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div> -->
+            </div>
+            <div class="contact-form">
+                <form action="https://formspree.io/f/xyzwgkqk" method="POST">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="_replyto" required>
+                
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="1" required></textarea>
+                
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Zuhaira Nasrin Zakaria. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
