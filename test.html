@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Modal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 50px;
+            background: #f0f0f0;
+        }
+
+        .demo-button {
+            background: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .demo-button:hover {
+            background: #0056b3;
+        }
+
+        /* Modal Styles */
+        .mpo-modal-open:checked ~ .mpo-modal-wrap {
+            display: block;
+        }
+
+        .mpo-modal-open:checked ~ .mpo-modal-wrap:before,
+        .mpo-modal-open:checked ~ .mpo-modal-wrap .mpo-modal-overlay {
+            display: block;
+        }
+
+        .mpo-modal-close {
+            cursor: pointer;
+            font-size: 35px;
+            font-weight: bold;
+            line-height: 20px;
+            padding: 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 100;
+            color: #333;
+            background: none;
+            border: none;
+        }
+
+        .mpo-modal-close:hover {
+            color: #000;
+        }
+
+        .mpo-modal-wrap {
+            display: none;
+        }
+
+        .mpo-modal-wrap:before {
+            content: "";
+            display: none;
+            background: rgba(0, 0, 0, .8);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 101;
+        }
+
+        .mpo-modal-overlay {
+            bottom: 0;
+            display: none;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 102;
+            cursor: pointer;
+        }
+
+        .mpo-modal-body {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 75%;
+            z-index: 103;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .mpo-modal-content-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .mpo-modal-slide {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transition: left 0.4s ease-in-out;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .mpo-modal-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mpo-modal-content h2 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        .mpo-modal-content p {
+            text-align: left;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Initial slide positions */
+        .content-1 { left: 0; }
+        .content-2 { left: 100%; }
+        .content-3 { left: 200%; }
+
+        /* Slide 1 active */
+        #modal-content-1:checked ~ .mpo-modal-content-container .content-1 { left: 0; }
+        #modal-content-1:checked ~ .mpo-modal-content-container .content-2 { left: 100%; }
+        #modal-content-1:checked ~ .mpo-modal-content-container .content-3 { left: 200%; }
+
+        /* Slide 2 active */
+        #modal-content-2:checked ~ .mpo-modal-content-container .content-1 { left: -100%; }
+        #modal-content-2:checked ~ .mpo-modal-content-container .content-2 { left: 0; }
+        #modal-content-2:checked ~ .mpo-modal-content-container .content-3 { left: 100%; }
+
+        /* Slide 3 active */
+        #modal-content-3:checked ~ .mpo-modal-content-container .content-1 { left: -200%; }
+        #modal-content-3:checked ~ .mpo-modal-content-container .content-2 { left: -100%; }
+        #modal-content-3:checked ~ .mpo-modal-content-container .content-3 { left: 0; }
+
+        .mpo-modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            pointer-events: none;
+        }
+
+        .mpo-modal-nav label {
+            position: absolute;
+            background: rgba(247, 247, 247, 0.9);
+            color: #303030;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 24px;
+            line-height: 50px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            border-radius: 50%;
+            pointer-events: auto;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .mpo-modal-nav label:hover {
+            background: rgba(247, 247, 247, 1);
+            transform: scale(1.1);
+        }
+
+        .mpo-modal-nav .prev-slide {
+            left: 20px;
+        }
+
+        .mpo-modal-nav .next-slide {
+            right: 20px;
+        }
+
+        /* Slide indicators */
+        .slide-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .slide-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        #modal-content-1:checked ~ .mpo-modal-content-container .slide-indicators .indicator-1,
+        #modal-content-2:checked ~ .mpo-modal-content-container .slide-indicators .indicator-2,
+        #modal-content-3:checked ~ .mpo-modal-content-container .slide-indicators .indicator-3 {
+            background: #007bff;
+        }
+
+        /* Hide radio buttons */
+        .modal-radio {
+            display: none;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .mpo-modal-body {
+                max-width: 100%;
+                width: 100%;
+                border-radius: 0;
+                height: 100vh;
+                max-height: 100vh;
+            }
+
+            .mpo-modal-content-container {
+                height: calc(100vh - 60px);
+            }
+
+            .mpo-modal-slide {
+                padding: 20px;
+            }
+
+            .mpo-modal-nav label {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 20px;
+            }
+
+            .mpo-modal-nav .prev-slide {
+                left: 10px;
+            }
+
+            .mpo-modal-nav .next-slide {
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Sliding Modal Demo</h1>
+    <p>Click the button below to open the sliding modal:</p>
+    
+    <label for="mpo-modal-controller" class="demo-button">Open Sliding Modal</label>
+
+    <div class="mpo-modal">
+        <input type="checkbox" id="mpo-modal-controller" class="mpo-modal-open" hidden>
+        <div class="mpo-modal-wrap">
+            <label for="mpo-modal-controller" class="mpo-modal-overlay"></label>
+            <div class="mpo-modal-body">
+                <label for="mpo-modal-controller" class="mpo-modal-close">&times;</label>
+
+                <input type="radio" name="content-nav" id="modal-content-1" class="modal-radio" checked hidden/>
+                <input type="radio" name="content-nav" id="modal-content-2" class="modal-radio" hidden/>
+                <input type="radio" name="content-nav" id="modal-content-3" class="modal-radio" hidden/>
+
+                <div class="mpo-modal-content-container">
+                    <div class="mpo-modal-slide content-1">
+                        <div class="mpo-modal-content">
+                            <h2>Welcome to Slide 1</h2>
+                            <p>
+                                This is the first slide of our modal carousel. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                            <p>
+                                Use the navigation arrows or indicators to move between slides. The transitions are smooth and responsive across all devices.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mpo-modal-slide content-2">
+                        <div class="mpo-modal-content">
+                            <h2>Discover Slide 2</h2>
+                            <p>
+                                This is the second slide with different content. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                            <p>
+                                The modal is fully responsive and works great on mobile devices. Try resizing your browser window to see how it adapts!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mpo-modal-slide content-3">
+                        <div class="mpo-modal-content">
+                            <h2>Final Slide 3</h2>
+                            <p>
+                                This is the third and final slide. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                            </p>
+                            <p>
+                                The sliding modal uses pure CSS with radio buttons for navigation - no JavaScript required! This makes it lightweight and reliable.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mpo-modal-nav">
+                        <label for="modal-content-1" class="prev-slide" style="display: none;">&#8249;</label>
+                        <label for="modal-content-2" class="next-slide">&#8250;</label>
+                    </div>
+
+                    <!-- Navigation for slide 2 -->
+                    <div class="mpo-modal-nav" style="display: none;" id="nav-2">
+                        <label for="modal-content-1" class="prev-slide">&#8249;</label>
+                        <label for="modal-content-3" class="next-slide">&#8250;</label>
+                    </div>
+
+                    <!-- Navigation for slide 3 -->
+                    <div class="mpo-modal-nav" style="display: none;" id="nav-3">
+                        <label for="modal-content-2" class="prev-slide">&#8249;</label>
+                        <label for="modal-content-3" class="next-slide" style="display: none;">&#8250;</label>
+                    </div>
+
+                    <div class="slide-indicators">
+                        <label for="modal-content-1" class="slide-indicator indicator-1"></label>
+                        <label for="modal-content-2" class="slide-indicator indicator-2"></label>
+                        <label for="modal-content-3" class="slide-indicator indicator-3"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced navigation visibility
+        const radio1 = document.getElementById('modal-content-1');
+        const radio2 = document.getElementById('modal-content-2');
+        const radio3 = document.getElementById('modal-content-3');
+        
+        function updateNavigation() {
+            const navs = document.querySelectorAll('.mpo-modal-nav');
+            navs.forEach(nav => nav.style.display = 'none');
+            
+            if (radio1.checked) {
+                navs[0].style.display = 'block';
+                navs[0].querySelector('.prev-slide').style.display = 'none';
+                navs[0].querySelector('.next-slide').style.display = 'inline-block';
+            } else if (radio2.checked) {
+                navs[0].style.display = 'block';
+                navs[0].querySelector('.prev-slide').style.display = 'inline-block';
+                navs[0].querySelector('.next-slide').style.display = 'inline-block';
+                navs[0].querySelector('.prev-slide').setAttribute('for', 'modal-content-1');
+                navs[0].querySelector('.next-slide').setAttribute('for', 'modal-content-3');
+            } else if (radio3.checked) {
+                navs[0].style.display = 'block';
+                navs[0].querySelector('.prev-slide').style.display = 'inline-block';
+                navs[0].querySelector('.next-slide').style.display = 'none';
+                navs[0].querySelector('.prev-slide').setAttribute('for', 'modal-content-2');
+            }
+        }
+        
+        radio1.addEventListener('change', updateNavigation);
+        radio2.addEventListener('change', updateNavigation);
+        radio3.addEventListener('change', updateNavigation);
+        
+        updateNavigation();
+    </script>
+</body>
+</html>
