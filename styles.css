@@ -1385,6 +1385,12 @@
         }
 
         @media only screen and (max-width: 767px) {
+            .modal-content {
+                width: 90%;
+                height: 90%;
+                margin: 5% auto;
+            }
+
             .mpo-modal-body {
                 max-width: 100%;
                 width: 100%;
