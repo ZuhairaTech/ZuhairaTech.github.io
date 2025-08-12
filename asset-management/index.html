@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Management System</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.min.js"></script>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="header">
+                <h1>Asset Management System</h1>
+            </div>
+            
+            <div class="controls">
+                <div class="search-container">
+                    <input 
+                        v-model="searchTerm" 
+                        type="text" 
+                        placeholder="Search assets or departments..." 
+                        class="search-input"
+                    >
+                    <button @click="downloadCSV" class="btn btn-primary">
+                        Download CSV
+                    </button>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <transition name="fade">
+                    <div v-if="filteredAssets.length === 0" class="no-results">
+                        <div class="no-results-icon">🔍</div>
+                        <h3>No assets found</h3>
+                        <p>Try adjusting your search criteria</p>
+                    </div>
+                    <table v-else class="table">
+                        <thead>
+                            <tr>
+                                <th>Asset Name</th>
+                                <th>Department</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="asset in filteredAssets" :key="asset.id">
+                                <td>{{ asset.name }}</td>
+                                <td>
+                                    <span :class="getDepartmentClass(asset.department)" class="department-badge">
+                                        {{ asset.department }}
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </transition>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+        
+        createApp({
+            data() {
+                return {
+                    searchTerm: '',
+                    assets: [
+                        { id: 1, name: 'Printer', department: 'HR' },
+                        { id: 2, name: 'Monitor', department: 'IT' },
+                        { id: 3, name: 'Barcode Scanner', department: 'ACCOUNT' }
+                    ]
+                }
+            },
+            computed: {
+                filteredAssets() {
+                    if (!this.searchTerm) {
+                        return this.assets;
+                    }
+                    
+                    return this.assets.filter(asset => 
+                        asset.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+                        asset.department.toLowerCase().includes(this.searchTerm.toLowerCase())
+                    );
+                },
+                uniqueDepartments() {
+                    return [...new Set(this.assets.map(asset => asset.department))];
+                },
+                hrAssets() {
+                    return this.assets.filter(asset => asset.department === 'HR').length;
+                },
+                itAssets() {
+                    return this.assets.filter(asset => asset.department === 'IT').length;
+                }
+            },
+            methods: {
+                getDepartmentClass(department) {
+                    const classes = {
+                        'HR': 'dept-hr',
+                        'IT': 'dept-it',
+                        'ACCOUNT': 'dept-account'
+                    };
+                    return classes[department] || 'dept-hr';
+                },
+                downloadCSV() {
+                    const headers = ['Asset Name', 'Department'];
+                    const csvContent = [
+                        headers.join(','),
+                        ...this.filteredAssets.map(asset => 
+                            `"${asset.name}","${asset.department}"`
+                        )
+                    ].join('\n');
+                    
+                    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                    const link = document.createElement('a');
+                    const url = URL.createObjectURL(blob);
+                    
+                    link.setAttribute('href', url);
+                    link.setAttribute('download', `assets_${new Date().toISOString().split('T')[0]}.csv`);
+                    link.style.visibility = 'hidden';
+                    
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

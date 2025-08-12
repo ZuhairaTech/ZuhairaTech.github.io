@@ -1,0 +1,180 @@
+/* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===== Container ===== */
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* ===== Header ===== */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 2rem;
+    color: #005baa;
+}
+
+.header p {
+    color: #555;
+}
+
+/* ===== Controls ===== */
+.controls {
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccd5e0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #005baa;
+    box-shadow: 0 0 0 2px rgba(0,91,170,0.2);
+}
+
+/* ===== Buttons ===== */
+.btn {
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #005baa;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #00447f;
+}
+
+/* ===== Stats Section ===== */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.stat-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #005baa;
+}
+
+.stat-label {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* ===== Table ===== */
+.table-container {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.table thead {
+    background-color: #005baa;
+    color: #fff;
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f8fafd;
+}
+
+.table tbody tr:hover {
+    background-color: #eaf2fb;
+}
+
+/* ===== Department Badges ===== */
+.department-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.dept-hr {
+    background-color: #ff9800;
+}
+
+.dept-it {
+    background-color: #4caf50;
+}
+
+.dept-account {
+    background-color: #9c27b0;
+}
+
+/* ===== No Results ===== */
+.no-results {
+    text-align: center;
+    padding: 40px;
+    color: #555;
+}
+
+.no-results-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* ===== Fade Animation ===== */
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.3s ease;
+}
+
+.fade-enter-from, .fade-leave-to {
+    opacity: 0;
+}
