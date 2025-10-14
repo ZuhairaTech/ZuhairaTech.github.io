@@ -7,13 +7,77 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: row; /* Changed from column → for 3-column layout */
+  justify-content: center;
+  align-items: flex-start;
   min-height: 100vh;
 }
 
-/* ===== Global Text ===== */
+/* ===== NEW: Sidebar Layout ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 220px;
+  background-color: #252526;
+  color: #ccc;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.sidebar.left {
+  left: 0;
+  border-right: 1px solid #333;
+}
+
+.sidebar.right {
+  right: 0;
+  border-left: 1px solid #333;
+}
+
+.sidebar h2 {
+  font-size: 1.1em;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 6px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  color: #4fc3f7;
+  text-decoration: none;
+  font-size: 0.95em;
+}
+
+.sidebar a:hover {
+  color: #82e9de;
+  text-decoration: underline;
+}
+
+/* ===== Main Page Area (Centered Between Sidebars) ===== */
+main.centered {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  margin: 0 240px; /* Keeps content clear of sidebars */
+}
+
 h1 {
   font-size: 2em;
   margin-top: 40px;
@@ -28,16 +92,6 @@ p {
   text-align: center;
 }
 
-/* ===== Header (title + back button) ===== */
-.page header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  max-width: 900px;
-  margin-top: 20px;
-}
-
 /* ===== Button Groups ===== */
 .button-group {
   display: flex;
@@ -45,6 +99,7 @@ p {
   align-items: center;
   gap: 10px;
   margin: 20px 0;
+  flex-wrap: wrap;
 }
 
 .btn {
@@ -92,7 +147,7 @@ p {
   cursor: not-allowed;
 }
 
-/* ===== Editor & Output Section (Center Aligned) ===== */
+/* ===== Editor & Output ===== */
 .editor,
 .output {
   display: block;
@@ -104,7 +159,6 @@ p {
   font-family: Consolas, "Courier New", monospace;
 }
 
-/* ===== Editor ===== */
 .editor {
   height: 250px;
   padding: 10px;
@@ -121,13 +175,11 @@ p {
   box-shadow: 0 0 4px #007acc;
 }
 
-/* ===== Run Button (Centered) ===== */
 .btn.run {
   display: block;
   margin: 10px auto;
 }
 
-/* ===== Output Console ===== */
 .output {
   height: 180px;
   background-color: #1e1e1e;
@@ -153,16 +205,24 @@ p {
   background: #777;
 }
 
-/* ===== Centered Layout for Main Page ===== */
-.centered {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
-}
+/* ===== Responsive Layout (Hide sidebars on small screens) ===== */
+@media (max-width: 900px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.button-group a.btn {
-  margin-top: 15px;
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    border: none;
+    background-color: #252526;
+    margin-bottom: 15px;
+  }
+
+  main.centered {
+    margin: 0;
+    padding: 20px;
+  }
 }
