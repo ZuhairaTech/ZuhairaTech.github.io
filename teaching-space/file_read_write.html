@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python File Read & Write Demo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+</head>
+<body>
+  <div class="centered">
+    <h1>Read and Write Files</h1>
+    <a href="index.html" class="btn small">← Back to Main Page</a>
+    <p>
+      Interact with text files for data persistence.<br>
+      Save user information, load configurations, or process stored datasets.
+    </p>
+
+    <textarea id="editor" class="editor" placeholder="Type something to save in a file...">
+Hello, this is sample text to demonstrate file writing!
+    </textarea>
+
+    <div class="button-group">
+      <button class="btn run" id="runWrite">Write to File</button>
+      <button class="btn run" id="runRead">Read from File</button>
+    </div>
+
+    <div class="output" id="output">Output will appear here...</div>
+  </div>
+
+  <script>
+    async function main() {
+      const pyodide = await loadPyodide();
+      console.log("✅ Pyodide is ready.");
+
+      const output = document.getElementById("output");
+      const editor = document.getElementById("editor");
+
+      function showOutput(text) {
+        output.textContent = text;
+      }
+
+      // --- Write to file ---
+      document.getElementById("runWrite").addEventListener("click", async () => {
+        const textToSave = editor.value.replace(/`/g, "\\`"); // avoid template literal issues
+        const code = `
+import sys, os
+from io import StringIO
+sys.stdout = StringIO()
+
+file_path = os.path.join(os.getcwd(), "data.txt")
+with open(file_path, "w", encoding="utf-8") as file:
+    file.write("""${textToSave}""")
+
+print("✅ File written successfully!")
+print("📁 File saved at:", file_path)
+
+sys.stdout.getvalue()
+        `;
+        try {
+          const result = await pyodide.runPythonAsync(code);
+          showOutput(result.trim());
+        } catch (err) {
+          showOutput("⚠️ Error writing file: " + err);
+        }
+      });
+
+      // --- Read from file ---
+      document.getElementById("runRead").addEventListener("click", async () => {
+        const code = `
+import sys, os
+from io import StringIO
+sys.stdout = StringIO()
+
+file_path = os.path.join(os.getcwd(), "data.txt")
+if os.path.exists(file_path):
+    with open(file_path, "r", encoding="utf-8") as file:
+        content = file.read()
+    print("📖 Reading from:", file_path)
+    print("\\n--- File Content ---\\n" + content)
+else:
+    print("❌ File not found. Please write to file first.")
+
+sys.stdout.getvalue()
+        `;
+        try {
+          const result = await pyodide.runPythonAsync(code);
+          showOutput(result.trim());
+        } catch (err) {
+          showOutput("⚠️ Error reading file: " + err);
+        }
+      });
+    }
+
+    main();
+  </script>
+</body>
+</html>
