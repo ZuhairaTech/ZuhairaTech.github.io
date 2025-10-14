@@ -1,111 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Python & Java Code Runner</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+  <meta charset="UTF-8">
+  <title>Main Page - Code Playground</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100 flex flex-col items-center p-6">
+<body class="centered">
 
-<h1 class="text-2xl font-bold mb-4">Code Runner</h1>
+  <h1>Welcome to Code Playground</h1>
+  <p>Select a page to start coding or exploring:</p>
 
-<!-- Language Selector -->
-<div class="flex gap-2 mb-4">
-  <button id="pythonBtn" class="bg-blue-600 text-white px-3 py-1 rounded">Python</button>
-  <button id="javaBtn" class="bg-gray-300 text-black px-3 py-1 rounded">Java</button>
-</div>
+  <div class="button-group">
+    <a href="freeCodeSpace.html" class="btn">Open Free Code Space</a>
+    <a href="pseudoPractice.html" class="btn">Simple Input Validation</a>
 
-<!-- Code Editor -->
-<textarea id="code" class="w-full max-w-3xl h-60 p-3 border rounded-md font-mono text-sm">
-# Python Example
-for i in range(1, 6):
-    print(f"Number {i}")
-</textarea>
-
-<!-- Run Button -->
-<button id="runBtn" class="bg-green-600 text-white px-4 py-2 mt-3 rounded hover:bg-green-700">
-Run Code
-</button>
-
-<!-- Output -->
-<pre id="output" class="bg-black text-green-400 mt-4 p-3 w-full max-w-3xl h-40 overflow-auto rounded"></pre>
-
-<script>
-let pyodideReady = loadPyodide();
-let currentLang = "python";
-
-const pythonExample = `# Python Example
-for i in range(1, 6):
-    print(f"Number {i}")`;
-
-const javaExample = `// Java Example
-public class Main {
-    public static void main(String[] args) {
-        for (int i = 1; i <= 5; i++) {
-            System.out.println("Number " + i);
-        }
-    }
-}`;
-
-// Language Switch
-document.getElementById("pythonBtn").addEventListener("click", () => {
-  currentLang = "python";
-  document.getElementById("pythonBtn").classList.add("bg-blue-600", "text-white");
-  document.getElementById("javaBtn").classList.remove("bg-blue-600", "text-white");
-  document.getElementById("javaBtn").classList.add("bg-gray-300", "text-black");
-  document.getElementById("code").value = pythonExample;
-});
-
-document.getElementById("javaBtn").addEventListener("click", () => {
-  currentLang = "java";
-  document.getElementById("javaBtn").classList.add("bg-blue-600", "text-white");
-  document.getElementById("pythonBtn").classList.remove("bg-blue-600", "text-white");
-  document.getElementById("pythonBtn").classList.add("bg-gray-300", "text-black");
-  document.getElementById("code").value = javaExample;
-});
-
-// Run Button
-document.getElementById("runBtn").addEventListener("click", async () => {
-  const outputEl = document.getElementById("output");
-  outputEl.textContent = "Running...";
-
-  if (currentLang === "python") {
-    const pyodide = await pyodideReady;
-    try {
-      pyodide.runPython(`
-import sys
-from io import StringIO
-sys.stdout = sys.stderr = StringIO()
-      `);
-      await pyodide.runPythonAsync(document.getElementById("code").value);
-      const result = pyodide.runPython("sys.stdout.getvalue()");
-      outputEl.textContent = result || "(No output)";
-    } catch (err) {
-      outputEl.textContent = "Error:\n" + err;
-    }
-  } else if (currentLang === "java") {
-    // Use Judge0 API for Java
-    const code = document.getElementById("code").value;
-    const response = await fetch("https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-RapidAPI-Key": "63e8ded8d1mshc9dec62dc111d79p16340ajsn531a2aec33dc", // Replace with your RapidAPI key for full use
-        "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com"
-      },
-      body: JSON.stringify({
-        language_id: 62, // Java (OpenJDK 17)
-        source_code: code
-      })
-    });
-    const data = await response.json();
-    if (data.stdout) outputEl.textContent = data.stdout;
-    else if (data.stderr) outputEl.textContent = "Error:\n" + data.stderr;
-    else outputEl.textContent = "(No output)";
-  }
-});
-</script>
+    <!-- Future pages -->
+    <a href="#" class="btn disabled">Coming Soon</a>
+  </div>
 
 </body>
 </html>
