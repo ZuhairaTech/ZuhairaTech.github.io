@@ -6,11 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="img/logo1.ico" type="image/x-icon">
   <style>
     body {
       font-family: 'Quicksand', sans-serif;
@@ -79,18 +78,11 @@
       overflow: hidden;
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
-      cursor: pointer;
       position: relative;
-    }
-
-    .gift-card:hover:not(.taken) {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
 
     .gift-card.taken {
       opacity: 0.6;
-      cursor: pointer;
     }
 
     .gift-image {
@@ -119,16 +111,24 @@
       border-radius: 20px;
       font-size: 0.9rem;
       font-weight: 500;
+      transition: all 0.3s ease;
     }
 
     .gift-status.available {
       background: #e8f5e9;
       color: #2e7d32;
+      cursor: pointer;
+    }
+
+    .gift-status.available:hover {
+      background: #c8e6c9;
+      transform: translateY(-2px);
     }
 
     .gift-status.taken {
       background: #ffebee;
       color: #c62828;
+      cursor: default;
     }
 
     .gift-overlay {
@@ -139,8 +139,10 @@
       bottom: 0;
       background: rgba(0,0,0,0.7);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 15px;
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
@@ -148,6 +150,7 @@
 
     .gift-card.taken .gift-overlay {
       opacity: 1;
+      pointer-events: auto;
     }
 
     .taken-badge {
@@ -157,6 +160,36 @@
       border-radius: 10px;
       font-weight: 600;
       font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .taken-badge:hover {
+      background: #fff3f3;
+      border-color: #c62828;
+      transform: scale(1.05);
+    }
+
+    .link-badge {
+      background: #d4a574;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .link-badge:hover {
+      background: #c4956a;
+      border-color: #fff;
+      transform: scale(1.05);
     }
 
     .loading-overlay {
@@ -266,7 +299,7 @@
   <div class="main-content show">
     <div class="page-header">
       <h1 class="page-title">Senarai Hadiah</h1>
-      <p class="page-subtitle">Sila klik pada hadiah yang ingin anda berikan. Kehadiran anda sebenarnya sudah cukup menggembirakan kami, namun jika anda berhasrat untuk membawa hadiah, apa sahaja sangat kami hargai — termasuk kad ucapan ringkas. Senarai di bawah disediakan sekiranya anda ingin membeli sesuatu tanpa berlaku pertindihan. Mohon elakkan daripada menekan ‘Batal’ jika hadiah tersebut telah ditempah oleh tetamu lain.</p>
+      <p class="page-subtitle">Sila klik pada hadiah yang ingin anda berikan. Kehadiran anda sebenarnya sudah cukup menggembirakan kami, namun jika anda berhasrat untuk membawa hadiah, apa sahaja sangat kami hargai — termasuk kad ucapan ringkas. Senarai di bawah disediakan sekiranya anda ingin membeli sesuatu tanpa berlaku pertindihan. Mohon elakkan daripada menekan 'Batal' jika hadiah tersebut telah ditempah oleh tetamu lain.</p>
     </div>
 
     <div class="refresh-section">
@@ -293,7 +326,7 @@
   </div>
 
   <script>
-    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyChwOm1d9MJcO1YYeQIWyDlqXAWOyJMqgfcqlUP6B4epCl_bZybl4leNa-6Lh9hd6m/exec';
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbySXuxw3QLmsW6CEWHQcd0TfVaUt2mzlNcEINMuUnLIBIw3NsF0plxBtkTC1Hs7cO-XAw/exec';
 
     class GiftsRegistry {
       constructor() {
@@ -347,7 +380,6 @@
 
         grid.innerHTML = this.gifts.map(gift => `
           <div class="gift-card ${gift.taken ? 'taken' : ''}" 
-               onclick="giftsRegistry.toggleGift(${gift.rowIndex}, ${gift.taken})"
                data-row="${gift.rowIndex}">
             <img src="${this.escapeHtml(gift.imageUrl)}" 
                  alt="${this.escapeHtml(gift.name)}" 
@@ -355,12 +387,28 @@
                  onerror="this.src='https://via.placeholder.com/400x300/d4a574/ffffff?text=${encodeURIComponent(gift.name)}'">
             <div class="gift-content">
               <h3 class="gift-name">${this.escapeHtml(gift.name)}</h3>
-              <span class="gift-status ${gift.taken ? 'taken' : 'available'}">
+              <span class="gift-status ${gift.taken ? 'taken' : 'available'}"
+                    ${!gift.taken ? `onclick="giftsRegistry.toggleGift(${gift.rowIndex}, false)"` : ''}>
                 <i class="fas ${gift.taken ? 'fa-check-circle' : 'fa-gift'}"></i>
                 ${gift.taken ? 'Sudah ditempah' : 'Tempah'}
               </span>
             </div>
-            ${gift.taken ? '<div class="gift-overlay"><div class="taken-badge"><i class="fas fa-lock"></i> Batal</div></div>' : ''}
+            ${gift.taken ? `
+              <div class="gift-overlay">
+                <div class="taken-badge"
+                     onclick="giftsRegistry.toggleGift(${gift.rowIndex}, true)">
+                  <i class="fas fa-lock"></i> Batal Tempahan
+                </div>
+                ${gift.shopeeUrl ? `
+                  <a class="link-badge"
+                     href="${this.escapeHtml(gift.shopeeUrl)}"
+                     target="_blank"
+                     onclick="event.stopPropagation();">
+                    <i class="fas fa-external-link-alt"></i> Lihat Produk
+                  </a>
+                ` : ''}
+              </div>
+            ` : ''}
           </div>
         `).join('');
       }
@@ -370,10 +418,8 @@
         
         let confirmed;
         if (currentlyTaken) {
-          // Allow un-reserving
           confirmed = confirm(`Adakah anda ingin MEMBATAL tempahan "${giftName}"?`);
         } else {
-          // Reserve the gift
           confirmed = confirm(`Adakah anda ingin menempah "${giftName}"?`);
         }
         
@@ -398,7 +444,6 @@
             throw new Error(data.error || 'Failed to reserve gift');
           }
 
-          // Reload to show updated status
           await this.loadGifts();
           
           const successMsg = currentlyTaken 
@@ -416,7 +461,6 @@
             this.showError('Gagal menempah hadiah. Sila cuba lagi.');
           }
           
-          // Reload to get fresh data
           await this.loadGifts();
         }
 
@@ -450,7 +494,6 @@
         const errorContainer = document.getElementById('error-container');
         errorContainer.innerHTML = `<div class="error-message"><i class="fas fa-exclamation-triangle"></i> ${message}</div>`;
         
-        // Auto-hide after 5 seconds
         setTimeout(() => {
           this.clearMessages();
         }, 5000);
@@ -460,7 +503,6 @@
         const errorContainer = document.getElementById('error-container');
         errorContainer.innerHTML = `<div class="success-message"><i class="fas fa-check-circle"></i> ${message}</div>`;
         
-        // Auto-hide after 5 seconds
         setTimeout(() => {
           this.clearMessages();
         }, 5000);
@@ -471,14 +513,12 @@
       }
     }
 
-    // Global function for refresh button
     function loadGifts() {
       if (window.giftsRegistry) {
         window.giftsRegistry.loadGifts();
       }
     }
 
-    // Initialize when page loads
     document.addEventListener('DOMContentLoaded', function() {
       window.giftsRegistry = new GiftsRegistry();
     });
