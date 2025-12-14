@@ -665,12 +665,8 @@
     }
 
     .wish-card {
-      background: var(--white);
+      background: rgba(0, 0, 0, 0);
       padding: 25px;
-      border-radius: var(--border-radius);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      border-left: 4px solid var(--accent-color);
-      transition: all var(--transition-speed) ease;
       position: relative;
     }
 
@@ -1192,6 +1188,7 @@
     /* ================================
        RESPONSIVE DESIGN
        ================================ */
+
     @media (max-width: 768px) {
       :root {
         --section-padding: 20px;
@@ -1212,8 +1209,18 @@
       .wishes-grid {
         display: flex;
         flex-direction: column-reverse;
-        gap: 20px;
-        direction: ltr;
+        gap: 16px;
+
+        /* “3 messages at a time” feel */
+        max-height: clamp(260px, 48vh, 420px); /* adjust to taste */
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        padding: 12px;
+
+        /* ✅ user-resizable (works in most browsers) */
+        resize: vertical;
       }
 
       .wish-author::before {
