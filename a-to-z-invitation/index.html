@@ -68,7 +68,9 @@
       </div>
       
       <div class="landing-click-hint">
-        <i class="fas fa-hand-pointer"></i> Ketik untuk membuka jemputan
+        <!-- <i class="fas fa-hand-pointer"></i> Ketik untuk membuka jemputan  -->
+         <img src="img/fingerprint.png" alt="Fingerprint logo" class="fingerprint-logo">
+        <!-- TODO: LETAK LOGO FINGER PRINT -->
       </div>
     </div>
   </div>
@@ -1129,20 +1131,20 @@ function openInvitation(e) {
   
   createRipple(e);
   
-  setTimeout(() => {
-    overlay.classList.add('fade-out');
-  }, 400);
+  // setTimeout(() => {
+  //   overlay.classList.add('fade-out');
+  // }, 400);
   
-  setTimeout(() => {
-    overlay.style.display = 'none';
-    mainContent.classList.add('show');
-    sessionStorage.setItem('landingShown', 'true');
+  // setTimeout(() => {
+  //   overlay.style.display = 'none';
+  //   mainContent.classList.add('show');
+  //   sessionStorage.setItem('landingShown', 'true');
     
-    // Initialize wedding invitation NOW
-    if (typeof WeddingInvitation !== 'undefined') {
-      window.weddingInvitation = new WeddingInvitation(WEDDING_CONFIG);
-    }
-  }, 1200);
+  //   // Initialize wedding invitation NOW
+  //   if (typeof WeddingInvitation !== 'undefined') {
+  //     window.weddingInvitation = new WeddingInvitation(WEDDING_CONFIG);
+  //   }
+  // }, 1200);
 }
 
 // Check if landing should be skipped

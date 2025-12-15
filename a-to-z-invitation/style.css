@@ -860,6 +860,10 @@
     .landing-title .simple-logo {
       max-width: 200px;
     }
+
+    .landing-click-hint .fingerprint-logo{
+      max-width: 70px;
+    }
     
      .initial-divider {
         width: 1px;
