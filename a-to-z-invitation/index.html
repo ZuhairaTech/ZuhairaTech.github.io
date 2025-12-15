@@ -217,7 +217,7 @@
       <div class="container">
         <div class="wishes-header">
           <h2 class="wishes-title">Ucapan & Doa</h2>
-          <button class="refresh-btn" onclick="loadWishes()">
+          <button class="refresh-btn">
             <i class="fas fa-sync-alt"></i> Muat Semula Ucapan
           </button>
         </div>
@@ -861,7 +861,7 @@ updateScrollTriggerSettings(newSettings) {
     // =============================================================================
 
     initializeWishes() {
-      window.addEventListener('load', () => this.loadWishes());
+      this.loadWishes();
       setInterval(() => this.loadWishes(), this.config.wishes.refreshInterval);
     }
 
