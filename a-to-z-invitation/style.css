@@ -589,6 +589,10 @@
       box-shadow: 0 4px 15px rgba(124, 76, 57, 0.3);
     }
 
+    .btn-band i {
+      font-size: large;
+    }
+
     /* ================================
        DECORATIVE ELEMENTS
        ================================ */
