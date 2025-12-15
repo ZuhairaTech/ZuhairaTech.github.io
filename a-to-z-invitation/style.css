@@ -1311,6 +1311,7 @@
 
     .sticky-bottom-band {
       position: fixed;
+      height: 40px;
       bottom: 0;
       left: 0;
       width: 100%;
@@ -1318,20 +1319,21 @@
       display: flex;
       justify-content: center; /* Horizontal centering */
       align-items: center;     /* Vertical centering if needed */
-      padding: 10px;
+      /* padding: 10px; */
       color: var(--secondary-color);
-      border: 2px solid var(--secondary-color);
+      border:none;
       box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
       backdrop-filter: blur(10px);
       background-color: rgba(255, 255, 255, 0.5); /* Optional: background for blur */
     }
 
     .btn-band {
-      width: 100px;
-      border-radius: 12px;
+      width: 100%;
+      /* border-radius: 12px; */
       overflow: hidden;
       position: relative;
       backdrop-filter: blur(5px);
+      border: none;
       box-shadow:
         0 4px 8px rgba(0,0,0,0.1),
         inset 0 1px 0 rgba(255,255,255,0.2);
@@ -1339,9 +1341,10 @@
 
     .corner-decoration.bottom-left {
        position: fixed; /* or absolute, depending on context */
-        bottom: 0;
+       bottom: 40px;
         left: 0;
-        z-index: 889; /* Must be higher than .sticky-bottom-band's 888 */
+        z-index: 888; 
+        
     }
 
     }
