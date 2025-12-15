@@ -661,7 +661,7 @@
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 25px;
       margin-top: 40px;
-      direction: rtl;
+      /* direction: rtl; */
       max-height: 600px;  /* ← Set your desired height */
       overflow-y: scroll;  /* ← Makes it scrollable */
       overflow-x: hidden;  /* ← Prevents horizontal scroll */
@@ -689,7 +689,7 @@
 
     .wish-card {
       background: rgba(0, 0, 0, 0);
-      padding: 25px;
+      /* padding: 25px; */
       position: relative;
     }
 
@@ -699,8 +699,8 @@
     } */
 
     .wish-text {
-      font-size: 1rem;
-      line-height: 1.7;
+      font-size: 0.8rem;
+      /* line-height: 1.7; */
       color: var(--text-color);
       margin-bottom: 20px;
       font-style: italic;
