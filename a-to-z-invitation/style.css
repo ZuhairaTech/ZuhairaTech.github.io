@@ -1311,7 +1311,7 @@
 
     .sticky-bottom-band {
       position: fixed;
-      height: 40px;
+      height: 70px;
       bottom: 0;
       left: 0;
       width: 100%;
@@ -1341,7 +1341,7 @@
 
     .corner-decoration.bottom-left {
        position: fixed; /* or absolute, depending on context */
-       bottom: 40px;
+       bottom: 70px;
         left: 0;
         z-index: 888; 
         
