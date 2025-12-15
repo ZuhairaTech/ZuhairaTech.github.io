@@ -662,6 +662,29 @@
       gap: 25px;
       margin-top: 40px;
       direction: rtl;
+      max-height: 600px;  /* ← Set your desired height */
+      overflow-y: scroll;  /* ← Makes it scrollable */
+      overflow-x: hidden;  /* ← Prevents horizontal scroll */
+      padding-right: 10px;  /* ← Space for scrollbar */
+    }
+
+    /* Optional: Style the scrollbar for better look */
+    .wishes-grid::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .wishes-grid::-webkit-scrollbar-track {
+      background: rgba(139, 107, 61, 0.1);
+      border-radius: 10px;
+    }
+
+    .wishes-grid::-webkit-scrollbar-thumb {
+      background: rgba(139, 107, 61, 0.4);
+      border-radius: 10px;
+    }
+
+    .wishes-grid::-webkit-scrollbar-thumb:hover {
+      background: rgba(139, 107, 61, 0.6);
     }
 
     .wish-card {
@@ -670,10 +693,10 @@
       position: relative;
     }
 
-    .wish-card:hover {
+    /* .wish-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
+    } */
 
     .wish-text {
       font-size: 1rem;
