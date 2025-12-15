@@ -800,13 +800,13 @@
       pointer-events: none;
     }
     
-    .landing-content {
+    /* .landing-content {
       max-width: 500px;
       width: 100%;
       animation: fadeInUp 1.2s ease-out;
       align-items: center;
       justify-content: center;
-    }
+    } */
 
     .landing-subtitle {
       font-family: var(--font-body);
@@ -828,6 +828,10 @@
       align-items: center;
       justify-content: center;
       gap: 2rem;
+    }
+
+    .landing-title .simple-logo {
+      max-width: 200px;
     }
     
      .initial-divider {
@@ -971,7 +975,45 @@
       );      border-radius: 50%;
     }
     
-    
+    /* Ripple Effect */
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(190, 88, 105, 0.3) 0%,
+        rgba(190, 88, 105, 0.15) 50%,
+        rgba(190, 88, 105, 0.05) 100%
+      );
+      backdrop-filter: blur(12px) saturate(150%);
+      -webkit-backdrop-filter: blur(12px) saturate(150%);
+      pointer-events: none;
+      transform: scale(0);
+      animation: ripple-animation 4s cubic-bezier(0.4, 0.0, 0.2, 1);
+      z-index: 10001;
+      border: 1px solid rgba(255, 255, 255, 0.2);  /* Subtle water edge */
+    }
+
+    @keyframes ripple-animation {
+      0% {
+        transform: scale(0);
+        opacity: 0.9;
+      }
+      100% {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+
+    /* Content reveal from center */
+    .landing-content {
+      max-width: 500px;
+      width: 100%;
+      animation: fadeInUp 1.2s ease-out;
+      position: relative;
+      z-index: 1;
+    }
     
     @keyframes fadeInUp {
       from {
@@ -1216,7 +1258,6 @@
         overflow-y: auto;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
-        overscroll-behavior: contain;
         padding: 12px;
 
         /* ✅ user-resizable (works in most browsers) */

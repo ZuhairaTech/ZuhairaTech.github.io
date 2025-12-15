@@ -90,6 +90,7 @@ if (sessionStorage.getItem('landingShown') === 'true') {
       this.elements = this.initializeElements();
       this.init();
     }
+    
 
     // Initialize DOM elements
     initializeElements() {
@@ -828,9 +829,15 @@ updateScrollTriggerSettings(newSettings) {
   // =============================================================================
 
   // Initialize the wedding invitation when DOM is loaded
-  document.addEventListener('DOMContentLoaded', () => {
-    window.weddingInvitation = new WeddingInvitation(WEDDING_CONFIG);
-  });
+  // document.addEventListener('DOMContentLoaded', () => {
+  //   window.weddingInvitation = new WeddingInvitation(WEDDING_CONFIG);
+  // });
+  // Only auto-initialize if landing was already shown
+  if (sessionStorage.getItem('landingShown') === 'true') {
+    document.addEventListener('DOMContentLoaded', () => {
+      window.weddingInvitation = new WeddingInvitation(WEDDING_CONFIG);
+    });
+  }
 
   // =============================================================================
   // CONFIGURATION HELPER FUNCTIONS
