@@ -378,6 +378,9 @@
     });
   }
 
+  // Auto-pause/resume music when user leaves/returns to tab
+  let wasMusicPlayingBeforeHidden = false;
+  
   document.addEventListener('visibilitychange', () => {
     const music = document.getElementById('bgMusic');
     const musicBtn = document.getElementById('musicToggle');
@@ -386,14 +389,22 @@
     if (document.hidden) {
       // Tab is hidden/minimized - pause music
       if (music && !music.paused) {
+        wasMusicPlayingBeforeHidden = true;
         music.pause();
         if (musicIcon) {
           musicIcon.className = 'fas fa-volume-mute';
         }
       }
+    } else {
+      // Tab is visible again - resume if it was playing before
+      if (music && wasMusicPlayingBeforeHidden) {
+        music.play().catch(err => console.log('Resume blocked:', err));
+        if (musicIcon) {
+          musicIcon.className = 'fas fa-volume-up';
+        }
+        wasMusicPlayingBeforeHidden = false;
+      }
     }
-    // Note: We don't auto-resume when they come back
-    // They need to click the button to play again
   });
   
     // 2. ADD THE ENTIRE CLASS HERE

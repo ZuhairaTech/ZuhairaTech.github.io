@@ -585,8 +585,14 @@
     .btn-band:hover {
       background: var(--secondary-color);
       color: var(--white);
-      /* transform: translateY(-10px); */
       box-shadow: 0 4px 15px rgba(124, 76, 57, 0.3);
+    }
+
+    /* Disable hover for music button */
+    .btn-band#musicToggle:hover {
+      background: transparent;
+      color: inherit;
+      box-shadow: none;
     }
 
     .btn-band i {
