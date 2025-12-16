@@ -377,6 +377,25 @@
       }
     });
   }
+
+  document.addEventListener('visibilitychange', () => {
+    const music = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicToggle');
+    const musicIcon = musicBtn ? musicBtn.querySelector('i') : null;
+    
+    if (document.hidden) {
+      // Tab is hidden/minimized - pause music
+      if (music && !music.paused) {
+        music.pause();
+        if (musicIcon) {
+          musicIcon.className = 'fas fa-volume-mute';
+        }
+      }
+    }
+    // Note: We don't auto-resume when they come back
+    // They need to click the button to play again
+  });
+  
     // 2. ADD THE ENTIRE CLASS HERE
 class WeddingInvitation {
   constructor(config = WEDDING_CONFIG) {
