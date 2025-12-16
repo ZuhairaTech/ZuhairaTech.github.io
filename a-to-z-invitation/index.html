@@ -285,6 +285,12 @@
               <i class="fas fa-gift"></i>
           </a>
       </div>
+      <div class="band-content">
+        <button id="musicToggle" aria-label="Toggle music" class="btn btn-band">
+          <i class="fas fa-volume-up"></i>
+        </button>
+      </div>
+      
     </div>
   </div>
   
@@ -351,6 +357,26 @@
     }
   }
 };
+
+// Music button toggle
+  const musicBtn = document.getElementById('musicToggle');
+  
+  if (musicBtn) {
+    const musicIcon = musicBtn.querySelector('i');
+    
+    musicBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const music = document.getElementById('bgMusic');
+      
+      if (music.paused) {
+        music.play();
+        musicIcon.className = 'fas fa-volume-up';
+      } else {
+        music.pause();
+        musicIcon.className = 'fas fa-volume-mute';
+      }
+    });
+  }
     // 2. ADD THE ENTIRE CLASS HERE
 class WeddingInvitation {
   constructor(config = WEDDING_CONFIG) {
@@ -1126,6 +1152,15 @@ function createRipple(e) {
 }
 
 function openInvitation(e) {
+  e.stopPropagation();
+
+  // Start music when opening invitation
+  const music = document.getElementById('bgMusic');
+  if (music) {
+    music.volume = 0.4;
+    music.play().catch(err => console.log('Music autoplay blocked:', err));
+  }
+
   const overlay = document.getElementById('landingOverlay');
   const mainContent = document.getElementById('mainContent');
   
@@ -1166,4 +1201,10 @@ window.addEventListener('load', function() {
 
   <!-- <script src="script.js" defer></script> -->
 </body>
+
+<audio id="bgMusic" loop>
+  <source src="audio/sao.mpeg" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
 </html>

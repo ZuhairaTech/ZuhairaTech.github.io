@@ -585,7 +585,7 @@
     .btn-band:hover {
       background: var(--secondary-color);
       color: var(--white);
-      transform: translateY(-10px);
+      /* transform: translateY(-10px); */
       box-shadow: 0 4px 15px rgba(124, 76, 57, 0.3);
     }
 
@@ -1320,6 +1320,41 @@
                 opacity: 1;
             }
         }
+
+        .music-btn {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          z-index: 10002;
+
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          border: none;
+
+          background: rgba(255, 255, 255, 0.75);
+          backdrop-filter: blur(8px);
+
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          cursor: pointer;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .music-btn:active {
+          transform: scale(0.92);
+          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .music-btn i {
+          font-size: 18px;
+          color: #444;
+        }
+
 
     /* ================================
        RESPONSIVE DESIGN
