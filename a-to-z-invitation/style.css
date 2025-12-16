@@ -585,8 +585,18 @@
     .btn-band:hover {
       background: var(--secondary-color);
       color: var(--white);
-      transform: translateY(-10px);
       box-shadow: 0 4px 15px rgba(124, 76, 57, 0.3);
+    }
+
+    /* Disable hover for music button */
+    .btn-band#musicToggle:hover {
+      background: transparent;
+      color: inherit;
+      box-shadow: none;
+    }
+
+    .btn-band i {
+      font-size: large;
     }
 
     /* ================================
@@ -661,23 +671,46 @@
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 25px;
       margin-top: 40px;
-      direction: rtl;
+      /* direction: rtl; */
+      max-height: 600px;  /* ← Set your desired height */
+      overflow-y: scroll;  /* ← Makes it scrollable */
+      overflow-x: hidden;  /* ← Prevents horizontal scroll */
+      padding-right: 10px;  /* ← Space for scrollbar */
+    }
+
+    /* Optional: Style the scrollbar for better look */
+    .wishes-grid::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .wishes-grid::-webkit-scrollbar-track {
+      background: rgba(139, 107, 61, 0.1);
+      border-radius: 10px;
+    }
+
+    .wishes-grid::-webkit-scrollbar-thumb {
+      background: rgba(139, 107, 61, 0.4);
+      border-radius: 10px;
+    }
+
+    .wishes-grid::-webkit-scrollbar-thumb:hover {
+      background: rgba(139, 107, 61, 0.6);
     }
 
     .wish-card {
       background: rgba(0, 0, 0, 0);
-      padding: 25px;
+      /* padding: 25px; */
       position: relative;
     }
 
-    .wish-card:hover {
+    /* .wish-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
+    } */
 
     .wish-text {
-      font-size: 1rem;
-      line-height: 1.7;
+      font-size: 0.8rem;
+      /* line-height: 1.7; */
       color: var(--text-color);
       margin-bottom: 20px;
       font-style: italic;
@@ -774,7 +807,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      cursor: pointer;
+      /* cursor: pointer; */
       transition: opacity 0.8s ease, transform 0.8s ease;
       text-align: center;
       padding: 2rem;
@@ -800,13 +833,13 @@
       pointer-events: none;
     }
     
-    .landing-content {
+    /* .landing-content {
       max-width: 500px;
       width: 100%;
       animation: fadeInUp 1.2s ease-out;
       align-items: center;
       justify-content: center;
-    }
+    } */
 
     .landing-subtitle {
       font-family: var(--font-body);
@@ -829,6 +862,77 @@
       justify-content: center;
       gap: 2rem;
     }
+
+    .landing-title .simple-logo {
+      max-width: 200px;
+    }
+
+    /* .landing-click-hint .fingerprint-logo{
+      max-width: 70px;
+    } */
+
+    .landing-click-hint {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .landing-click-hint .fingerprint-logo {
+      max-width: 90px;
+      cursor: pointer;
+
+      /* Button look */
+      padding: 14px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.18),
+        inset 0 2px 4px rgba(255, 255, 255, 0.6);
+
+      transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease,
+        background 0.12s ease;
+    }
+
+    /* Hover (desktop) */
+    .landing-click-hint .fingerprint-logo:hover {
+      /* transform: translateY(-1px); */
+      box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.22),
+        inset 0 2px 4px rgba(255, 255, 255, 0.7);
+    }
+
+    /* Active (click / tap) */
+    .landing-click-hint .fingerprint-logo:active {
+      transform: scale(0.94);
+      background: rgba(255, 255, 255, 0.65);
+      box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.25),
+        inset 0 3px 6px rgba(0, 0, 0, 0.25);
+    }
+
+
+    .landing-click-hint {
+      border: none;
+      background: transparent;
+      padding: 0;
+    }
+
+    .landing-click-hint .fingerprint-logo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .landing-click-hint .fingerprint-logo:active::after {
+      opacity: 1;
+    }
+
     
      .initial-divider {
         width: 1px;
@@ -971,7 +1075,45 @@
       );      border-radius: 50%;
     }
     
-    
+    /* Ripple Effect */
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(190, 88, 105, 0.3) 0%,
+        rgba(190, 88, 105, 0.15) 50%,
+        rgba(190, 88, 105, 0.05) 100%
+      );
+      backdrop-filter: blur(12px) saturate(150%);
+      -webkit-backdrop-filter: blur(12px) saturate(150%);
+      pointer-events: none;
+      transform: scale(0);
+      animation: ripple-animation 4s cubic-bezier(0.4, 0.0, 0.2, 1);
+      z-index: 10001;
+      border: 1px solid rgba(255, 255, 255, 0.2);  /* Subtle water edge */
+    }
+
+    @keyframes ripple-animation {
+      0% {
+        transform: scale(0);
+        opacity: 0.9;
+      }
+      100% {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+
+    /* Content reveal from center */
+    .landing-content {
+      max-width: 500px;
+      width: 100%;
+      animation: fadeInUp 1.2s ease-out;
+      position: relative;
+      z-index: 1;
+    }
     
     @keyframes fadeInUp {
       from {
@@ -1185,6 +1327,41 @@
             }
         }
 
+        .music-btn {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          z-index: 10002;
+
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          border: none;
+
+          background: rgba(255, 255, 255, 0.75);
+          backdrop-filter: blur(8px);
+
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          cursor: pointer;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .music-btn:active {
+          transform: scale(0.92);
+          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .music-btn i {
+          font-size: 18px;
+          color: #444;
+        }
+
+
     /* ================================
        RESPONSIVE DESIGN
        ================================ */
@@ -1216,7 +1393,6 @@
         overflow-y: auto;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
-        overscroll-behavior: contain;
         padding: 12px;
 
         /* ✅ user-resizable (works in most browsers) */
@@ -1246,38 +1422,50 @@
       }
 
     .sticky-bottom-band {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      z-index: 888;
-      display: flex;
-      justify-content: center; /* Horizontal centering */
-      align-items: center;     /* Vertical centering if needed */
-      padding: 10px;
-      color: var(--secondary-color);
-      border: 2px solid var(--secondary-color);
-      box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-      backdrop-filter: blur(10px);
-      background-color: rgba(255, 255, 255, 0.5); /* Optional: background for blur */
-    }
+  position: fixed;
+  height: 70px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 888;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  gap: 0;
+  color: var(--secondary-color);
+  border: none;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5);
+}
 
-    .btn-band {
-      width: 100px;
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-      backdrop-filter: blur(5px);
-      box-shadow:
-        0 4px 8px rgba(0,0,0,0.1),
-        inset 0 1px 0 rgba(255,255,255,0.2);
-    }
+.band-content {
+  flex: 1;
+  display: flex;
+}
+
+.btn-band {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  border: none;
+  background: transparent;
+  color: var(--secondary-color);
+  box-shadow: none;
+  backdrop-filter: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
     .corner-decoration.bottom-left {
        position: fixed; /* or absolute, depending on context */
-        bottom: 0;
+       bottom: 70px;
         left: 0;
-        z-index: 889; /* Must be higher than .sticky-bottom-band's 888 */
+        z-index: 888; 
+        
     }
 
     }
